@@ -297,6 +297,12 @@ th{font-family:var(--f-mono);font-weight:500;color:var(--muted)}
 tr.hit td:first-child{box-shadow:inset 4px 0 0 var(--accent-hi)}
 tfoot td{background:var(--surface2)}
 .eps-link{font-weight:500}
+/* ===== ASSINATURA ===== */
+.sb-foot{line-height:1.7}
+.sb-foot a{color:var(--accent-hi)}
+.credits{border-top:1px solid var(--border);padding:18px 40px 28px;font-size:12px;color:var(--muted);text-align:center;max-width:1240px}
+.credits a{color:var(--accent);font-weight:500}
+@media (max-width:700px){.credits{padding:16px 16px 24px}}
 </style>
 </head>
 <body>
@@ -311,7 +317,7 @@ tfoot td{background:var(--surface2)}
       </button>
     </div>
     <nav class="sb-nav" id="nav"></nav>
-    <div class="sb-foot">v1 · <span>cotas em mm · peso em kg</span></div>
+    <div class="sb-foot">v1 · <span>cotas em mm · peso em kg</span><br>por Guilherme S. Braz · <a href="https://www.linkedin.com/in/guilherme-santos-66b8162a0" target="_blank" rel="noopener">LinkedIn</a></div>
   </aside>
   <div class="scrim" id="scrim"></div>
 
@@ -567,6 +573,7 @@ tfoot td{background:var(--surface2)}
 </section>
 
     </div>
+    <footer class="credits">Desenvolvido por Guilherme dos Santos Braz — Técnico de processos e estudante de engenharia mecânica · <a href="https://www.linkedin.com/in/guilherme-santos-66b8162a0" target="_blank" rel="noopener">LinkedIn</a></footer>
   </div>
 </div>
 
