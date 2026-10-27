@@ -297,12 +297,64 @@ th{font-family:var(--f-mono);font-weight:500;color:var(--muted)}
 tr.hit td:first-child{box-shadow:inset 4px 0 0 var(--accent-hi)}
 tfoot td{background:var(--surface2)}
 .eps-link{font-weight:500}
+
+/* ===== EPS: linha expansível ===== */
+#epsBody tr.eps-row{cursor:pointer}
+#epsBody tr.eps-row td:first-child::before{content:'+';display:inline-block;width:14px;color:var(--muted);font-weight:500}
+#epsBody tr.eps-row.open td:first-child::before{content:'−';color:var(--accent)}
+#epsBody tr.eps-row.open td{background:rgba(180,65,14,.06)}
+#epsBody tr.eps-det td{background:var(--bg);padding:14px 18px 18px}
+.det-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px 22px}
+.det-grid div small{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;font-family:var(--f-mono)}
+.det-grid div span{font-size:13px;color:var(--strong)}
+.rev{font-size:10px;font-family:var(--f-mono);color:var(--muted);margin-left:4px;font-weight:500}
+.tt-flag{font-size:10px;font-family:var(--f-mono);color:var(--accent3);border:1px solid rgba(107,79,187,.35);padding:0 5px;margin-left:6px;white-space:nowrap}
+
+/* ===== PERFIS / TUBOS / CHAPAS ===== */
+.sub-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.sub-tabs .c-shape{padding:7px 12px;font-size:12px}
+.pick tbody tr{cursor:pointer}
+td.cell-pick{cursor:pointer;white-space:nowrap}
+td.cell-pick:hover{background:rgba(180,65,14,.08)}
+td.cell-pick b{font-family:var(--f-mono);font-weight:600;color:var(--strong)}
+td.cell-pick small{display:block;font-family:var(--f-mono)}
+td.cell-pick.on{background:rgba(180,65,14,.16)!important;box-shadow:inset 0 0 0 2px var(--accent)}
+th.grp{text-align:center;border-left:1px solid var(--border)}
+td.bl,th.bl{border-left:1px solid var(--border)}
+.mini-in{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.mini-in .c-f{min-width:120px;max-width:170px}
+
+/* ===== TOLERÂNCIAS ===== */
+.tol-in{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;max-width:820px;margin-bottom:18px}
+.tol-res{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-bottom:30px}
+.tol-card{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--accent-hi);padding:16px 18px}
+.tol-card h4{margin:0 0 10px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-family:var(--f-mono);font-weight:500}
+.tol-card .big{font-family:var(--f-mono);font-size:26px;font-weight:700;color:var(--strong);line-height:1.2}
+.tol-card .big i{font-style:normal;font-size:13px;color:var(--muted);margin-left:4px}
+.tol-card ul{list-style:none;margin:10px 0 0;padding:0;font-size:12px}
+.tol-card li{display:flex;justify-content:space-between;gap:10px;padding:4px 0;border-bottom:1px dashed var(--border);color:var(--muted)}
+.tol-card li b{font-family:var(--f-mono);color:var(--text);font-weight:500}
+.tol-card li.on{color:var(--accent)}
+.tol-card li.on b{color:var(--accent);font-weight:700}
+.tol-card p{margin:10px 0 0;font-size:11px;color:var(--muted)}
+.tol-t td,.tol-t th{text-align:center;white-space:nowrap;padding:9px 10px}
+.tol-t td:first-child,.tol-t th:first-child{text-align:left;font-family:var(--f-mono);font-weight:600;color:var(--strong)}
+.tol-t td{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.tol-t .hc{background:rgba(180,65,14,.07)}
+.tol-t tr.hr td{background:rgba(180,65,14,.07)}
+.tol-t tr.hr td.hc{background:rgba(180,65,14,.22);color:var(--strong);font-weight:700;box-shadow:inset 0 0 0 2px var(--accent)}
+.two-col>div{min-width:0}
+.tn-in{width:84px;border:1px solid var(--line2);background:#fff;padding:6px 8px;font:13px var(--f-mono);color:var(--strong);border-radius:0;outline:none}
+.tn-in:focus{border-color:var(--accent)}
+.tn-in.n{text-align:right}
+#tnBody td{vertical-align:middle}
 /* ===== ASSINATURA ===== */
 .sb-foot{line-height:1.7}
 .sb-foot a{color:var(--accent-hi)}
 .credits{border-top:1px solid var(--border);padding:18px 40px 28px;font-size:12px;color:var(--muted);text-align:center;max-width:1240px}
 .credits a{color:var(--accent);font-weight:500}
 @media (max-width:700px){.credits{padding:16px 16px 24px}}
+.callout{font-family:var(--f-mono);font-size:13px;color:var(--strong);background:var(--surface);border:1px dashed var(--line2);padding:10px 14px;display:inline-block;margin:4px 0 0}
 </style>
 </head>
 <body>
@@ -317,7 +369,7 @@ tfoot td{background:var(--surface2)}
       </button>
     </div>
     <nav class="sb-nav" id="nav"></nav>
-    <div class="sb-foot">v1 · <span>cotas em mm · peso em kg</span><br>por Guilherme S. Braz · <a href="https://www.linkedin.com/in/guilherme-santos-66b8162a0" target="_blank" rel="noopener">LinkedIn</a></div>
+    <div class="sb-foot">v3 · <span>cotas em mm · peso em kg</span><br>por Guilherme S. Braz · <a href="https://www.linkedin.com/in/guilherme-santos-66b8162a0" target="_blank" rel="noopener">LinkedIn</a></div>
   </aside>
   <div class="scrim" id="scrim"></div>
 
@@ -420,7 +472,7 @@ tfoot td{background:var(--surface2)}
 
 <!-- ============================================================ TABELA EPS -->
 <section class="view" id="v-tabela" hidden>
-  <div class="info-box blue"><h4>Como usar esta tabela</h4><p>Filtre por processo, norma ou pesquise o material que você precisa soldar. Para saber se uma EPS cobre sua aplicação, confirme: (1) grupo do metal base, (2) espessura da peça, (3) posição de soldagem e (4) processo que você vai usar.</p></div>
+  <div class="info-box blue"><h4>Como usar esta tabela</h4><p>Filtre por processo, norma ou pesquise o material que você precisa soldar. Para saber se uma EPS cobre sua aplicação, confirme: (1) grupo do metal base, (2) espessura da peça, (3) posição de soldagem e (4) processo que você vai usar. <strong>Clique numa linha</strong> para ver o resto da EPS: RQPS, Ø externo, progressão, espessura soldada, FN, A-Nº, tratamento térmico, corrente, transferência e cobre-junta.</p></div>
   <div class="search-bar">
     <input type="text" id="searchInput" placeholder="Pesquisar EPS, material, consumível...">
     <select id="filterProcesso" aria-label="Processo">
@@ -430,6 +482,9 @@ tfoot td{background:var(--surface2)}
     <select id="filterNorma" aria-label="Norma">
       <option value="">Todas as normas</option><option value="ASME">ASME IX</option><option value="AWS">AWS D1.1</option><option value="DIN">DIN ISO</option>
     </select>
+    <select id="filterTT" aria-label="Tratamento térmico">
+      <option value="">Com ou sem TT</option><option value="sim">Com tratamento térmico</option><option value="nao">Sem tratamento térmico</option>
+    </select>
     <button class="filter-chip" id="exactChip" hidden></button>
   </div>
   <div class="result-count" id="resultCount"></div>
@@ -438,6 +493,7 @@ tfoot td{background:var(--surface2)}
     <tbody id="epsBody"></tbody></table>
     <div class="empty" id="noResults" hidden>Nenhuma EPS encontrada para este filtro.</div>
   </div>
+  <p class="src">Fonte: Lista de EPS atualizada em 14/11/2024 (planilha 06-12-24). TT = alívio de tensões previsto na EPS.</p>
 </section>
 
 <!-- ============================================================ CALCULADORA -->
@@ -555,6 +611,252 @@ tfoot td{background:var(--surface2)}
       <tbody id="brBody" class="mono"></tbody></table></div>
     <p class="src">Pesos de aço por metro linear, calculados pelas fórmulas em mm acima (mesmo método do folheto Mecpres).</p>
   </div>
+
+  <!-- PERFIS -->
+  <div class="tb" id="tb-perfis" hidden>
+    <div class="sub-tabs" id="pfTabs" role="group" aria-label="Tipo de perfil"></div>
+    <div class="search-bar">
+      <input type="text" id="pfSearch" placeholder="Pesquisar bitola (ex.: W 310, 44,5, HP 250)">
+      <select id="pfSerie" aria-label="Altura nominal"></select>
+    </div>
+    <div class="mini-in" style="margin-bottom:14px">
+      <label class="c-f">Comprimento<div class="c-inp"><input id="pfLen" type="text" inputmode="decimal" value="6"><span>m</span></div></label>
+      <label class="c-f">Quantidade<div class="c-inp"><input id="pfQty" type="text" inputmode="numeric" value="1"><span>pç</span></div></label>
+    </div>
+    <div class="answer" id="pfAns"></div>
+    <div class="result-count" id="pfCount"></div>
+    <div class="scroll-table" id="pfWrap"><table class="pick">
+      <thead id="pfHead"></thead><tbody id="pfBody" class="mono"></tbody></table></div>
+    <p class="src" id="pfSrc"></p>
+  </div>
+
+  <!-- TUBOS -->
+  <div class="tb" id="tb-tubos" hidden>
+    <div class="sub-tabs" id="tuTabs" role="group" aria-label="Norma do tubo"></div>
+    <div class="info-box" id="tuInfo"><h4></h4><p></p></div>
+    <div class="search-bar">
+      <input type="text" id="tuSearch" placeholder="Filtrar por polegada (ex.: 2 1/2) ou Ø em mm (ex.: 60)">
+    </div>
+    <div class="answer" id="tuAns"></div>
+    <div class="scroll-table" id="tuWrap"><table>
+      <thead id="tuHead"></thead><tbody id="tuBody"></tbody></table></div>
+    <p class="src" id="tuSrc"></p>
+  </div>
+
+  <!-- CHAPAS -->
+  <div class="tb" id="tb-chapas" hidden>
+    <div class="two-col">
+      <div class="info-box"><h4>Laminadas a quente — CSN (BQ / BG)</h4><ul>
+        <li><strong>Espessuras:</strong> 1,50 a 12,50 mm (série padrão na tabela)</li>
+        <li><strong>Larguras:</strong> 1000 · 1100 · 1200 · 1500 mm</li>
+        <li><strong>Comprimentos:</strong> 2000 · 3000 · 6000 mm</li>
+        <li><strong>Tolerância de largura:</strong> −0 / +20 mm (borda universal)</li></ul></div>
+      <div class="info-box blue"><h4>Chapas grossas — Usiminas</h4><ul>
+        <li><strong>Espessuras:</strong> 6,00 a 150,00 mm</li>
+        <li><strong>Larguras:</strong> 900 a 3900 mm · <strong>Comprimentos:</strong> 2400 a 18000 mm</li>
+        <li><strong>Chapa #4,75:</strong> larguras 1000 · 1200 · 1500 · 1800 × até 12000 mm</li>
+        <li><strong>Corte:</strong> tolerância no comprimento 0 / +15 mm. Fora do padrão: lote mínimo 3000 kg</li></ul></div>
+    </div>
+    <div class="mini-in" style="margin-bottom:14px">
+      <label class="c-f" style="max-width:240px">Formato<select class="c-sel" id="chFmt"></select></label>
+      <label class="c-f">Largura<div class="c-inp"><input id="chL" type="text" inputmode="decimal" value="1200"><span>mm</span></div></label>
+      <label class="c-f">Comprimento<div class="c-inp"><input id="chC" type="text" inputmode="decimal" value="3000"><span>mm</span></div></label>
+      <label class="c-f">Densidade<div class="c-inp"><input id="chD" type="text" inputmode="decimal" value="7,85"><span>g/cm³</span></div></label>
+    </div>
+    <div class="answer" id="chAns"></div>
+    <div class="scroll-table" id="chWrap"><table class="pick">
+      <thead><tr><th class="n">Espessura (mm)</th><th>Polegada</th><th>Nº (MSG)</th><th class="n">kg/m²</th><th class="n" id="chColKg">kg/chapa</th><th>Linha</th></tr></thead>
+      <tbody id="chBody" class="mono"></tbody></table></div>
+    <p class="src">Fontes: catálogo de aços CSN, catálogo de chapas grossas Usiminas e tabela de medidas para fornecimento (Soluções Usiminas). Peso = espessura × 7,85 kg/m² por mm. Nº de chapa e polegada são equivalências aproximadas de uso corrente.</p>
+  </div>
+
+  <!-- FLANGES -->
+  <div class="tb" id="tb-flanges" hidden>
+    <div class="sub-tabs" id="fgTabs" role="group" aria-label="Classe de pressão"></div>
+    <div class="info-box"><h4>Flanges ASME B16.5 — dimensões em mm</h4><p>O = Ø externo · R = Ø do ressalto (face com ressalto de 1,6 mm na 150# e 300#) · W = círculo de furação · C = espessura sem / com ressalto · X = Ø do cubo · Y = comprimento total do flange: sobrepor (slip-on) e roscado, solto (lap joint) e de pescoço (weld neck). Clique numa linha para ver o resumo e o peso aproximado do flange cego.</p></div>
+    <div class="search-bar"><input type="text" id="fgSearch" placeholder="Filtrar por polegada (ex.: 4, 1 1/2)"></div>
+    <div class="answer" id="fgAns"></div>
+    <div class="scroll-table" id="fgWrap"><table class="pick">
+      <thead><tr><th>NPS</th><th class="n">O</th><th class="n">R</th><th class="n">W</th><th class="n bl">Furos</th><th>Parafuso</th><th class="n bl">C s/ ress.</th><th class="n">C c/ ress.</th><th class="n bl">X cubo</th><th class="n">A tubo</th><th class="n bl">Y sobrepor</th><th class="n">Y solto</th><th class="n">Y pescoço</th></tr></thead>
+      <tbody id="fgBody" class="mono"></tbody></table></div>
+    <p class="src">Fonte: catálogo técnico de flanges ASME/ANSI B16.5 (classes 150# e 300#). Parafuso = Ø do furo − 1/8". O catálogo também traz 400#, 600#, 900#, 1500# e 2500#, que ficaram de fora porque o PDF embaralha as colunas.</p>
+  </div>
+
+  <!-- FIXAÇÃO -->
+  <div class="tb" id="tb-fixacao" hidden>
+    <div class="sub-tabs" id="fxTabs" role="group" aria-label="Tabela de fixação"></div>
+    <div id="fx-furo">
+      <div class="search-bar">
+        <select id="frTipo" aria-label="Tipo de rosca"></select>
+        <input type="text" id="frSearch" placeholder="Filtrar (ex.: M12, 1/2, G 3/4)">
+      </div>
+      <div class="mini-in" style="margin-bottom:14px">
+        <label class="c-f">Rosca métrica Ø<div class="c-inp"><input id="frD" type="text" inputmode="decimal" value="20"><span>mm</span></div></label>
+        <label class="c-f">Passo<div class="c-inp"><input id="frP" type="text" inputmode="decimal" value="1,5"><span>mm</span></div></label>
+      </div>
+      <div class="answer" id="frAns"></div>
+      <div class="scroll-table"><table><thead id="frHead"></thead><tbody id="frBody" class="mono"></tbody></table></div>
+      <p class="src">Fonte: tabela de diâmetros de furos para roscar (DIN 13 / ISO 724, ASME B1.1, ISO 228-1). Métrica: furo ≈ D − P (passos de 2 mm ou mais: D − P + 0,1).</p>
+    </div>
+    <div id="fx-paraf" hidden>
+      <div class="search-bar"><input type="text" id="pfxSearch" placeholder="Filtrar bitola (ex.: M16)"></div>
+      <div class="scroll-table"><table>
+        <thead><tr><th>Rosca</th><th class="n">Passo</th><th class="n">Furo p/ rosca</th><th class="n bl" title="ISO 273 fino / médio / grosso">Furo passante<br><small style="text-transform:none;letter-spacing:0">fino · médio · grosso</small></th><th class="n bl">Chave s<br><small style="text-transform:none;letter-spacing:0">DIN 931/934</small></th><th class="n">Chave s<br><small style="text-transform:none;letter-spacing:0">ISO 4014/4032</small></th><th class="n bl">Cabeça k</th><th class="n">Porca m<br><small style="text-transform:none;letter-spacing:0">DIN 934</small></th><th class="n">Porca m<br><small style="text-transform:none;letter-spacing:0">ISO 4032</small></th><th class="n bl">Rosca b<br><small style="text-transform:none;letter-spacing:0">L ≤ 125</small></th><th class="n">b<br><small style="text-transform:none;letter-spacing:0">125–200</small></th><th class="n">b<br><small style="text-transform:none;letter-spacing:0">L &gt; 200</small></th></tr></thead>
+        <tbody id="pfxBody" class="mono"></tbody></table></div>
+      <p class="src">Fontes: DIN 931 (Super-Par), DIN 934 e ISO 4032 (folha de porcas). Furo passante conforme ISO 273. A partir de M10 a ISO mudou algumas chaves (M10 = 16, M12 = 18, M14 = 21, M22 = 34). Confira qual norma o fornecedor segue antes de comprar a ferramenta.</p>
+    </div>
+    <div id="fx-chav" hidden>
+      <div class="lookup">
+        <label class="c-f">Ø do eixo<div class="c-inp"><input id="chvD" type="text" inputmode="decimal" value="45"><span>mm</span></div></label>
+        <label class="c-f">Ajuste<select class="c-sel" id="chvAj"><option value="0">Com folga (H9 / D10)</option><option value="1" selected>Normal (N9 / JS9)</option><option value="2">Com interferência (P9 / P9)</option></select></label>
+      </div>
+      <div class="answer" id="chvAns"></div>
+      <div class="scroll-table" id="chvWrap"><table>
+        <thead><tr><th class="n">Ø eixo acima de</th><th class="n">até</th><th class="n bl">Chaveta b × h</th><th class="n bl">Rasgo eixo t1</th><th class="n">Rasgo cubo t2</th><th class="n bl">Tol. t1 / t2</th></tr></thead>
+        <tbody id="chvBody" class="mono"></tbody></table></div>
+      <p class="src">Fonte: tabela de chavetas paralelas DIN 6885 folha 1 (forma A). Meça os rasgos como d − t1 (eixo) e d + t2 (cubo).</p>
+    </div>
+  </div>
+
+  <!-- EQUIVALÊNCIA -->
+  <div class="tb" id="tb-equiv" hidden>
+    <div class="search-bar">
+      <input type="text" id="eqSearch" placeholder="Pesquisar qualquer norma (ex.: A36, 1.4301, S355, 4140, SUS316)">
+      <select id="eqCat" aria-label="Categoria"></select>
+    </div>
+    <div class="result-count" id="eqCount"></div>
+    <div class="table-wrap"><table class="ref">
+      <thead><tr><th>AISI / SAE / ASTM</th><th>DIN (antiga)</th><th>W.Nr</th><th>EN (atual)</th><th>JIS</th><th>Brasil / comercial</th><th>Aplicação</th></tr></thead>
+      <tbody id="eqBody"></tbody></table>
+      <div class="empty" id="eqNone" hidden>Nenhum aço encontrado.</div></div>
+    <p class="src">Montada a partir das tabelas de equivalência da pasta (Aços — tabela de equivalência, Equivalent Grades, Normas similares de aços planos da Usiminas) e completada com as designações EN atuais. As equivalências são aproximadas: composição e propriedades mecânicas podem variar. Para vaso de pressão ou peça crítica, confira na norma.</p>
+  </div>
+</section>
+
+<!-- ============================================================ TINTA -->
+<section class="view" id="v-tinta" hidden>
+  <div class="c-bench">
+    <div class="c-panel">
+      <h3>Área a pintar</h3>
+      <div class="mini-in">
+        <label class="c-f" style="max-width:200px">Área<div class="c-inp"><input id="tnA" type="text" inputmode="decimal" value="100"><span>m²</span></div></label>
+        <button class="btn ghost" id="tnFromCalc">Usar área da calculadora</button>
+      </div>
+      <p class="c-hint" id="tnFromMsg"></p>
+      <details class="c-cmp" style="margin-top:14px"><summary>Não tenho a área: estimar pela massa da estrutura</summary>
+        <div class="mini-in" style="margin-top:12px">
+          <label class="c-f">Massa<div class="c-inp"><input id="tnT" type="text" inputmode="decimal" value="5"><span>t</span></div></label>
+          <label class="c-f" style="max-width:260px">Tipo de construção<select class="c-sel" id="tnTipo"></select></label>
+          <button class="btn ghost" id="tnEst">Estimar área</button>
+        </div>
+      </details>
+      <h3 style="margin-top:22px">Aplicação</h3>
+      <div class="mini-in">
+        <label class="c-f" style="max-width:240px">Método<select class="c-sel" id="tnMet"></select></label>
+        <label class="c-f">Perdas<div class="c-inp"><input id="tnPerda" type="text" inputmode="decimal" value="30"><span>%</span></div></label>
+        <label class="c-f">Embalagem<select class="c-sel" id="tnEmb"><option value="0.9">Quarto 0,9 L</option><option value="3.6" selected>Galão 3,6 L</option><option value="18">Balde 18 L</option></select></label>
+      </div>
+    </div>
+    <div class="c-panel c-result">
+      <h3>Total do esquema</h3>
+      <div class="c-big"><div><small>Tinta</small><b id="tnTot">–</b><i>L</i></div><div><small>Embalagens</small><b id="tnEmbN">–</b><i id="tnEmbU"></i></div></div>
+      <div class="c-formula">Rt = SV × 10 / EPS  ·  Rp = Rt × Fa  ·  Fa = (100 − perdas) / 100  ·  Litros = Área / Rp × demãos</div>
+      <p class="note" id="tnNote"></p>
+    </div>
+  </div>
+  <div class="section-title" style="margin-top:28px">Esquema de pintura</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Tinta</th><th class="n">Sólidos (SV %)</th><th class="n">EPS (µm)</th><th class="n">Demãos</th><th class="n bl">Rt m²/L</th><th class="n">Rp m²/L</th><th class="n">Litros</th><th></th></tr></thead>
+    <tbody id="tnBody"></tbody></table></div>
+  <button class="btn ghost" id="tnAdd">+ Adicionar tinta</button>
+  <p class="src" style="margin-top:18px">Método de Celso Gnecco (Sherwin-Williams). SV e EPS estão no boletim técnico de cada tinta. A primeira demão consome mais em superfície rugosa ou com pites.</p>
+</section>
+
+<!-- ============================================================ CONE -->
+<section class="view" id="v-cone" hidden>
+  <div class="c-bench">
+    <div class="c-panel">
+      <h3>Tronco de cone</h3>
+      <div class="c-profile">
+        <div class="c-drawing" id="cnDraw" aria-hidden="true"></div>
+        <div>
+          <div class="c-fields">
+            <label class="c-f"><span><span class="c-k">D</span>Ø maior</span><div class="c-inp"><input id="cnD" type="text" inputmode="decimal" value="2520"><span>mm</span></div></label>
+            <label class="c-f"><span><span class="c-k">d</span>Ø menor</span><div class="c-inp"><input id="cnd" type="text" inputmode="decimal" value="2181"><span>mm</span></div></label>
+            <label class="c-f"><span><span class="c-k">h</span>Altura</span><div class="c-inp"><input id="cnH" type="text" inputmode="decimal" value="1002"><span>mm</span></div></label>
+            <label class="c-f"><span><span class="c-k">e</span>Espessura</span><div class="c-inp"><input id="cnE" type="text" inputmode="decimal" value="19"><span>mm</span></div></label>
+          </div>
+          <p class="c-msg" id="cnMsg" hidden></p>
+        </div>
+      </div>
+      <div class="c-row2">
+        <label class="c-f c-mat">Os diâmetros são<select class="c-sel" id="cnRef"><option value="m">Médios (linha neutra)</option><option value="e">Externos</option><option value="i">Internos</option></select></label>
+        <label class="c-f">Dividir em<div class="c-inp"><input id="cnN" type="number" min="1" max="12" step="1" value="1"><span>partes</span></div></label>
+        <label class="c-f">Densidade<div class="c-inp"><input id="cnRho" type="text" inputmode="decimal" value="7,85"><span>g/cm³</span></div></label>
+      </div>
+    </div>
+    <div class="c-panel c-result">
+      <h3>Planificação <span id="cnPartLbl"></span></h3>
+      <div class="c-big"><div><small>Raio maior RM</small><b id="cnRM">–</b><i>mm</i></div><div><small>Raio menor Rm</small><b id="cnRm">–</b><i>mm</i></div></div>
+      <div class="c-sub" id="cnSub"></div>
+      <div class="c-formula" id="cnFx"></div>
+    </div>
+  </div>
+  <div class="section-title" style="margin-top:28px">Desenho da planificação (uma parte)</div>
+  <div class="c-panel" style="padding:12px"><div id="cnSvg"></div></div>
+  <p class="note" style="margin-top:14px">Baseado na planilha "Tronco de cone" (Fabiano, 02/09/04). Para traçar: risque o arco RM e o arco Rm com o mesmo centro, marque a corda maior e ligue as pontas ao centro. Se o ângulo passar de 180° ou o blank não couber na chapa, divida em partes. Para chapas grossas use os diâmetros médios. Se você tem as medidas externas ou internas, o guia converte.</p>
+</section>
+
+<!-- ============================================================ FURAÇÃO -->
+<section class="view" id="v-furo" hidden>
+  <div class="tol-in" style="max-width:900px">
+    <label class="c-f" style="grid-column:span 2">Material<select class="c-sel" id="fuMat"></select></label>
+    <label class="c-f">Ø da broca<div class="c-inp"><input id="fuD" type="text" inputmode="decimal" value="10"><span>mm</span></div></label>
+    <label class="c-f">Profundidade<div class="c-inp"><input id="fuL" type="text" inputmode="decimal" value="25"><span>mm</span></div></label>
+  </div>
+  <div class="tol-res" id="fuRes"></div>
+  <div class="section-title">Rotação e avanço por diâmetro — <span id="fuMatLbl"></span></div>
+  <div class="scroll-table" id="fuWrap" style="max-height:480px"><table>
+    <thead><tr><th class="n">Ø broca (mm)</th><th class="n">Rotação mín.</th><th class="n">Rotação máx.</th><th class="n bl">Avanço (mm/rot)</th><th class="n">Avanço (mm/min)</th></tr></thead>
+    <tbody id="fuBody" class="mono"></tbody></table></div>
+  <p class="src">Rotação n = Vc × 1000 / (π × D). Avanços por diâmetro conforme tabela Lenox-Twill (brocas HSS, 1/16" a 1/2"), interpolados entre os diâmetros e extrapolados acima de 12,7 mm. Furo com mais de 4×D: reduza 10% em Vc e no avanço e alivie o cavaco. Com mais de 8×D: reduza 20% e use pica-pau. São valores de partida; ajuste pelo som, pelo cavaco e pela máquina.</p>
+</section>
+
+<!-- ============================================================ TOLERÂNCIAS -->
+<section class="view" id="v-tol" hidden>
+  <div class="info-box"><h4>Como ler a indicação do desenho</h4><p>Quando o desenho traz <span class="mono">ISO 13920-BF</span>, a letra <strong>B</strong> é a classe para medidas lineares e angulares e a <strong>F</strong> é a classe de retitude, planeza e paralelismo do conjunto soldado. Em peças usinadas, <span class="mono">ISO 2768-mK</span> indica a classe <strong>m</strong> (médio) para medidas e a <strong>K</strong> para tolerâncias geométricas. Valem só para cotas sem tolerância escrita.</p></div>
+  <div class="tol-in">
+    <label class="c-f">Dimensão nominal<div class="c-inp"><input id="tlDim" type="text" inputmode="decimal" value="1500"><span>mm</span></div></label>
+    <label class="c-f">Lado menor do ângulo<div class="c-inp"><input id="tlLeg" type="text" inputmode="decimal" value="300"><span>mm</span></div></label>
+    <label class="c-f">ISO 13920 · medida<select class="c-sel" id="tlA"><option>A</option><option selected>B</option><option>C</option><option>D</option></select></label>
+    <label class="c-f">ISO 13920 · forma<select class="c-sel" id="tlE"><option>E</option><option selected>F</option><option>G</option><option>H</option></select></label>
+    <label class="c-f">ISO 2768-1 · medida<select class="c-sel" id="tlF"><option value="f">f — fino</option><option value="m" selected>m — médio</option><option value="c">c — grosso</option><option value="v">v — muito grosso</option></select></label>
+    <label class="c-f">ISO 2768-2 · geometria<select class="c-sel" id="tlH"><option>H</option><option selected>K</option><option>L</option></select></label>
+  </div>
+  <div class="section-title">Conjuntos soldados — ISO 13920</div>
+  <div class="tol-res" id="tlRes13920"></div>
+  <div class="section-title">Peças usinadas — ISO 2768</div>
+  <div class="tol-res" id="tlRes2768"></div>
+
+  <div class="section-title">ISO 13920 · Tabela 1 — medidas lineares (± mm)</div>
+  <div class="table-wrap"><table class="tol-t" id="tT1"></table></div>
+  <div class="section-title">ISO 13920 · Tabela 2 — medidas angulares (lado menor)</div>
+  <div class="table-wrap"><table class="tol-t" id="tT2"></table></div>
+  <div class="section-title">ISO 13920 · Tabela 3 — retitude, planeza e paralelismo (mm)</div>
+  <div class="table-wrap"><table class="tol-t" id="tT3"></table></div>
+  <div class="section-title">ISO 2768-1 — medidas lineares (± mm)</div>
+  <div class="table-wrap"><table class="tol-t" id="tT4"></table></div>
+  <div class="two-col">
+    <div><div class="section-title">ISO 2768-1 — raios e chanfros (± mm)</div><div class="table-wrap" style="margin:0"><table class="tol-t" id="tT5"></table></div></div>
+    <div><div class="section-title">ISO 2768-1 — angulares (lado menor)</div><div class="table-wrap" style="margin:0"><table class="tol-t" id="tT6"></table></div></div>
+  </div>
+  <div class="section-title">ISO 2768-2 — retitude e planeza (mm)</div>
+  <div class="table-wrap"><table class="tol-t" id="tT7"></table></div>
+  <div class="two-col">
+    <div><div class="section-title">ISO 2768-2 — perpendicularidade (lado menor, mm)</div><div class="table-wrap" style="margin:0"><table class="tol-t" id="tT8"></table></div></div>
+    <div><div class="section-title">ISO 2768-2 — simetria e batimento (mm)</div><div class="table-wrap" style="margin:0"><table class="tol-t" id="tT9"></table></div></div>
+  </div>
+  <p class="src">Fontes: ISO 13920:2023 (tabelas 1 a 3) e NBR ISO 2768-1 / 2768-2. A tolerância vale para a faixa em que a medida cai; o limite superior da faixa está incluído (ex.: 120 mm usa a faixa 30–120).</p>
 </section>
 
 <!-- ============================================================ CONVERSÃO -->
@@ -585,53 +887,53 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",
 const nf=(v,d=2)=>Number.isFinite(v)?v.toLocaleString("pt-BR",{minimumFractionDigits:d,maximumFractionDigits:d}):"–";
 
 /* ======================= DADOS EPS ======================= */
-// [eps, norma, edição, processo, metal base, obs, espessura, posição, consumível, gás]
+// [eps, rev, rqps, norma, edição, processo, metal base, obs, espessura, Ø externo, progressão, posição, consumível, esp. soldada, FN, gás, gás purga, A-Nº, trat. térmico, corrente, transferência, cobre-junta]
 const EPS=[
-["001","ASME","Ed.2010","FCAW","PN°8 × PN°8","Inox austenítico (316, 316L, 304...)","Chanfro: 5,0 a 38,0<br>Ângulo: ilimitada","TODAS","E 316 LT1","CO₂ 99,99%"],
-["001/07","AWS","Ed.2006","GMAW","Grupo I ou II × Grupo I ou II","Aço estrutural carbono","≥ 3,2","2G/1G/2F/1F","ER70S-6","75%Ar+25%CO₂"],
-["001/07 RV 02/22","AWS","Ed.2020","GMAW","Grupo I ou II × Grupo I ou II","","≥ 3,2","2G/1G/2F/1F","ER70S-6","75%Ar+25%CO₂"],
-["001/08","AWS","Ed.2004/Ad.2006","GMAW","SAR-50 × SAR-50","","≥ 3,2","2G/1G","ER70S-6","85%Ar+15%CO₂"],
-["001/11","AWS","Ed.2010","GMAW","Grupo I ou II × Grupo I ou II","","≥ 3,2","2G/1G","ER70S-6","82%Ar+18%CO₂"],
-["001/12","DIN","","GMAW","Grupo I × Grupo I","ISO 15608","6,35 a 25,4","Exceto PG","ER70S-6","80%Ar+20%CO₂"],
-["001/13","DIN","","FCAW","Grupo I × Grupo I","ISO 15608","16,0 a 64,0","Exceto PG","E71T1-C / E71T9-C","CO₂ 99,99%"],
-["001/14","AWS","2010","FCAW","Grupo I ou II × Grupo I ou II","","≥ 3,2","Chanfro ≥610mm Ø / Ângulo: ilimitada","—","—"],
-["001/14 RV 01/22","AWS","Ed.2020","FCAW","Grupo I ou II × Grupo I ou II","","≥ 3,2","—","—","—"],
-["001/24","AWS","Ed.2020","FCAW","Grupo I ou II × Grupo I ou II","","Chanfro: 3,0 a ilimitado","—","—","—"],
-["002","ASME","Ed.2010","GTAW","PN°8 × PN°8","Inox austenítico (316L, 304L...)","Chanfro: 1,5 a 12,8<br>Ângulo: ilimitada","TODAS","ER 316L","Ar 99,99%"],
-["002 (Rev.01)","ASME","Ed.2017","GTAW","AISI 316L","","≤ 25,4","—","—","—"],
-["002/07","AWS","Ed.2006","GMAW","Grupo I ou II × USI AR 360","","≥ 3,2","—","—","—"],
-["002/11","ASME","Ed.2007/Ad.2009","GMAW","PN°1 × PN°1","Aço carbono","5,0 a 50,8","Ilimitado","—","—"],
-["002/12","DIN","","GMAW","Grupo I × Grupo I","","16,0 a 64,0","—","—","—"],
-["002/13","AWS","2010","FCAW","Grupo I ou II","","≥ 3,2","—","—","—"],
-["002/14","ASME","","GTAW+GMAW","PN°1 × PN°1","","5,0 a 50,8","Ilimitado","—","—"],
-["002/18","AWS","2015","FCAW","ASTM A36","","≤ 31,5","—","—","—"],
-["002/24","AWS","Ed.2020","SAW","Grupo I ou II × Grupo I ou II","","3,0 a ilimitado","1G / 1F","A5.17 F7A4-EM12K","—"],
-["003","AWS","2010","FCAW","Grupo I ou II × Grupo I ou II","","Chanfro: 3,0 a ilimitado","—","—","—"],
-["003/07","AWS","Ed.2006","SMAW","USI AR 360 × USI AR 360","","≥ 3,2","—","—","—"],
-["003/12","ASME","2010/ASME VIII","GMAW","PN°1 × PN°1","","5,0 a 200,0","Ilimitado","—","—"],
-["003/13","ASME","Ed.2010","FCAW","PN°1 × PN°1","","5,0 a 64,0","Ilimitado","—","—"],
-["003/14","ASME","","GTAW+FCAW","PN°1 × PN°1","","5,0 a 64,0","Ilimitado","—","—"],
-["004","ASME","Ed.2010","FCAW","PN°4' × PN°1","Cr-Mo × Carbono","Chanfro: 5,0 a 50,0","Ilimitado","—","—"],
-["004/12","ASME","2010/ASME VIII","FCAW","PN°1 × PN°1","","5,0 a 200,0","Ilimitado","—","—"],
-["004/14","ASME","Ed.2013","GTAW+SMAW","PN°1 × PN°1","","5,0 a 38,1","Ilimitado","—","—"],
-["005","AWS","2010","GMAW","Grupo I × Grupo I","","Chanfro: 3,0 a 19,0","—","—","—"],
-["005/12","ASME","2010/ASME VIII","SMAW","PN°1 × LIGA VILARES F11AL","","5,0 a 32,0","Ilimitado","—","—"],
-["005/14","AWS","2010","FCAW","Grupo I ou II × USI SAR 80T","","≥ 3,2","—","—","—"],
-["006","ASME","Ed.2010","GMAW","PN°1 × PN°1","","Chanfro: 3,0 a 19,0","—","—","—"],
-["006/12","ASME","Ed.2010","GTAW","PN°1 × PN°1","","1,5 a 11,0","Ilimitado","—","—"],
-["006/14","ASME","2013/ASME VIII","FCAW","PN°1 × USI SAR 80T","","5,0 a 200,0","Ilimitado","—","—"],
-["007","ASME","2010/ASME VIII","FCAW","PN°1 × HARDOX 450","","Chanfro: 5,0 a 50,0","Ilimitado","—","—"],
-["007/12","ASME","2010/ASME VIII","SMAW","PN°1 × SAE 4140","","5,0 a 25,0","Ilimitado","—","—"],
-["007/14","AWS","2010","FCAW","Grupo I × Grupo I","","Chanfro: ≤ 38,0","≥600mm Ø","—","—"],
-["008","ASME","Ed.2010","FCAW","HARDOX 450 × HARDOX 450","","Chanfro: 5,0 a 63,4","Ilimitado","—","—"],
-["008/12","ASME","2010/ASME VIII","GMAW","PN°4 × PN°4","Aço Cr-Mo","5,0 a 19,0","Ilimitado","ER316L-SI","82%Ar+18%CO₂"],
-["011/19","ASME","Ed.2017","FCAW","ASTM A36 × ASTM A36","","5,0 a 50,8","—","—","—"],
-["ASC 001 2006","ASME","Ed.2004/Ad.2006","GMAW","PN°8 × PN°1","Inox × Carbono (dissimilar)","3,2 a 200,0","3G","ER 309L","I40 (WM)"],
-["ASC 002 2006","ASME","Ed.2004/Ad.2006","GMAW","PN°8 × PN°8","Inox austenítico (316L, 304L...)","3,2 a 200,0","3G","ER 308L Si","I40 (WM)"],
-["MAG 001 2007","ASME","Ed.2004/Ad.2006","GMAW","PN°1 × PN°1","","3,2 a 50,0","≥610mm Ø","—","—"],
-["MAG 002 2007","ASME","Ed.2004/Ad.2006","GMAW","PN°6 × PN°6","Inox martensítico","Todas","≥600mm Ø","—","—"],
-["MAG 003 2007","ASME","Ed.2004/Ad.2006","GMAW","PN°6 × PN°1","Martensítico × Carbono (dissimilar)","Todas","≥600mm Ø","—","—"],
-["SMC 001 2007","ASME","Ed.2004/Ad.2006","SMAW","PN°1 × PN°1","","3,2 a 50,0","≥610mm Ø","—","—"]
+["001", "00", "001", "ASME", "2010", "FCAW", "PN°8 × PN°8", "Inox austenítico (316, 316L, 304...)", "Chanfro: 5,0 a 38,0<br>Ângulo: ilimitada", "Ilimitado", "Ascendente", "Todas", "E 316 LT1", "Chanfro: 5,0 a 38,0<br>Ângulo: ilimitada", "6", "99,99% CO₂", "", "8", "", "CC+", "", "Com"],
+["001/07", "00", "001/07", "AWS", "2006", "GMAW", "Grupo I ou II × Grupo I ou II", "Aço estrutural carbono", "≥ 3,2", "≥610,0", "", "2G / 1G / 2F / 1F", "ER70S-6", "≥ 3,2", "", "75% Ar + 25% CO₂", "", "", "", "CC+", "Globular", "Com ou extração de raiz"],
+["001/08", "00", "001/08", "AWS", "2004 / 2006", "GMAW", "SAR-50 × SAR-50", "", "≥ 3,2", "≥610,0", "", "2G / 1G", "ER70S-6", "≥ 3,2", "", "85% Ar + 15% CO₂", "", "", "", "CC+", "Globular / spray", "Com ou extração de raiz"],
+["001/11", "00", "001/11", "AWS", "2010", "GMAW", "Grupo I ou II × Grupo I ou II", "", "≥ 3,2", "≥610,0", "", "2G / 1G", "ER70S-6", "≥ 3,2", "", "82% Ar + 18% CO₂", "", "", "", "CC+", "Globular / spray", "Com ou extração de raiz"],
+["001/12", "02", "001/12", "DIN", "", "GMAW", "Grupo I × Grupo I", "ISO 15608", "6,35 a 25,4", "≥500,0", "Ascendente", "Exceto PG", "ER70S-6", "6,25 a 25,0", "", "80% Ar + 20% CO₂", "", "", "", "CC+", "Globular / spray", "Com ou extração de raiz"],
+["001/13", "00", "001/13", "DIN", "", "FCAW", "Grupo I × Grupo I", "ISO 15608", "16,0 a 64,0", "≥500,0", "Ascendente", "Exceto PG", "E71T1-C / E71T9-C", "16,0 a 64,0", "", "99,99% CO₂", "", "", "", "CC+", "Globular / spray", "Com ou extração de raiz"],
+["001/07 RV 02/22", "00", "001/07", "AWS", "2020", "GMAW", "Grupo I ou II × Grupo I ou II", "", "≥ 3,2", "≥610,0", "", "2G / 1G / 2F / 1F", "ER70S-6", "≥ 3,2", "", "75% Ar + 25% CO₂", "", "", "", "CC+", "Globular", "Com ou extração de raiz"],
+["001/14", "00", "001/14", "AWS", "2010", "FCAW", "Grupo I ou II × Grupo I ou II", "", "≥ 3,2", "≥610,0 (chanfro)<br>ilimitado (ângulo)", "Ascendente", "3G / 3F", "E71T1-C", "≥ 3,2", "", "99,99% CO₂", "", "", "Alívio de tensões", "CC+", "Globular", "Com ou extração de raiz"],
+["002", "00", "001", "ASME", "2010", "GTAW", "PN°8 × PN°8", "Inox austenítico (316L, 304L...)", "Chanfro: 1,5 a 12,8<br>Ângulo: ilimitada", "Ilimitado", "Ascendente", "Todas", "ER 316L", "Chanfro: 1,5 a 12,8<br>Ângulo: ilimitada", "6", "99,99% Ar", "", "8", "", "CC−", "", ""],
+["002/07", "00", "002/07", "AWS", "2006", "GMAW", "Grupo I ou II × USI AR 360", "", "≥ 3,2", "≥610,0", "", "2G / 1G / 2F / 1F", "ER70S-6", "≥ 3,2", "", "75% Ar + 25% CO₂", "", "", "", "CC+", "Globular", "Com ou extração de raiz"],
+["002/11", "01", "002/11", "ASME", "2007 / 2009", "GMAW", "PN°1 × PN°1", "Aço carbono", "5,0 a 50,8", "Ilimitado", "Ascendente", "Todas", "ER70S-6", "5,0 a 50,8", "6", "82% Ar + 18% CO₂", "", "1", "", "CC+", "Exceto curto-circuito", "Com ou extração de raiz"],
+["002/12", "01", "002/12", "DIN", "", "GMAW", "Grupo I × Grupo I", "", "16,0 a 64,0", "≥500,0", "Ascendente", "Exceto PG", "ER70S-6", "16,0 a 64,0", "", "80% Ar + 20% CO₂", "", "", "", "CC+", "Globular / spray", "Com ou extração de raiz"],
+["002/13", "00", "002/13", "AWS", "2010", "FCAW", "Grupo I ou II (Tab. 3.1)", "", "≥ 3,2", "≥ 4\" (chanfro)<br>ilimitado (ângulo)", "Ascendente", "3G / 3F", "E71T1-C / E71T9-C", "≥ 3,2", "", "99,99% CO₂", "", "", "", "CC+", "Globular / spray", "Com ou extração de raiz"],
+["002/14", "00", "006/12 e 002/11", "ASME", "", "GTAW+GMAW", "PN°1 × PN°1", "", "5,0 a 50,8", "Ilimitado", "Ascendente", "Todas", "ER70S-3 + ER70S-6", "GTAW T ≤ 11,0<br>GMAW T ≤ 39,8", "6", "GTAW 99,99% Ar / GMAW 82% Ar + 18% CO₂", "", "1", "", "GTAW CC− / GMAW CC+", "GMAW: exceto curto-circuito", "Com ou extração de raiz"],
+["003", "00", "003", "AWS", "2010", "FCAW", "Grupo I ou II × Grupo I ou II", "", "Chanfro: 3,0 a ilimitado<br>Ângulo: ilimitada", "Chanfro: ≥600,0<br>Ângulo: ilimitada", "", "2G / 1G / 2F / 1F", "E 71T1", "Chanfro: —<br>Ângulo: ilimitada", "", "99,99% CO₂", "", "", "", "CC+", "Globular / spray", "Extração de raiz"],
+["003/07", "00", "003/07", "AWS", "2006", "SMAW", "USI AR 360 × USI AR 360", "", "≥ 3,2", "≥610,0", "", "2G / 1G / 2F / 1F", "E 120 18 M + E1 UM 300", "≥ 3,2", "4", "", "", "", "", "CC+", "", "Com ou extração de raiz"],
+["003/12", "02", "003/12 (Rev.01)", "ASME", "2010 · ASME VIII Div.1", "GMAW", "PN°1 × PN°1", "", "5,0 a 200,0", "Ilimitado", "Ascendente", "Todas", "ER70S-6", "≤38,0", "6", "82% Ar + 18% CO₂", "", "1", "Alívio de tensões", "CC+", "Exceto curto-circuito", "Com"],
+["003/13", "00", "003/13", "ASME", "2010", "FCAW", "PN°1 × PN°1", "", "5,0 a 64,0", "Ilimitado", "Ascendente", "Todas", "E71T1-C / E71T9-C", "5,0 a 64,0", "6", "99,99% CO₂", "", "1", "", "CC+", "Globular / spray", "Com ou extração de raiz"],
+["003/14", "00", "006/12 e 003/13", "ASME", "", "GTAW+FCAW", "PN°1 × PN°1", "", "5,0 a 64,0", "Ilimitado", "Ascendente", "Todas", "ER70S-3 + E71T1-C / E71T9-C", "GTAW T ≤ 11,0<br>FCAW T ≤ 53,0", "6", "GTAW 99,99% Ar / FCAW 99,99% CO₂", "", "1", "", "GTAW CC− / FCAW CC+", "FCAW: exceto curto-circuito", "Com ou extração de raiz"],
+["004", "00", "004", "ASME", "2010", "FCAW", "PN°4 × PN°1", "Cr-Mo × Carbono · conferir o 1º P-Nº na EPS original", "Chanfro: 5,0 a 50,0<br>Ângulo: ilimitada", "Ilimitado", "Ascendente", "Todas", "E 71T1", "Chanfro: 5,0 a 50,0<br>Ângulo: ilimitada", "6", "99,99% CO₂", "", "1", "", "CC+", "Globular / spray", "Extração de raiz"],
+["004/12", "02", "004/12 (Rev.01)", "ASME", "2010 · ASME VIII Div.1", "FCAW", "PN°1 × PN°1", "", "5,0 a 200,0", "Ilimitado", "Ascendente", "Todas", "E71T-1", "≤200,0", "6", "99,99% CO₂", "", "1", "Alívio de tensões", "CC+", "Exceto curto-circuito", "Com"],
+["004/14", "00", "004/14", "ASME", "2013", "GTAW+SMAW", "PN°1 × PN°1", "", "5,0 a 38,1", "Ilimitado", "Ascendente", "Todas", "ER70S-3 + E7018", "GTAW ≤ 10,0<br>SMAW ≤ 28,1", "GTAW 6 · SMAW 4", "GTAW 99,99% Ar", "", "1", "", "GTAW CC− / SMAW CC+", "", "Com ou extração de raiz"],
+["005", "00", "5", "AWS", "2010", "GMAW", "Grupo I × Grupo I", "", "Chanfro: 3,0 a 19,0<br>Ângulo: ilimitada", "Chanfro: ≥600,0<br>Ângulo: ilimitada", "", "2G / 1G / 2F / 1F", "ER 70S-6", "", "", "75% Ar + 25% CO₂", "", "", "", "CC+", "Globular / spray", "Extração de raiz"],
+["005/12", "01", "005/12 (Rev.01)", "ASME", "2010 · ASME VIII Div.1", "SMAW", "PN°1 × Liga Villares F11AL", "", "5,0 a 32,0", "Ilimitado", "Ascendente", "Todas", "E312-17", "≤32,0", "5", "", "", "1", "Alívio de tensões", "CC+", "", "Com"],
+["001/14 RV 01/22", "00", "001/14", "AWS", "2020", "FCAW", "Grupo I ou II × Grupo I ou II", "", "≥ 3,2", "≥610,0 (chanfro)<br>ilimitado (ângulo)", "Ascendente", "3G / 3F", "E71T1-C", "≥ 3,2", "", "99,99% CO₂", "", "", "Alívio de tensões", "CC+", "Globular", "Com ou extração de raiz"],
+["005/14", "00", "005/14", "AWS", "2010", "FCAW", "Grupo I ou II × USI SAR 80T", "", "≥ 3,2", "≥610,0 (chanfro)<br>ilimitado (ângulo)", "", "2G / 1G / 2F / 1F", "E71T1-C", "≥ 3,2", "", "99,99% CO₂", "", "", "Alívio de tensões", "CC+", "Globular", "Com ou extração de raiz"],
+["006", "00", "006", "ASME", "2010", "GMAW", "PN°1 × PN°1", "", "Chanfro: 3,0 a 19,0<br>Ângulo: ilimitada", "Chanfro: ≥600,0<br>Ângulo: ilimitada", "", "2G / 1G / 2F / 1F", "ER 70S-6", "Chanfro: —<br>Ângulo: ilimitada", "", "75% Ar + 25% CO₂", "", "", "", "CC+", "Globular / spray", "Extração de raiz"],
+["006/12", "01", "006/12", "ASME", "2010", "GTAW", "PN°1 × PN°1", "", "1,5 a 11,0", "Ilimitado", "Ascendente", "Todas", "ER70S-3", "≤11,0", "6", "99,99% Ar", "", "1", "", "CC−", "", "Com ou sem"],
+["006/14", "00", "006/14", "ASME", "2013 · ASME VIII Div.1", "FCAW", "PN°1 × USI SAR 80T", "", "5,0 a 200,0", "Ilimitado", "Ascendente", "Todas", "E71T1-C", "5,0 a 200,0", "6", "99,99% CO₂", "", "1", "Alívio de tensões", "CC+", "Globular", "Com ou extração de raiz"],
+["007", "00", "007", "ASME", "2010 · ASME VIII Div.1", "FCAW", "PN°1 × HARDOX 450", "", "Chanfro: 5,0 a 50,0<br>Ângulo: ilimitada", "Ilimitado", "Ascendente", "Todas", "E 71T1", "Chanfro: —<br>Ângulo: ilimitada", "6", "99,99% CO₂", "", "8", "", "CC+", "Globular", "Com"],
+["007/12", "01", "007/12 (Rev.01)", "ASME", "2010 · ASME VIII Div.1", "SMAW", "PN°1 × SAE 4140", "", "5,0 a 25,0", "Ilimitado", "Ascendente", "Todas", "E 9018", "≤25,0", "4", "", "", "1", "Alívio de tensões", "CC+", "", "Com"],
+["007/14", "00", "007/14", "AWS", "2010", "FCAW", "Grupo I × Grupo I", "", "Chanfro: ≤38,0<br>Ângulo: ilimitada", "≥600", "Ascendente / descendente", "3G / 3F (vertical)", "E 71T1", "Chanfro: ≤38,0<br>Ângulo: ilimitada", "6", "99,90% CO₂", "", "", "", "CC+", "Globular", "Com ou extração de raiz"],
+["008", "00", "008", "ASME", "2010", "FCAW", "HARDOX 450 × HARDOX 450", "", "Chanfro: 5,0 a 63,4<br>Ângulo: ilimitada", "Ilimitado", "Ascendente", "Todas", "E 71T1", "Chanfro: —<br>Ângulo: ilimitada", "6", "99,99% CO₂", "", "1", "", "CC+", "Globular", "Com"],
+["008/12", "02", "008/12 (Rev.01)", "ASME", "2010 · ASME VIII Div.1", "GMAW", "PN°4 × PN°4", "Aço Cr-Mo", "5,0 a 19,0", "Ilimitado", "Ascendente", "Todas", "ER316L-SI", "≤19,0", "6", "82% Ar + 18% CO₂", "", "8", "Alívio de tensões", "CC+", "Exceto curto-circuito", "Com"],
+["ASC 001 2006", "00", "ASC 001 2006", "ASME", "2004 / 2006", "GMAW", "PN°8 × PN°1", "Inox × Carbono (dissimilar)", "3,2 a 200,0", "≥610,0", "Ascendente", "3G", "ER 309L", "3,2 a 200,0", "6", "I40 (WM)", "", "8", "", "CC+", "Arco pulsado", "Sem"],
+["ASC 002 2006", "00", "ASC 002 2006", "ASME", "2004 / 2006", "GMAW", "PN°8 × PN°8", "Inox austenítico (316L, 304L...)", "3,2 a 200,0", "≥610,0", "Ascendente", "3G", "ER 308L Si", "3,2 a 200,0", "6", "I40 (WM)", "", "8", "", "CC+", "Arco pulsado", "Sem"],
+["MAG 001 2007", "00", "MAG 001 2007", "ASME", "2004 / 2006", "GMAW", "PN°1 × PN°1", "", "3,2 a 50,0", "≥610,0", "Ascendente", "3G", "ER70S-6", "4,0 a 50,0", "6", "75% Ar + 25% CO₂", "", "1", "", "CC+", "Globular", "Sem"],
+["MAG 002 2007", "00", "MAG 002 2007", "ASME", "2004 / 2006", "GMAW", "PN°6 × PN°6", "Inox martensítico", "Todas", "≥600,0", "", "1G / 2G", "ER 410", "≤10,0", "6", "96% Ar + 4% CO₂", "", "1", "Alívio de tensões", "CC+", "Arco pulsado", "Sem"],
+["MAG 003 2007", "00", "MAG 003 2007", "ASME", "2004 / 2006", "GMAW", "PN°6 × PN°1", "Martensítico × Carbono (dissimilar)", "Todas", "≥600,0", "", "1G / 2G", "ER 309L Si", "≤10,0", "6", "98% Ar + 2% CO₂", "", "1", "Alívio de tensões", "CC+", "Arco pulsado", "Sem"],
+["SMC 001 2007", "00", "SMC 001 2007", "ASME", "2004 / 2006", "SMAW", "PN°1 × PN°1", "", "3,2 a 50,0", "≥610,0", "Ascendente", "3G", "E7018", "4,0 a 50,0", "4", "", "", "1", "", "CC+", "", "Sem"],
+["002/18", "00", "002/18", "AWS", "2015", "FCAW", "ASTM A36", "", "31,5", "", "Ascendente", "1G / 1F / 2G / 2F", "E71T-C1", "1,2", "", "99,99% CO₂", "", "", "Alívio de tensões", "CC+", "", "Sem"],
+["002", "01", "001", "ASME", "2017", "GTAW", "AISI 316L", "AWS A5.9 · inox", "25,4", "", "Ascendente", "Todas", "A 5.9", "25,4", "6", "99,99% Ar", "", "8", "", "CC−", "", ""],
+["011/19", "00", "011/19", "ASME", "2017", "FCAW", "ASTM A36 × ASTM A36", "", "5,0 a 50,8", "", "Ascendente", "Todas", "A 5.20", "25,4", "6", "99,90% CO₂", "", "", "Alívio de tensões por vibração", "CC+", "Globular", "Com ou extração de raiz"],
+["001/24", "0", "001/24", "AWS", "2020", "FCAW", "Grupo I ou II × Grupo I ou II (Tab. 3.1)", "", "Chanfro (JPT): 3,0 a ilimitado", "≥600,0", "Chanfro (JPT) · ângulo (JA)", "2G / 2F / 1G / 1F", "E71T-1C", "3,0 a ilimitado", "", "99,9% CO₂", "", "", "", "CC+", "Globular", "Com ou extração de raiz"],
+["002/24", "0", "002/24", "AWS", "2020", "SAW", "Grupo I ou II × Grupo I ou II (Tab. 3.1)", "", "Chanfro (JPT): 3,0 a ilimitado", "≥600,0", "Chanfro (JPT) · ângulo (JA)", "1G / 1F", "A5.17 F7A4-EM12K", "3,0 a ilimitado", "", "", "", "", "", "CC+", "Globular", "Com ou extração de raiz"]
 ];
 const NORMA={ASME:"ASME IX",AWS:"AWS D1.1",DIN:"DIN ISO 15614-1"};
 const procKey=p=>p.includes("+")?"COMB":p;
@@ -644,17 +946,26 @@ const ICON={
   calc:'<path d="M12 3v3M5 9h14l-3 7a4 4 0 01-8 0L5 9z"/><path d="M8 20h8"/>',
   lista:'<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/>',
   tabelas:'<path d="M4 4h16v16H4z"/><path d="M4 9h16M4 14h16M10 4v16"/>',
+  tol:'<path d="M3 8h18v8H3z"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/>',
+  tinta:'<path d="M4 4h12v5H4z"/><path d="M16 6h3v5h-8v3"/><path d="M10 14h2v7h-2z"/>',
+  cone:'<path d="M7 4h10l4 16H3L7 4z"/><path d="M5 12h14"/>',
+  furo:'<path d="M12 2v11"/><path d="M9 5l3 2 3-2M9 9l3 2 3-2"/><path d="M8 13h8l-4 5-4-5z"/><path d="M4 21h16"/>',
   conv:'<path d="M7 4L3 8l4 4"/><path d="M3 8h14"/><path d="M17 20l4-4-4-4"/><path d="M21 16H7"/>'
 };
 const VIEWS=[
   {g:"Matéria-prima"},
     {id:"calc",label:"Calculadora de Peso",h:{l:"Matéria-prima • Cálculo",t:"Calculadora de <span>Peso</span>",d:"Peso e área de pintura de chapas, barras, tubos e sextavados. Cotas em mm, densidade em g/cm³."}},
+    {id:"tinta",label:"Consumo de Tinta",h:{l:"Matéria-prima • Pintura",t:"Consumo de <span>Tinta</span>",d:"Litros e embalagens por esquema de pintura, a partir da área, dos sólidos por volume, da espessura seca e do método de aplicação."}},
+  {g:"Oficina"},
+    {id:"cone",label:"Tronco de Cone",h:{l:"Oficina • Caldeiraria",t:"Planificação de <span>Tronco de Cone</span>",d:"Raios, ângulo, cordas e blank de chapa para traçar um tronco de cone (redução concêntrica), inteiro ou dividido em partes."}},
+    {id:"furo",label:"Furação",h:{l:"Oficina • Usinagem",t:"Parâmetros de <span>Furação</span>",d:"Rotação, avanço e tempo de furação com broca HSS por material e diâmetro."}},
   {g:"Soldagem"},
     {id:"processos",label:"Processos de Solda",h:{l:"Referência Técnica • Soldagem",t:"Processos de <span>Solda</span>",d:"O que é cada processo, tipos de transferência metálica e polaridade. Para quem está aprendendo e para quem usa no dia a dia."}},
     {id:"grupos",label:"Grupos de Materiais",h:{l:"Referência Técnica • Soldagem",t:"Grupos de <span>Materiais</span>",d:"P-Numbers do ASME IX, grupos da AWS D1.1 e da ISO 15608, com as EPS que cobrem cada grupo."}},
     {id:"tabela",label:"Tabela de EPS",count:()=>EPS.length,h:{l:"Referência Técnica • Soldagem",t:"Tabela de <span>EPS</span>",d:"Todas as especificações de procedimento de soldagem cadastradas, com filtro por processo, norma e texto."}},
   {g:"Referência"},
-    {id:"tabelas",label:"Tabelas Técnicas",h:{l:"Referência • Tabelas",t:"Tabelas <span>Técnicas</span>",d:"Conversão de dureza, aços de construção mecânica, sobremetal para forjados e pesos de barras por metro, com busca e filtro."}},
+    {id:"tabelas",label:"Tabelas Técnicas",h:{l:"Referência • Tabelas",t:"Tabelas <span>Técnicas</span>",d:"Perfis W, HP e U, tubos (schedule e NBR 5580), chapas, flanges ASME B16.5, roscas e fixação, equivalência de aços, conversão de dureza, aços de construção mecânica, sobremetal e barras, com busca e filtro."}},
+    {id:"tol",label:"Tolerâncias Gerais",h:{l:"Referência • Tolerâncias",t:"Tolerâncias <span>Gerais</span>",d:"ISO 13920 para conjuntos soldados e ISO 2768 para peças usinadas. Digite a medida e veja a tolerância de cada classe."}},
     {id:"conv",label:"Conversão de Unidades",h:{l:"Referência • Unidades",t:"Conversão de <span>Unidades</span>",d:"Força, pressão, torque, comprimento, massa, temperatura e mais. Digite um valor e veja em todas as unidades da grandeza."}}
 ];
 let current="processos";
@@ -667,8 +978,12 @@ function renderNav(){
   $("nav").querySelectorAll(".nav-item").forEach(b=>b.onclick=()=>{show(b.dataset.v);closeDrawer()});
 }
 function badges(){
-  const n=EPS.length,asme=EPS.filter(r=>r[1]==="ASME").length,aws=EPS.filter(r=>r[1]==="AWS").length,din=EPS.filter(r=>r[1]==="DIN").length;
-  if(current==="tabelas")return[["Tabelas","4"],["Durezas","HRC · HB · HV · Shore"],["Fonte","folheto Mecpres"]];
+  const n=EPS.length,asme=EPS.filter(r=>r[3]==="ASME").length,aws=EPS.filter(r=>r[3]==="AWS").length,din=EPS.filter(r=>r[3]==="DIN").length;
+  if(current==="tabelas")return[["Tabelas",String(TB.length)],["Perfis",String(PERF_W.length+PERF_U.length)],["Tubos",String(SCH.length+NBR5580.length)]];
+  if(current==="tol")return[["Normas","ISO 13920 · ISO 2768-1/-2"],["Classes","A–D · E–H · f/m/c/v · H/K/L"]];
+  if(current==="tinta")return[["Método","SV · EPS · perdas"],["Unidades","m² · µm · L"]];
+  if(current==="cone")return[["Entradas","D · d · h · e"],["Saída","RM · Rm · θ · blank"]];
+  if(current==="furo")return[["Materiais",String(FURO.length)],["Broca","HSS"]];
   if(current==="conv")return[["Grandezas",String(Object.keys(CONV).length)],["Unidades",String(Object.values(CONV).reduce((a,c)=>a+c.u.length,0))]];
   if(current==="calc")return[["Perfis","5"],["Materiais",String(MATS.length)],["Unidades","mm · kg · m²"]];
   return[["EPS na tabela",String(n)],["ASME IX",String(asme)],["AWS D1.1",String(aws)],["DIN ISO",String(din)]];
@@ -684,6 +999,8 @@ function show(id){
   try{history.replaceState(null,"","#"+id)}catch(e){}
   window.scrollTo(0,0);
   if(id==="tabelas")setTb(tbCur);
+  if(id==="tol")tolerancias();
+  if(id==="tinta")tinta();if(id==="cone")cone();if(id==="furo")furacao();
 }
 /* sidebar retrátil */
 const app=$("app");
@@ -700,30 +1017,37 @@ function closeDrawer(){app.classList.remove("drawer-open")}
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer();if(e.key==="["&&!/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)&&!mq.matches)$("sbToggle").click()});
 
 /* ======================= TABELA EPS ======================= */
-let exact=null;
+let exact=null;const epsOpen=new Set();
+const DET=[[2,"RQPS"],[9,"Ø externo (mm)"],[10,"Progressão"],[13,"Esp. metal soldado (mm)"],[14,"FN (H₂ difusível)"],[17,"A-Nº"],[16,"Gás de purga"],[18,"Tratamento térmico"],[19,"Corrente / polaridade"],[20,"Modo de transferência"],[21,"Cobre-junta"]];
+const dash=v=>v||'<span class="none">—</span>';
 function renderEPS(){
-  const q=$("searchInput").value.trim().toLowerCase(),p=$("filterProcesso").value,n=$("filterNorma").value;
-  const rows=EPS.filter(r=>{
+  const q=$("searchInput").value.trim().toLowerCase(),p=$("filterProcesso").value,n=$("filterNorma").value,tt=$("filterTT").value;
+  const rows=EPS.map((r,i)=>[r,i]).filter(([r])=>{
     if(exact&&r[0]!==exact)return false;
-    if(p&&procKey(r[3])!==p)return false;
-    if(n&&r[1]!==n)return false;
-    if(q&&!r.join(" ").toLowerCase().replace(/<br>/g," ").includes(q)&&!NORMA[r[1]].toLowerCase().includes(q))return false;
+    if(p&&procKey(r[5])!==p)return false;
+    if(n&&r[3]!==n)return false;
+    if(tt&&(tt==="sim")!==!!r[18])return false;
+    if(q&&!r.join(" ").toLowerCase().replace(/<br>/g," ").includes(q)&&!NORMA[r[3]].toLowerCase().includes(q))return false;
     return true});
-  $("epsBody").innerHTML=rows.map(r=>`<tr><td>${r[0]}</td>
-    <td><span class="n-${r[1]}">${NORMA[r[1]]}</span>${r[2]?`<br><small>${r[2]}</small>`:""}</td>
-    <td><span class="pbadge b-${procKey(r[3])}">${r[3]}</span></td>
-    <td>${r[4]}${r[5]?`<br><small>${r[5]}</small>`:""}</td><td>${r[6]}</td><td>${r[7]}</td><td>${r[8]}</td><td>${r[9]}</td></tr>`).join("");
+  $("epsBody").innerHTML=rows.map(([r,i])=>{const open=epsOpen.has(i);
+    return `<tr class="eps-row${open?" open":""}" data-i="${i}" tabindex="0" aria-expanded="${open}"><td>${r[0]}<span class="rev">rev ${r[1]}</span></td>
+    <td><span class="n-${r[3]}">${NORMA[r[3]]}</span>${r[4]?`<br><small>${r[4]}</small>`:""}</td>
+    <td><span class="pbadge b-${procKey(r[5])}">${r[5]}</span>${r[18]?'<span class="tt-flag" title="'+r[18]+'">TT</span>':""}</td>
+    <td>${r[6]}${r[7]?`<br><small>${r[7]}</small>`:""}</td><td>${r[8]}</td><td>${dash(r[11])}</td><td>${dash(r[12])}</td><td>${dash(r[15])}</td></tr>`+
+    (open?`<tr class="eps-det"><td colspan="8"><div class="det-grid">${DET.map(([k,l])=>`<div><small>${l}</small><span>${dash(r[k])}</span></div>`).join("")}</div></td></tr>`:"")}).join("");
+  $("epsBody").querySelectorAll("tr.eps-row").forEach(tr=>{const tog=()=>{const i=+tr.dataset.i;epsOpen.has(i)?epsOpen.delete(i):epsOpen.add(i);renderEPS()};
+    tr.onclick=tog;tr.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();tog();const t=$("epsBody").querySelector(`tr[data-i="${tr.dataset.i}"]`);if(t)t.focus()}}});
   $("noResults").hidden=rows.length>0;
   $("resultCount").textContent=`${rows.length} de ${EPS.length} EPS`;
   $("exactChip").hidden=!exact;if(exact)$("exactChip").innerHTML=`EPS ${esc(exact)} <span aria-hidden="true">×</span>`;
 }
-["searchInput","filterProcesso","filterNorma"].forEach(id=>$(id).addEventListener("input",renderEPS));
+["searchInput","filterProcesso","filterNorma","filterTT"].forEach(id=>$(id).addEventListener("input",renderEPS));
 $("exactChip").onclick=()=>{exact=null;renderEPS()};
 document.querySelectorAll("td[data-eps]").forEach(td=>{
   td.innerHTML=td.dataset.eps.split(",").map(c=>`<button class="eps-link" data-c="${c}" title="Ver EPS ${c} na tabela">${c}</button>`).join("");
 });
 document.querySelectorAll(".eps-link").forEach(b=>b.onclick=()=>{
-  exact=b.dataset.c;$("searchInput").value="";$("filterProcesso").value="";$("filterNorma").value="";renderEPS();show("tabela");
+  exact=b.dataset.c;$("searchInput").value="";$("filterProcesso").value="";$("filterNorma").value="";$("filterTT").value="";renderEPS();show("tabela");
   if(!EPS.some(r=>r[0]===exact))$("noResults").textContent=`A EPS ${exact} aparece nos grupos, mas não tem linha na tabela.`;
   else $("noResults").textContent="Nenhuma EPS encontrada para este filtro.";
 });
@@ -822,14 +1146,17 @@ const dec=s=>String(s).replace(".",",");
 function centerRow(wrap,row){if(wrap&&row)wrap.scrollTop=row.offsetTop-wrap.clientHeight/2+row.offsetHeight}
 
 /* ======================= TABELAS ======================= */
-const TB=[["dureza","Conversão de dureza"],["acos","Aços construção mecânica"],["sobremetal","Sobremetal forjado"],["barras","Peso de barras (kg/m)"]];
+const TB=[["perfis","Perfis W · HP · U"],["tubos","Tubos"],["chapas","Chapas"],["flanges","Flanges"],["fixacao","Roscas e fixação"],["equiv","Equivalência de aços"],["dureza","Conversão de dureza"],["acos","Aços construção mecânica"],["sobremetal","Sobremetal forjado"],["barras","Peso de barras (kg/m)"]];
 let tbCur=store.get("gt_tb")||"dureza";if(!TB.some(t=>t[0]===tbCur))tbCur="dureza";
 $("tbTabs").innerHTML=TB.map(([k,t])=>`<button class="c-shape" data-k="${k}">${t}</button>`).join("");
 $("tbTabs").querySelectorAll("button").forEach(b=>b.onclick=()=>setTb(b.dataset.k));
 function setTb(k){tbCur=k;store.set("gt_tb",k);
   $("tbTabs").querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===k));
   TB.forEach(([id])=>$("tb-"+id).hidden=id!==k);
-  if(k==="dureza")dureza();if(k==="sobremetal")sobremetal();}
+  if(k==="dureza")dureza();if(k==="sobremetal")sobremetal();
+  if(k==="perfis")perfis();if(k==="tubos")tubos();if(k==="chapas")chapas();
+  if(k==="flanges")flanges();if(k==="fixacao")fixacao();if(k==="equiv")equiv();
+  if(current==="tabelas")$("hMeta").innerHTML=badges().map(([a,b])=>`<div class="badge">${a}: <strong>${b}</strong></div>`).join("");}
 
 /* Dureza: HRC HB HV HRA HRB HRD Shore — "( )" = fora da faixa recomendada */
 const DZ=`68 - 940 85.6 - 76.9 97|67 - 900 85.0 - 76.1 95|66 - 865 84.5 - 75.4 92|65 739 832 83.9 - 74.5 91|64 722 800 83.4 - 73.8 88|63 705 772 82.8 - 73.0 87|62 688 746 82.3 - 72.2 85|61 670 720 81.8 - 71.5 83|60 654 697 81.2 - 70.7 81|59 634 674 80.7 - 69.9 80|58 615 653 80.1 - 69.2 78|57 595 633 79.6 - 68.5 76|56 577 613 79.0 - 67.7 75|55 560 595 78.5 - 66.9 74|54 543 577 78.0 - 66.1 72|53 525 560 77.4 - 65.4 71|52 512 544 76.8 - 64.6 69|51 496 528 76.3 - 63.8 68|50 481 513 75.9 - 63.1 67|49 469 498 75.2 - 62.1 66|48 455 484 74.7 - 61.4 64|47 443 471 74.1 - 60.8 63|46 432 458 73.6 - 60.0 62|45 421 446 73.1 - 59.2 60|44 409 434 72.5 - 58.5 58|43 400 423 72.0 - 57.7 57|42 390 412 71.5 - 56.9 56|41 381 402 70.9 - 56.2 55|40 371 392 70.4 - 55.4 54|39 362 382 69.9 - 54.6 52|38 353 372 69.4 - 53.8 51|37 344 363 68.9 - 53.1 50|36 336 354 68.4 (109.0) 52.3 49|35 327 345 67.9 (108.5) 51.5 48|34 319 336 67.4 (108.0) 50.8 47|33 311 327 66.8 (107.5) 50.0 46|32 301 318 66.3 (107.0) 49.2 44|31 294 310 65.8 (106.0) 48.4 43|30 286 302 65.3 (105.5) 47.7 42|29 279 294 64.7 (104.5) 47.0 41|28 271 286 64.3 (104.0) 46.1 41|27 264 279 63.8 (103.0) 45.2 40|26 258 272 63.3 (102.5) 44.6 38|25 253 266 62.8 (101.5) 43.8 38|24 247 260 62.4 (101.0) 43.1 37|23 243 254 62.0 100.0 42.1 36|22 237 248 61.5 99.0 41.6 35|21 231 243 61.0 98.5 40.9 35|20 226 238 60.5 97.8 40.1 34|(18) 219 230 - 96.7 - 33|(16) 212 222 - 95.5 - 32|(14) 203 213 - 93.9 - 31|(12) 194 204 - 92.3 - 29|(10) 187 196 - 90.7 - 28|(8) 179 188 - 89.5 - 27|(6) 171 180 - 87.1 - 26|(4) 165 173 - 85.5 - 25|(2) 158 166 - 83.5 - 24|(0) 152 160 - 81.7 - 24`
@@ -925,6 +1252,500 @@ function barras(){
 }
 $("brSearch").addEventListener("input",barras);$("brRange").addEventListener("change",barras);
 acos();barras();
+
+/* ======================= PERFIS ======================= */
+// Gerdau (perfis W e HP): [bitola, kg/m, d, bf, tw, tf, h, d' (mm), A cm², Ix cm⁴, Wx cm³, rx cm, Zx cm³, Iy cm⁴]
+const PERF_W=[["W 150 x 13,0",13.0,148.0,100.0,4.3,4.9,138.0,118.0,16.6,635.0,85.8,6.18,96.4,82.0],["W 150 x 18,0",18.0,153.0,102.0,5.8,7.1,139.0,119.0,23.4,939.0,122.8,6.34,139.4,126.0],["W 150 x 22,5 (H)",22.5,152.0,152.0,5.8,6.6,139.0,119.0,29.0,1229.0,161.7,6.51,179.6,387.0],["W 150 x 24,0",24.0,160.0,102.0,6.6,10.3,139.0,115.0,31.5,1384.0,173.0,6.63,197.6,183.0],["W 150 x 29,8 (H)",29.8,157.0,153.0,6.6,9.3,138.0,118.0,38.5,1739.0,221.5,6.72,247.5,556.0],["W 150 x 37,1 (H)",37.1,162.0,154.0,8.1,11.6,139.0,119.0,47.8,2244.0,277.0,6.85,313.5,707.0],["W 200 x 15,0",15.0,200.0,100.0,4.3,5.2,190.0,170.0,19.4,1305.0,130.5,8.2,147.9,87.0],["W 200 x 19,3",19.3,203.0,102.0,5.8,6.5,190.0,170.0,25.1,1686.0,166.1,8.19,190.6,116.0],["W 200 x 22,5",22.5,206.0,102.0,6.2,8.0,190.0,170.0,29.0,2029.0,197.0,8.37,225.5,142.0],["W 200 x 26,6",26.6,207.0,133.0,5.8,8.4,190.0,170.0,34.2,2611.0,252.3,8.73,282.3,330.0],["W 200 x 31,3",31.3,210.0,134.0,6.4,10.2,190.0,170.0,40.3,3168.0,301.7,8.86,338.6,410.0],["W 200 x 35,9 (H)",35.9,201.0,165.0,6.2,10.2,181.0,161.0,45.7,3437.0,342.0,8.67,379.2,764.0],["W 200 x 41,7 (H)",41.7,205.0,166.0,7.2,11.8,181.0,157.0,53.5,4114.0,401.4,8.77,448.6,901.0],["W 200 x 46,1 (H)",46.1,203.0,203.0,7.2,11.0,181.0,161.0,58.6,4543.0,447.6,8.81,495.3,1535.0],["W 200 x 52,0 (H)",52.0,206.0,204.0,7.9,12.6,181.0,157.0,66.9,5298.0,514.4,8.9,572.5,1784.0],["HP 200 x 53,0 (H)",53.0,204.0,207.0,11.3,11.3,181.0,161.0,68.1,4977.0,488.0,8.55,551.3,1673.0],["W 200 x 59,0 (H)",59.0,210.0,205.0,9.1,14.2,182.0,158.0,76.0,6140.0,584.8,8.99,655.9,2041.0],["W 200 x 71,0 (H)",71.0,216.0,206.0,10.2,17.4,181.0,161.0,91.0,7660.0,709.2,9.17,803.2,2537.0],["W 200 x 86,0 (H)",86.0,222.0,209.0,13.0,20.6,181.0,157.0,110.9,9498.0,855.7,9.26,984.2,3139.0],["W 250 x 17,9",17.9,251.0,101.0,4.8,5.3,240.0,220.0,23.1,2291.0,182.6,9.96,211.0,91.0],["W 250 x 22,3",22.3,254.0,102.0,5.8,6.9,240.0,220.0,28.9,2939.0,231.4,10.09,267.7,123.0],["W 250 x 25,3",25.3,257.0,102.0,6.1,8.4,240.0,220.0,32.6,3473.0,270.2,10.31,311.1,149.0],["W 250 x 28,4",28.4,260.0,102.0,6.4,10.0,240.0,220.0,36.6,4046.0,311.2,10.51,357.3,178.0],["W 250 x 32,7",32.7,258.0,146.0,6.1,9.1,240.0,220.0,42.1,4937.0,382.7,10.83,428.5,473.0],["W 250 x 38,5",38.5,262.0,147.0,6.6,11.2,240.0,220.0,49.6,6057.0,462.4,11.05,517.8,594.0],["W 250 x 44,8",44.8,266.0,148.0,7.6,13.0,240.0,220.0,57.6,7158.0,538.2,11.15,606.3,704.0],["HP 250 x 62,0 (H)",62.0,246.0,256.0,10.5,10.7,225.0,201.0,79.6,8728.0,709.6,10.47,790.5,2995.0],["W 250 x 73,0 (H)",73.0,253.0,254.0,8.6,14.2,225.0,201.0,92.7,11257.0,889.9,11.02,983.3,3880.0],["W 250 x 80,0 (H)",80.0,256.0,255.0,9.4,15.6,225.0,201.0,101.9,12550.0,980.5,11.1,1088.7,4313.0],["HP 250 x 85,0 (H)",85.0,254.0,260.0,14.4,14.4,225.0,201.0,108.5,12280.0,966.9,10.64,1093.2,4225.0],["W 250 x 89,0 (H)",89.0,260.0,256.0,10.7,17.3,225.0,201.0,113.9,14237.0,1095.1,11.18,1224.4,4841.0],["W 250 x 101,0 (H)",101.0,264.0,257.0,11.9,19.6,225.0,201.0,128.7,16352.0,1238.8,11.27,1395.0,5549.0],["W 250 x 115,0 (H)",115.0,269.0,259.0,13.5,22.1,225.0,201.0,146.1,18920.0,1406.7,11.38,1597.4,6405.0],["W 310 x 21,0",21.0,303.0,101.0,5.1,5.7,292.0,272.0,27.2,3776.0,249.2,11.77,291.9,98.0],["W 310 x 23,8",23.8,305.0,101.0,5.6,6.7,292.0,272.0,30.7,4346.0,285.0,11.89,333.2,116.0],["W 310 x 28,3",28.3,309.0,102.0,6.0,8.9,291.0,271.0,36.5,5500.0,356.0,12.28,412.0,158.0],["W 310 x 32,7",32.7,313.0,102.0,6.6,10.8,291.0,271.0,42.1,6570.0,419.8,12.49,485.3,192.0],["W 310 x 38,7",38.7,310.0,165.0,5.8,9.7,291.0,271.0,49.7,8581.0,553.6,13.14,615.4,727.0],["W 310 x 44,5",44.5,313.0,166.0,6.6,11.2,291.0,271.0,57.2,9997.0,638.8,13.22,712.8,855.0],["W 310 x 52,0",52.0,317.0,167.0,7.6,13.2,291.0,271.0,67.0,11909.0,751.4,13.33,842.5,1026.0],["HP 310 x 79,0 (H)",79.0,299.0,306.0,11.0,11.0,277.0,245.0,100.0,16316.0,1091.3,12.77,1210.1,5258.0],["HP 310 x 93,0 (H)",93.0,303.0,308.0,13.1,13.1,277.0,245.0,119.2,19682.0,1299.1,12.85,1450.3,6387.0],["W 310 x 97,0 (H)",97.0,308.0,305.0,9.9,15.4,277.0,245.0,123.6,22284.0,1447.0,13.43,1594.2,7286.0],["W 310 x 107,0 (H)",107.0,311.0,306.0,10.9,17.0,277.0,245.0,136.4,24839.0,1597.3,13.49,1768.2,8123.0],["HP 310 x 110,0 (H)",110.0,308.0,310.0,15.4,15.5,277.0,245.0,141.0,23703.0,1539.1,12.97,1730.6,7707.0],["W 310 x 117,0 (H)",117.0,314.0,307.0,11.9,18.7,277.0,245.0,149.9,27563.0,1755.6,13.56,1952.6,9024.0],["HP 310 x 125,0 (H)",125.0,312.0,312.0,17.4,17.4,277.0,245.0,159.0,27076.0,1735.6,13.05,1963.3,8823.0],["W 360 x 32,9",32.9,349.0,127.0,5.8,8.5,332.0,308.0,42.1,8358.0,479.0,14.09,547.6,291.0],["W 360 x 39,0",39.0,353.0,128.0,6.5,10.7,332.0,308.0,50.2,10331.0,585.3,14.35,667.7,375.0],["W 360 x 44,0",44.0,352.0,171.0,6.9,9.8,332.0,308.0,57.7,12258.0,696.5,14.58,784.3,818.0],["W 360 x 51,0",51.0,355.0,171.0,7.2,11.6,332.0,308.0,64.8,14222.0,801.2,14.81,899.5,968.0],["W 360 x 57,8",57.8,358.0,172.0,7.9,13.1,332.0,308.0,72.5,16143.0,901.8,14.92,1014.8,1113.0],["W 360 x 64,0",64.0,347.0,203.0,7.7,13.5,320.0,288.0,81.7,17890.0,1031.1,14.8,1145.5,1885.0],["W 360 x 72,0",72.0,350.0,204.0,8.6,15.1,320.0,288.0,91.3,20169.0,1152.5,14.86,1285.9,2140.0],["W 360 x 79,0",79.0,354.0,205.0,9.4,16.8,320.0,288.0,101.2,22713.0,1283.2,14.98,1437.0,2416.0],["W 360 x 91,0 (H)",91.0,353.0,254.0,9.5,16.4,320.0,288.0,115.9,26755.0,1515.9,15.19,1680.1,4483.0],["W 360 x 101,0 (H)",101.0,357.0,255.0,10.5,18.3,320.0,286.0,129.5,30279.0,1696.3,15.29,1888.9,5063.0],["W 360 x 110,0 (H)",110.0,360.0,256.0,11.4,19.9,320.0,288.0,140.6,33155.0,1841.9,15.36,2059.3,5570.0],["W 360 x 122,0 (H)",122.0,363.0,257.0,13.0,21.7,320.0,288.0,155.3,36599.0,2016.5,15.35,2269.8,6147.0],["W 410 x 38,8",38.8,399.0,140.0,6.4,8.8,381.0,357.0,50.3,12777.0,640.5,15.94,736.8,404.0],["W 410 x 46,1",46.1,403.0,140.0,7.0,11.2,381.0,357.0,59.2,15690.0,778.7,16.27,891.1,514.0],["W 410 x 53,0",53.0,403.0,177.0,7.5,10.9,381.0,357.0,68.4,18734.0,929.7,16.55,1052.2,1009.0],["W 410 x 60,0",60.0,407.0,178.0,7.7,12.8,381.0,357.0,76.2,21707.0,1066.7,16.88,1201.5,1205.0],["W 410 x 67,0",67.0,410.0,179.0,8.8,14.4,381.0,357.0,86.3,24678.0,1203.8,16.91,1362.7,1379.0],["W 410 x 75,0",75.0,413.0,180.0,9.7,16.0,381.0,357.0,95.8,27616.0,1337.3,16.98,1518.6,1559.0],["W 410 x 85,0",85.0,417.0,181.0,10.9,18.2,381.0,357.0,108.6,31658.0,1518.4,17.07,1731.7,1804.0],["W 460 x 52,0",52.0,450.0,152.0,7.6,10.8,428.0,404.0,66.6,21370.0,949.8,17.91,1095.9,634.0],["W 460 x 60,0",60.0,455.0,153.0,8.0,13.3,428.0,404.0,76.2,25652.0,1127.6,18.35,1292.1,796.0],["W 460 x 68,0",68.0,459.0,154.0,9.1,15.4,428.0,404.0,87.6,29851.0,1300.7,18.46,1495.4,941.0],["W 460 x 74,0",74.0,457.0,190.0,9.0,14.5,428.0,404.0,94.9,33415.0,1462.4,18.77,1657.4,1661.0],["W 460 x 82,0",82.0,460.0,191.0,9.9,16.0,428.0,404.0,104.7,37157.0,1615.5,18.84,1836.4,1862.0],["W 460 x 89,0",89.0,463.0,192.0,10.5,17.7,428.0,404.0,114.1,41105.0,1775.6,18.98,2019.4,2093.0],["W 460 x 97,0",97.0,466.0,193.0,11.4,19.0,428.0,404.0,123.4,44658.0,1916.7,19.03,2187.4,2283.0],["W 460 x 106,0",106.0,469.0,194.0,12.6,20.6,428.0,404.0,135.1,48978.0,2088.6,19.04,2394.6,2515.0],["W 530 x 66,0",66.0,525.0,165.0,8.9,11.4,502.0,478.0,83.6,34971.0,1332.2,20.46,1558.0,857.0],["W 530 x 72,0",72.0,524.0,207.0,9.0,10.9,502.0,478.0,91.6,39969.0,1525.5,20.89,1755.9,1615.0],["W 530 x 74,0",74.0,529.0,166.0,9.7,13.6,502.0,478.0,95.1,40969.0,1548.9,20.76,1804.9,1041.0],["W 530 x 82,0",82.0,528.0,209.0,9.5,13.3,501.0,477.0,104.5,47569.0,1801.8,21.34,2058.5,2028.0],["W 530 x 85,0",85.0,535.0,166.0,10.3,16.5,502.0,478.0,107.7,48453.0,1811.3,21.21,2099.8,1263.0],["W 530 x 92,0",92.0,533.0,209.0,10.2,15.6,502.0,478.0,117.6,55157.0,2069.7,21.65,2359.8,2379.0],["W 530 x 101,0",101.0,537.0,210.0,10.9,17.4,502.0,470.0,130.0,62198.0,2316.5,21.87,2640.4,2693.0],["W 530 x 109,0",109.0,539.0,211.0,11.6,18.8,501.0,469.0,139.7,67226.0,2494.5,21.94,2847.0,2952.0],["W 610 x 101,0",101.0,603.0,228.0,10.5,14.9,573.0,541.0,130.3,77003.0,2554.0,24.31,2922.7,2951.0],["W 610 x 113,0",113.0,608.0,228.0,11.2,17.3,573.0,541.0,145.3,88196.0,2901.2,24.64,3312.9,3426.0],["W 610 x 125,0",125.0,612.0,229.0,11.9,19.6,573.0,541.0,160.1,99184.0,3241.3,24.89,3697.3,3933.0],["W 610 x 140,0",140.0,617.0,230.0,13.1,22.2,573.0,541.0,179.3,112619.0,3650.5,25.06,4173.1,4515.0],["W 610 x 155,0",155.0,611.0,324.0,12.7,19.0,573.0,541.0,198.1,129583.0,4241.7,25.58,4749.1,10783.0],["W 610 x 174,0",174.0,616.0,325.0,14.0,21.6,573.0,541.0,222.8,147754.0,4797.2,25.75,5383.3,12374.0]];
+// Ferrominas (perfil U laminado, ASTM A36/A572): [designação, kg/m, h, b, ea (mm)]
+const PERF_U=[["U 3\" × 4,1 lb/pé (1ª alma)",6.10,76.2,35.8,4.32],["U 3\" × 5,0 lb/pé (2ª alma)",7.44,76.2,38.0,6.55],["U 4\" × 5,4 lb/pé (1ª alma)",8.04,101.6,40.2,4.67],
+  ["U 4\" × 6,25 lb/pé (2ª alma)",9.30,101.6,41.84,6.27],["U 6\" × 8,2 lb/pé (1ª alma)",12.20,152.4,48.8,5.08],["U 6\" × 10,5 lb/pé (2ª alma)",15.60,152.4,51.7,7.98]];
+const mm1=v=>nf(v,v%1?1:0);
+const PF={
+  W:{t:"Perfis W e HP (Gerdau)",data:PERF_W,src:"Fonte: tabela de bitolas Gerdau (perfis estruturais W e HP). Wy e ry calculados a partir de Iy. (H) = perfil de abas largas, tipo pilar.",
+    head:`<tr><th>Bitola</th><th class="n">kg/m</th><th class="n">d</th><th class="n">bf</th><th class="n">tw</th><th class="n">tf</th><th class="n">h</th><th class="n">d'</th><th class="n bl">A cm²</th><th class="n">Ix cm⁴</th><th class="n">Wx cm³</th><th class="n">rx cm</th><th class="n">Zx cm³</th><th class="n bl">Iy cm⁴</th><th class="n">Wy cm³</th><th class="n">ry cm</th></tr>`,
+    row:r=>`<td>${r[0]}</td><td class="n" style="color:var(--strong);font-weight:600">${nf(r[1],1)}</td>${r.slice(2,8).map(v=>`<td class="n">${mm1(v)}</td>`).join("")}
+      <td class="n bl">${nf(r[8],1)}</td><td class="n">${nf(r[9],0)}</td><td class="n">${nf(r[10],1)}</td><td class="n">${nf(r[11],2)}</td><td class="n">${nf(r[12],1)}</td>
+      <td class="n bl">${nf(r[13],0)}</td><td class="n">${nf(r[13]/(r[3]/20),1)}</td><td class="n">${nf(Math.sqrt(r[13]/r[8]),2)}</td>`,
+    paint:r=>(2*r[2]+4*r[3]-2*r[4])/1000,dims:r=>`d ${mm1(r[2])} · bf ${mm1(r[3])} · tw ${mm1(r[4])} · tf ${mm1(r[5])} mm`},
+  U:{t:"Perfil U laminado",data:PERF_U,src:"Fonte: Ferrominas — perfil U laminado (ASTM A36 / A572 / A6). Comprimentos padrão de 6 e 12 m.",
+    head:`<tr><th>Designação</th><th class="n">kg/m</th><th class="n">Altura h (mm)</th><th class="n">Aba b (mm)</th><th class="n">Alma ea (mm)</th></tr>`,
+    row:r=>`<td>${r[0]}</td><td class="n" style="color:var(--strong);font-weight:600">${nf(r[1],2)}</td><td class="n">${mm1(r[2])}</td><td class="n">${nf(r[3],2)}</td><td class="n">${nf(r[4],2)}</td>`,
+    paint:r=>(2*r[2]+4*r[3]-2*r[4])/1000,dims:r=>`h ${mm1(r[2])} · b ${nf(r[3],1)} · ea ${nf(r[4],2)} mm`}
+};
+let pfTipo=store.get("gt_pf")||"W",pfSel=null;if(!PF[pfTipo])pfTipo="W";
+$("pfTabs").innerHTML=Object.entries(PF).map(([k,p])=>`<button class="c-shape" data-k="${k}">${p.t}</button>`).join("");
+$("pfTabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{pfTipo=b.dataset.k;pfSel=null;store.set("gt_pf",pfTipo);perfis()});
+$("pfSerie").innerHTML=`<option value="">Todas as alturas</option>`+[150,200,250,310,360,410,460,530,610].map(h=>`<option value="${h}">${h} mm</option>`).join("")+
+  `<option value="H">Só abas largas (H)</option><option value="HP">Só HP</option>`;
+function perfis(){
+  const P=PF[pfTipo],q=$("pfSearch").value.trim().toLowerCase().replace(/\s+/g," "),se=$("pfSerie").value;
+  $("pfTabs").querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===pfTipo));
+  $("pfSerie").hidden=pfTipo!=="W";
+  const rows=P.data.map((r,i)=>[r,i]).filter(([r])=>{
+    if(pfTipo==="W"&&se){if(se==="H"&&!r[0].includes("(H)"))return false;if(se==="HP"&&!r[0].startsWith("HP"))return false;if(+se&&!r[0].includes(" "+se+" x"))return false}
+    if(q){const n=r[0].toLowerCase(),nq=n.replace(/ x /g," ").replace(/[()"]/g,"");if(!n.includes(q)&&!nq.includes(q)&&!nf(r[1],1).startsWith(q))return false}
+    return true});
+  $("pfHead").innerHTML=P.head;
+  $("pfBody").innerHTML=rows.map(([r,i])=>`<tr data-i="${i}" class="${i===pfSel?"hit":""}">${P.row(r)}</tr>`).join("")||`<tr><td colspan="16" class="empty">Nenhum perfil encontrado.</td></tr>`;
+  $("pfBody").querySelectorAll("tr[data-i]").forEach(tr=>tr.onclick=()=>{pfSel=+tr.dataset.i;perfis()});
+  $("pfCount").textContent=`${rows.length} de ${P.data.length} perfis · clique numa linha para calcular peso e pintura`;
+  $("pfSrc").textContent=P.src;
+  pfCalc();
+}
+function pfCalc(){
+  const P=PF[pfTipo];
+  if(pfSel==null||!P.data[pfSel]){$("pfAns").innerHTML=`<span class="msg">Clique num perfil da tabela para ver o peso das barras e a área de pintura.</span>`;return}
+  const r=P.data[pfSel],L=parseNum($("pfLen").value),n=Math.max(1,Math.round(parseNum($("pfQty").value))||1);
+  const ok=L>0,kg=r[1]*L*n,pm=P.paint(r);
+  $("pfAns").innerHTML=`<div><small>Perfil</small><b>${r[0]}</b></div><div><small>Peso por metro</small><b>${nf(r[1],r[1]<10?2:1)} kg/m</b></div>
+    <div><small>Peso total</small><b style="color:var(--accent)">${ok?nf(kg,kg<100?2:1)+" kg":"–"}</b></div><div><small>Pintura</small><b>${ok?nf(pm*L*n,2)+" m²":"–"}</b></div>
+    <span class="msg">${P.dims(r)} · área de pintura ${nf(pm,3)} m²/m (perímetro sem raios de concordância)${ok?` · ${n} pç × ${dec(L)} m`:" · informe o comprimento"}</span>`;
+}
+$("pfSearch").addEventListener("input",perfis);$("pfSerie").addEventListener("change",perfis);
+$("pfLen").addEventListener("input",pfCalc);$("pfQty").addEventListener("input",pfCalc);
+
+/* ======================= TUBOS ======================= */
+// ASME B36.10M: [NPS, Ø ext, Sch 10, Sch 40, Sch 80, Sch 160, XXS] — parede em mm
+const SCH=[["1/8",10.3,1.24,1.73,2.41,0,0],["1/4",13.7,1.65,2.24,3.02,0,0],["3/8",17.1,1.65,2.31,3.20,0,0],["1/2",21.3,2.11,2.77,3.73,4.78,7.47],["3/4",26.7,2.11,2.87,3.91,5.56,7.82],
+  ["1",33.4,2.77,3.38,4.55,6.35,9.09],["1 1/4",42.2,2.77,3.56,4.85,6.35,9.70],["1 1/2",48.3,2.77,3.68,5.08,7.14,10.15],["2",60.3,2.77,3.91,5.54,8.74,11.07],["2 1/2",73.0,3.05,5.16,7.01,9.53,14.02],
+  ["3",88.9,3.05,5.49,7.62,11.13,15.24],["3 1/2",101.6,3.05,5.74,8.08,0,0],["4",114.3,3.05,6.02,8.56,13.49,17.12],["5",141.3,3.40,6.55,9.53,15.88,19.05],["6",168.3,3.40,7.11,10.97,18.26,21.95],
+  ["8",219.1,3.76,8.18,12.70,23.01,22.23],["10",273.0,4.19,9.27,15.09,28.58,25.40],["12",323.8,4.57,10.31,17.48,33.32,25.40],["14",355.6,6.35,11.13,19.05,35.71,0],["16",406.4,6.35,12.70,21.44,40.49,0],
+  ["18",457.2,6.35,14.27,23.83,45.24,0],["20",508.0,6.35,15.09,26.19,50.01,0],["24",609.6,6.35,17.48,30.96,59.54,0]];
+// NBR 5580 (DIN 2440 = classe média): [pol, Ø ext, parede leve, parede média]
+const NBR5580=[["1/4",13.5,2.00,2.35],["3/8",17.2,2.00,2.35],["1/2",21.3,2.25,2.65],["3/4",26.9,2.25,2.65],["1",33.7,2.65,3.25],["1 1/4",42.4,2.65,3.25],["1 1/2",48.3,3.00,3.25],
+  ["2",60.3,3.00,3.65],["2 1/2",76.1,3.35,3.65],["3",88.9,3.35,4.05],["4",114.3,3.75,4.50],["5",139.7,0,4.85],["6",165.1,0,4.85],["8",219.1,0,6.30]];
+const tkgm=(D,e)=>(D-e)*e*0.02466;
+const stdW=r=>parseNum(r[0])>=12?9.53:r[3],xsW=r=>parseNum(r[0])>=10?12.70:r[4];
+const TU={
+  sch:{t:"Schedule — ASME B36.10",info:["Tubos de aço carbono com e sem costura (schedule)","O Ø externo é fixo para cada polegada; o schedule muda só a parede. STD é igual ao Sch 40 até 10\" e tem parede de 9,53 mm a partir de 12\". XS é igual ao Sch 80 até 8\" e tem 12,70 mm a partir de 10\". Clique numa célula para usar o tubo."],
+    src:"Paredes conforme ASME B36.10M (conferidas com o catálogo Jetro de tubos SCH 40 / SCH 80). Peso = (D − e) × e × 0,02466 kg/m.",
+    cols:[["Sch 10",2],["Sch 40",3],["Sch 80",4],["Sch 160",5],["XXS",6]],data:SCH},
+  nbr:{t:"Condução — NBR 5580 / DIN 2440",info:["Tubos de condução NBR 5580 (classes leve e média)","Usados em condução de água, ar, gás e vapor de baixa pressão, corrimão e estrutura leve. A classe média corresponde à DIN 2440. Clique numa célula para usar o tubo."],
+    src:"Fonte: tabela Jetro Tubos — NBR 5580 leve e média (DIN 2440). Peso = (D − e) × e × 0,02466 kg/m.",
+    cols:[["Leve (L)",2],["Média (M) · DIN 2440",3]],data:NBR5580}
+};
+let tuNorma=store.get("gt_tu")||"sch",tuSel=null;if(!TU[tuNorma])tuNorma="sch";
+$("tuTabs").innerHTML=Object.entries(TU).map(([k,t])=>`<button class="c-shape" data-k="${k}">${t.t}</button>`).join("");
+$("tuTabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{tuNorma=b.dataset.k;tuSel=null;store.set("gt_tu",tuNorma);tubos()});
+function tubos(){
+  const T=TU[tuNorma],q=$("tuSearch").value.trim().replace(/["”]/g,"").replace(/\s+/g," ").replace(",",".");
+  $("tuTabs").querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===tuNorma));
+  $("tuInfo").querySelector("h4").textContent=T.info[0];$("tuInfo").querySelector("p").textContent=T.info[1];
+  $("tuHead").innerHTML=`<tr><th>Polegada</th><th class="n">Ø ext. (mm)</th>${T.cols.map(([l])=>`<th class="n bl">${l}<br><small style="text-transform:none;letter-spacing:0">parede · kg/m</small></th>`).join("")}</tr>`;
+  const rows=T.data.map((r,i)=>[r,i]).filter(([r])=>!q||r[0]===q||r[0].startsWith(q+" ")||String(r[1]).startsWith(q)||(!/\s|\//.test(q)&&r[0].startsWith(q)));
+  $("tuBody").innerHTML=rows.map(([r,i])=>`<tr><td class="mono" style="font-weight:600;color:var(--strong)">${r[0]}"</td><td class="n">${nf(r[1],1)}</td>${T.cols.map(([l,c])=>{const e=r[c];
+    if(!e)return`<td class="n bl"><span class="none">—</span></td>`;
+    const on=tuSel&&tuSel.i===i&&tuSel.c===c;
+    return `<td class="n bl cell-pick${on?" on":""}" data-i="${i}" data-c="${c}" tabindex="0"><b>${nf(e,2)}</b><small>${nf(tkgm(r[1],e),2)}</small></td>`}).join("")}</tr>`).join("")||
+    `<tr><td colspan="${T.cols.length+2}" class="empty">Nenhuma bitola encontrada.</td></tr>`;
+  $("tuBody").querySelectorAll("td.cell-pick").forEach(td=>{const pick=()=>{tuSel={i:+td.dataset.i,c:+td.dataset.c};tubos()};td.onclick=pick;td.onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();pick()}}});
+  $("tuSrc").textContent=T.src;
+  if(!tuSel){$("tuAns").innerHTML=`<span class="msg">Clique numa espessura da tabela para ver Ø interno, peso e área de pintura.</span>`;return}
+  const r=T.data[tuSel.i],D=r[1],e=r[tuSel.c],lab=T.cols.find(x=>x[1]===tuSel.c)[0];
+  let extra="";if(tuNorma==="sch")extra=` · STD ${nf(stdW(r),2)} mm · XS ${nf(xsW(r),2)} mm`;
+  $("tuAns").innerHTML=`<div><small>Tubo</small><b>${r[0]}" ${lab.split(" ·")[0]}</b></div><div><small>Ø ext. × parede</small><b>${nf(D,1)} × ${nf(e,2)}</b></div>
+    <div><small>Ø interno</small><b>${nf(D-2*e,2)} mm</b></div><div><small>Peso</small><b style="color:var(--accent)">${nf(tkgm(D,e),2)} kg/m</b></div>
+    <button class="btn ghost" id="tuCalc">Calcular na calculadora</button>
+    <span class="msg">Área de pintura externa ${nf(Math.PI*D/1000,3)} m²/m · seção ${nf(Math.PI*(D*D-(D-2*e)**2)/4,0)} mm²${extra}</span>`;
+  $("tuCalc").onclick=()=>{setShape("tubo");$("in_tubo_D").value=D;$("in_tubo_e").value=e;$("in_tubo_d").value=String(Math.round((D-2*e)*1000)/1000);calc();show("calc")};
+}
+$("tuSearch").addEventListener("input",tubos);
+
+/* ======================= CHAPAS ======================= */
+// [espessura mm, polegada aprox., nº MSG aprox., linha]
+const CHAPAS=[[1.50,"","16","CSN BQ"],[1.80,"","",""],[2.00,"","14",""],[2.25,"","13",""],[2.65,"","12",""],[3.00,"1/8","11",""],[3.35,"","10",""],[3.75,"","9",""],[4.25,"","8",""],[4.50,"","",""],[4.75,"3/16","","CSN BQ · Usiminas"],
+  [5.00,"","","CSN BG"],[6.30,"1/4","","CSN BG · Usiminas"],[8.00,"5/16","",""],[9.50,"3/8","",""],[12.50,"1/2","",""],[16.00,"5/8","","Chapa grossa · Usiminas"],[19.00,"3/4","",""],[22.40,"7/8","",""],
+  [25.00,"1","",""],[31.50,"1 1/4","",""],[37.50,"1 1/2","",""],[44.45,"1 3/4","",""],[50.00,"2","",""],[63.50,"2 1/2","",""],[76.20,"3","",""],[101.60,"4","",""]];
+{let l="";CHAPAS.forEach(c=>{if(c[3])l=c[3];else c[3]=l})}
+const FMT=[[1000,2000],[1200,3000],[1500,3000],[1500,6000],[1800,6000],[2440,6000]];
+$("chFmt").innerHTML=FMT.map(([l,c],i)=>`<option value="${i}">${l} × ${c} mm</option>`).join("")+`<option value="x">Outro (digitar)</option>`;
+let chSel=null;
+{const s=store.get("gt_ch");if(s){$("chL").value=s[0];$("chC").value=s[1];$("chD").value=s[2]}}
+function chSync(){const L=parseNum($("chL").value),C=parseNum($("chC").value),i=FMT.findIndex(f=>f[0]===L&&f[1]===C);$("chFmt").value=i>=0?i:"x"}
+$("chFmt").onchange=()=>{const v=$("chFmt").value;if(v!=="x"){$("chL").value=FMT[+v][0];$("chC").value=FMT[+v][1]}chapas()};
+["chL","chC","chD"].forEach(id=>$(id).addEventListener("input",()=>{chSync();chapas()}));
+function chapas(){
+  const L=parseNum($("chL").value),C=parseNum($("chC").value),d=parseNum($("chD").value),ok=L>0&&C>0&&d>0;
+  store.set("gt_ch",[$("chL").value,$("chC").value,$("chD").value]);chSync();
+  $("chColKg").textContent=ok?`kg/chapa ${nf(L,0)}×${nf(C,0)}`:"kg/chapa";
+  $("chBody").innerHTML=CHAPAS.map((c,i)=>{const m2=c[0]*d,kg=m2*L*C/1e6;
+    return `<tr data-i="${i}" class="${i===chSel?"hit":""}"><td class="n" style="color:var(--strong);font-weight:600">${nf(c[0],2)}</td><td>${c[1]?c[1]+'"':'<span class="none">—</span>'}</td><td>${c[2]?"#"+c[2]:'<span class="none">—</span>'}</td>
+      <td class="n">${ok?nf(m2,2):"–"}</td><td class="n">${ok?nf(kg,kg<100?2:1):"–"}</td><td style="font-family:var(--f-body);font-size:12px;color:var(--muted)">${c[3]}</td></tr>`}).join("");
+  $("chBody").querySelectorAll("tr").forEach(tr=>tr.onclick=()=>{chSel=+tr.dataset.i;chapas()});
+  if(chSel==null||!ok){$("chAns").innerHTML=`<span class="msg">${ok?"Clique numa espessura para ver o peso da chapa e mandar para a calculadora.":"Informe largura, comprimento e densidade maiores que zero."}</span>`;return}
+  const e=CHAPAS[chSel][0],kg=e*d*L*C/1e6;
+  $("chAns").innerHTML=`<div><small>Chapa</small><b>#${nf(e,2)} mm</b></div><div><small>Formato</small><b>${nf(L,0)} × ${nf(C,0)}</b></div>
+    <div><small>Peso da chapa</small><b style="color:var(--accent)">${nf(kg,1)} kg</b></div><div><small>Área</small><b>${nf(L*C/1e6,2)} m²</b></div>
+    <button class="btn ghost" id="chCalc">Calcular na calculadora</button>`;
+  $("chCalc").onclick=()=>{setShape("chapa");$("in_chapa_C").value=C;$("in_chapa_L").value=L;$("in_chapa_E").value=e;$("cDens").value=d;$("cDens").oninput();show("calc")};
+}
+
+/* ======================= TOLERÂNCIAS ======================= */
+// faixas: (e[i], e[i+1]] — a primeira inclui o limite inferior
+const rIdx=(e,v)=>{if(!(v>=e[0]))return -1;for(let i=0;i<e.length-1;i++)if(v<=e[i+1])return i;return -1};
+const INF=Infinity;
+const T13L={e:[2,30,120,400,1000,2000,4000,8000,12000,16000,20000,INF],c:{A:[1,1,1,2,3,4,5,6,7,8,9],B:[1,2,2,3,4,6,8,10,12,14,16],C:[1,3,4,6,8,11,14,18,21,24,27],D:[1,4,7,9,12,16,21,27,32,36,40]}};
+const T13A={e:[0,400,1000,INF],c:{A:[20,15,10],B:[45,30,20],C:[60,45,30],D:[90,75,60]},mm:{A:[6,4.5,3],B:[13,9,6],C:[18,13,9],D:[26,22,18]}};
+const T13F={e:[30,120,400,1000,2000,4000,8000,12000,16000,20000,INF],c:{E:[.5,1,1.5,2,3,4,5,6,7,8],F:[1,1.5,3,4.5,6,8,10,12,14,16],G:[1.5,3,5.5,9,11,16,20,22,25,25],H:[2.5,5,9,14,18,26,32,36,40,40]}};
+const T27L={e:[.5,3,6,30,120,400,1000,2000,4000],c:{f:[.05,.05,.1,.15,.2,.3,.5,0],m:[.1,.1,.2,.3,.5,.8,1.2,2],c:[.2,.3,.5,.8,1.2,2,3,4],v:[0,.5,1,1.5,2.5,4,6,8]}};
+const T27R={e:[.5,3,6,INF],c:{f:[.2,.5,1],m:[.2,.5,1],c:[.4,1,2],v:[.4,1,2]}};
+const T27A={e:[0,10,50,120,400,INF],c:{f:[60,30,20,10,5],m:[60,30,20,10,5],c:[90,60,30,15,10],v:[180,120,60,30,20]}};
+const T27S={e:[0,10,30,100,300,1000,3000],c:{H:[.02,.05,.1,.2,.3,.4],K:[.05,.1,.2,.4,.6,.8],L:[.1,.2,.4,.8,1.2,1.6]}};
+const T27P={e:[0,100,300,1000,3000],c:{H:[.2,.3,.4,.5],K:[.4,.6,.8,1],L:[.6,1,1.5,2]}};
+const T27Y={e:[0,100,300,1000,3000],c:{H:[.5,.5,.5,.5],K:[.6,.6,.8,1],L:[.6,1,1.5,2]}};
+const T27B={H:.1,K:.2,L:.5};
+const CLS27={f:"f — fino",m:"m — médio",c:"c — grosso",v:"v — muito grosso"};
+const ang=m=>{const d=Math.floor(m/60),r=m%60;return "±"+(d?d+"°":"")+(r?(d?" ":"")+r+"'":"")};
+const mmv=v=>dec(String(v));
+const rLab=(e,i,unit="")=>{const a=e[i],b=e[i+1];return a<=0?`≤ ${nf(b,0)}`:b===INF?`> ${nf(a,0)}`:`${dec(String(a))} – ${nf(b,0)}`};
+function tolCard(title,big,unit,list,sel,note){
+  return `<div class="tol-card"><h4>${title}</h4><div class="big">${big}${big!=="–"&&unit?`<i>${unit}</i>`:""}</div>
+    <ul>${list.map(([k,v])=>`<li class="${k===sel?"on":""}"><span>Classe ${k}</span><b>${v}</b></li>`).join("")}</ul>${note?`<p>${note}</p>`:""}</div>`}
+function tolTable(id,T,fmt,sel,hit,head="Classe",labels){
+  const n=T.e.length-1;
+  $(id).innerHTML=`<thead><tr><th>${head}</th>${Array.from({length:n},(_,i)=>`<th class="${i===hit?"hc":""}">${rLab(T.e,i)}</th>`).join("")}</tr></thead><tbody>`+
+    Object.entries(T.c).map(([k,a])=>`<tr class="${k===sel?"hr":""}"><td>${labels?labels[k]:k}</td>${a.map((v,i)=>`<td class="${i===hit?"hc":""}">${v?fmt(v,k,i):"—"}</td>`).join("")}</tr>`).join("")+`</tbody>`;
+}
+{const s=store.get("gt_tol");if(Array.isArray(s))["tlDim","tlLeg","tlA","tlE","tlF","tlH"].forEach((id,i)=>{if(s[i]!=null)$(id).value=s[i]})}
+function tolerancias(){
+  const D=parseNum($("tlDim").value),G=parseNum($("tlLeg").value),A=$("tlA").value,E=$("tlE").value,F=$("tlF").value,H=$("tlH").value;
+  store.set("gt_tol",["tlDim","tlLeg","tlA","tlE","tlF","tlH"].map(id=>$(id).value));
+  const iL=rIdx(T13L.e,D),iA=rIdx(T13A.e,G),iF=rIdx(T13F.e,D),jL=rIdx(T27L.e,D),jR=rIdx(T27R.e,D),jA=rIdx(T27A.e,G),jS=rIdx(T27S.e,D),jP=rIdx(T27P.e,G),jY=rIdx(T27Y.e,D);
+  const pm=v=>"±"+mmv(v);
+  const okD=D>0,okG=G>0;
+  $("tlRes13920").innerHTML=
+    tolCard("Medida linear",okD&&iL>=0?pm(T13L.c[A][iL]):"–","mm",Object.keys(T13L.c).map(k=>[k,iL>=0?pm(T13L.c[k][iL])+" mm":"—"]),A,
+      okD?(iL>=0?`${nf(D,D%1?1:0)} mm cai na faixa ${rLab(T13L.e,iL)} mm.`:"Abaixo de 2 mm a ISO 13920 não especifica."):"Digite a dimensão.")+
+    tolCard("Medida angular",okG&&iA>=0?ang(T13A.c[A][iA]):"–","",Object.keys(T13A.c).map(k=>[k,iA>=0?`${ang(T13A.c[k][iA])} · ${mmv(T13A.mm[k][iA])} mm/m`:"—"]),A,
+      okG&&iA>=0?`No lado de ${nf(G,0)} mm: desvio de ±${nf(T13A.mm[A][iA]*G/1000,1)} mm na ponta (classe ${A}).`:"Digite o comprimento do lado menor.")+
+    tolCard("Retitude, planeza e paralelismo",okD&&iF>=0?mmv(T13F.c[E][iF]):"–","mm",Object.keys(T13F.c).map(k=>[k,iF>=0?mmv(T13F.c[k][iF])+" mm":"—"]),E,
+      okD&&iF<0?"A Tabela 3 começa acima de 30 mm.":"Vale para o comprimento total da peça soldada ou de um trecho de referência.")+
+    `<div class="tol-card"><h4>No desenho</h4><div class="callout">ISO 13920-${A}${E}</div><p>Medidas e ângulos na classe ${A}, forma na classe ${E}. A classe B com F é a combinação mais usada em estrutura metálica e caldeiraria comum.</p></div>`;
+  $("tlRes2768").innerHTML=
+    tolCard("Medida linear",okD&&jL>=0&&T27L.c[F][jL]?pm(T27L.c[F][jL]):"–","mm",Object.keys(T27L.c).map(k=>[k,jL>=0&&T27L.c[k][jL]?pm(T27L.c[k][jL])+" mm":"—"]),F,
+      okD?(jL<0?(D<.5?"Abaixo de 0,5 mm a tolerância vai junto da cota.":"Acima de 4000 mm a ISO 2768-1 não especifica."):`Raio externo ou chanfro dessa medida: ${jR>=0?pm(T27R.c[F][jR])+" mm":"—"}.`):"Digite a dimensão.")+
+    tolCard("Medida angular",okG&&jA>=0?ang(T27A.c[F][jA]):"–","",Object.keys(T27A.c).map(k=>[k,jA>=0?ang(T27A.c[k][jA]):"—"]),F,okG?`Lado menor de ${nf(G,0)} mm.`:"Digite o comprimento do lado menor.")+
+    tolCard("Retitude e planeza",okD&&jS>=0?mmv(T27S.c[H][jS]):"–","mm",Object.keys(T27S.c).map(k=>[k,jS>=0?mmv(T27S.c[k][jS])+" mm":"—"]),H,okD&&jS<0?"A ISO 2768-2 vai até 3000 mm.":"")+
+    tolCard("Perpendicularidade",okG&&jP>=0?mmv(T27P.c[H][jP]):"–","mm",Object.keys(T27P.c).map(k=>[k,jP>=0?mmv(T27P.c[k][jP])+" mm":"—"]),H,
+      `Pelo lado menor (${okG?nf(G,0)+" mm":"—"}). Simetria pela dimensão: ${okD&&jY>=0?mmv(T27Y.c[H][jY])+" mm":"—"} · batimento circular: ${mmv(T27B[H])} mm.`)+
+    `<div class="tol-card"><h4>No desenho</h4><div class="callout">ISO 2768-${F}${H}</div><p>${CLS27[F].split(" — ")[1]} para medidas, ${H} para geometria. A ISO 2768-mK é a indicação mais comum em peça usinada.</p></div>`;
+  tolTable("tT1",T13L,v=>pm(v),A,iL);
+  tolTable("tT2",T13A,(v,k,i)=>`${ang(v)}<br><small style="color:var(--muted)">${mmv(T13A.mm[k][i])} mm/m</small>`,A,iA,"Classe");
+  tolTable("tT3",T13F,v=>mmv(v),E,iF);
+  tolTable("tT4",T27L,v=>pm(v),F,jL,"Classe",CLS27);
+  tolTable("tT5",T27R,v=>pm(v),F,jR);
+  tolTable("tT6",T27A,v=>ang(v),F,jA);
+  tolTable("tT7",T27S,v=>mmv(v),H,jS);
+  tolTable("tT8",T27P,v=>mmv(v),H,jP);
+  tolTable("tT9",T27Y,v=>mmv(v),H,jY,"Simetria");
+  $("tT9").querySelector("thead tr").insertAdjacentHTML("beforeend","<th>Batimento</th>");
+  $("tT9").querySelectorAll("tbody tr").forEach((tr,i)=>tr.insertAdjacentHTML("beforeend",`<td>${mmv(Object.values(T27B)[i])}</td>`));
+}
+["tlDim","tlLeg"].forEach(id=>$(id).addEventListener("input",tolerancias));
+["tlA","tlE","tlF","tlH"].forEach(id=>$(id).addEventListener("change",tolerancias));
+
+/* ======================= FLANGES ======================= */
+// ASME B16.5: [NPS, R, O, W, Ø furo, nº furos, C s/ ressalto, C c/ ressalto, X, A, Y sobrepor, Y solto, Y pescoço]
+const FLG={
+ "150":[["1/2",34.9,90,60.3,15.8,4,9.6,11.2,30,21.3,14,16,46],["3/4",42.9,100,69.9,15.8,4,11.2,12.7,38,26.7,14,16,51],["1",50.8,110,79.4,15.8,4,12.7,14.3,49,33.4,16,17,54],
+  ["1 1/4",63.5,115,88.9,15.8,4,14.3,15.9,59,42.2,19,21,56],["1 1/2",73,125,98.4,15.8,4,15.9,17.5,65,48.3,21,22,60],["2",92.1,150,120.7,19.05,4,17.5,19.1,78,60.3,24,25,62],
+  ["2 1/2",104.8,180,139.7,19.05,4,20.7,22.3,90,73,27,29,68],["3",127,190,152.4,19.05,4,22.3,23.9,108,88.9,29,30,68],["3 1/2",139.7,215,177.8,19.05,8,22.3,23.9,122,101.6,30,32,70],
+  ["4",157.2,230,190.5,19.05,8,22.3,23.9,135,114.3,32,33,75],["5",185.7,255,215.9,22.2,8,22.3,23.9,164,141.3,35,36,87],["6",215.9,280,241.3,22.2,8,23.9,25.4,192,168.3,38,40,87],
+  ["8",269.9,345,298.5,22.2,8,27,28.6,246,219.1,43,44,100],["10",323.8,405,362,25.4,12,28.6,30.2,305,273,48,49,100],["12",381,485,431.8,25.4,12,30.2,31.8,365,323.8,54,56,113],
+  ["14",412.8,535,476.3,28.58,12,33.4,35,400,355.6,56,79,125],["16",469.9,595,539.8,28.58,16,35,36.6,457,406.4,62,87,125],["18",533.4,635,577.9,31.75,16,38.1,39.7,505,457,67,97,138],
+  ["20",584.2,700,635,31.75,20,41.3,42.9,559,508,71,103,143],["24",692.2,815,749.3,34.93,20,46.1,47.7,663,610,81,111,151]],
+ "300":[["1/2",34.9,95,66.7,15.8,4,12.7,14.3,38,21.3,21,22,51],["3/4",42.9,115,82.6,19.05,4,14.3,15.9,48,26.7,24,25,56],["1",50.8,125,88.9,19.05,4,15.9,17.5,54,33.4,25,27,60],
+  ["1 1/4",63.5,135,98.4,19.05,4,17.5,19.1,64,42.2,25,27,64],["1 1/2",73,155,114.3,22.2,4,19.1,20.7,70,48.3,29,30,67],["2",92.1,165,127,19.05,8,20.7,22.3,84,60.3,32,33,68],
+  ["2 1/2",104.8,190,149.2,22.2,8,23.9,25.4,100,73,37,38,75],["3",127,210,168.3,22.2,8,27,28.6,117,88.9,41,43,78],["3 1/2",139.7,230,184.2,22.2,8,28.6,30.2,133,101.6,43,44,79],
+  ["4",157.2,255,200,22.2,8,30.2,31.8,146,114.3,46,48,84],["5",185.7,280,235,22.2,8,33.4,35,178,141.3,49,51,97],["6",215.9,320,269.9,22.2,12,35,36.6,206,168.3,51,52,97],
+  ["8",269.9,380,330.2,25.4,12,39.7,41.3,260,219.1,60,62,110],["10",323.8,445,387.4,28.6,16,46.1,47.7,321,273,65,95,116],["12",381,520,450.8,31.8,16,49.3,50.8,375,323.8,71,102,129],
+  ["14",412.8,585,514.4,31.8,20,52.4,54,425,355.6,75,111,141],["16",469.9,650,571.5,34.9,20,55.6,57.2,483,406.4,81,121,144],["18",533.4,710,628.6,34.9,24,58.8,60.4,533,457,87,130,157],
+  ["20",584.2,775,685.8,34.9,24,62,63.5,587,508,94,140,160],["24",692.2,915,812.8,41.2,24,68.3,69.9,702,610,105,152,167]]
+};
+const BOLT=[[15.8,'1/2"'],[19.05,'5/8"'],[22.2,'3/4"'],[25.4,'7/8"'],[28.6,'1"'],[31.75,'1 1/8"'],[34.9,'1 1/4"'],[41.2,'1 1/2"']];
+const boltOf=h=>{let b=BOLT[0];BOLT.forEach(x=>{if(Math.abs(x[0]-h)<Math.abs(b[0]-h))b=x});return b[1]};
+let fgCls=store.get("gt_fg")||"150",fgSel=null;if(!FLG[fgCls])fgCls="150";
+$("fgTabs").innerHTML=Object.keys(FLG).map(k=>`<button class="c-shape" data-k="${k}">Classe ${k}#</button>`).join("");
+$("fgTabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{fgCls=b.dataset.k;store.set("gt_fg",fgCls);flanges()});
+function flanges(){
+  const q=$("fgSearch").value.trim().replace(/["”]/g,"").replace(/\s+/g," "),D=FLG[fgCls];
+  $("fgTabs").querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===fgCls));
+  const rows=D.map((r,i)=>[r,i]).filter(([r])=>!q||r[0]===q||r[0].startsWith(q+" ")||(!/\s|\//.test(q)&&r[0].startsWith(q)));
+  $("fgBody").innerHTML=rows.map(([r,i])=>`<tr data-i="${i}" class="${fgSel&&fgSel.c===fgCls&&fgSel.i===i?"hit":""}"><td style="font-weight:600;color:var(--strong)">${r[0]}"</td><td class="n" style="color:var(--strong);font-weight:600">${nf(r[2],0)}</td><td class="n">${nf(r[1],1)}</td><td class="n">${nf(r[3],1)}</td>
+    <td class="n bl">${r[5]} × Ø${nf(r[4],1)}</td><td>${r[5]} × ${boltOf(r[4])}</td><td class="n bl">${nf(r[6],1)}</td><td class="n">${nf(r[7],1)}</td><td class="n bl">${nf(r[8],0)}</td><td class="n">${nf(r[9],1)}</td>
+    <td class="n bl">${nf(r[10],0)}</td><td class="n">${nf(r[11],0)}</td><td class="n">${nf(r[12],0)}</td></tr>`).join("")||`<tr><td colspan="13" class="empty">Nenhuma bitola encontrada.</td></tr>`;
+  $("fgBody").querySelectorAll("tr[data-i]").forEach(tr=>tr.onclick=()=>{fgSel={c:fgCls,i:+tr.dataset.i};flanges()});
+  if(!fgSel||fgSel.c!==fgCls){$("fgAns").innerHTML=`<span class="msg">Clique numa bitola para ver o resumo de furação e o peso do flange cego.</span>`;return}
+  const r=D[fgSel.i],kg=(Math.PI/4*(r[2]**2-r[5]*r[4]**2)*r[7])*7.85e-6;
+  $("fgAns").innerHTML=`<div><small>Flange</small><b>${r[0]}" ${fgCls}#</b></div><div><small>Ø ext. · círculo</small><b>${nf(r[2],0)} · ${nf(r[3],1)}</b></div>
+    <div><small>Furação</small><b style="color:var(--accent)">${r[5]} × Ø${nf(r[4],1)}</b></div><div><small>Flange cego (aprox.)</small><b>${nf(kg,1)} kg</b></div>
+    <span class="msg">Parafusos ${r[5]} × ${boltOf(r[4])} · espessura com ressalto ${nf(r[7],1)} mm · ressalto Ø${nf(r[1],1)} mm · passo entre furos ${nf(Math.PI*r[3]/r[5],1)} mm no arco (corda ${nf(r[3]*Math.sin(Math.PI/r[5]),1)} mm)</span>`;
+}
+$("fgSearch").addEventListener("input",flanges);
+
+/* ======================= ROSCAS E FIXAÇÃO ======================= */
+// Furos para rosca: [designação, passo/fios, Ø furo]
+const FR={
+ M:{t:"Métrica grossa (DIN 13)",u:"Passo (mm)",d:"M1 .25 .8|M1,2 .25 1|M1,4 .3 1,1|M1,6 .35 1,3|M2 .4 1,6|M2,5 .45 2,1|M3 .5 2,5|M3,5 .6 2,9|M4 .7 3,3|M5 .8 4,2|M6 1 5|M7 1 6|M8 1,25 6,8|M9 1,25 7,8|M10 1,5 8,5|M11 1,5 9,5|M12 1,75 10,3|M14 2 12,1|M16 2 14,1|M18 2,5 15,6|M20 2,5 17,6|M22 2,5 19,6|M24 3 21,1|M27 3 24,1|M30 3,5 26,6|M33 3,5 29,6|M36 4 32,1|M39 4 35,1|M42 4,5 37,6|M45 4,5 40,6|M48 5 43,1|M52 5 47,1|M56 5,5 50,6|M60 5,5 54,6|M64 6 58,2|M68 6 62,2"},
+ MF:{t:"Métrica fina (DIN 13)",u:"Passo (mm)",d:"M6 .75 5,3|M8 .75 7,3|M8 1 7|M10 .75 9,3|M10 1 9|M10 1,25 8,8|M12 1 11|M12 1,25 10,8|M12 1,5 10,5|M14 1 13|M14 1,25 12,8|M14 1,5 12,5|M16 1 15|M16 1,5 14,5|M18 1 17|M18 1,5 16,5|M18 2 16,1|M20 1 19|M20 1,5 18,5|M20 2 18,1|M22 1 21|M22 1,5 20,5|M22 2 20,1|M24 1 23|M24 1,5 22,5|M24 2 22,1|M27 1,5 25,5|M27 2 25,1|M30 1,5 28,5|M30 2 28,1|M30 3 27,1|M33 1,5 31,5|M33 2 31,1|M33 3 30,1|M36 1,5 34,5|M36 2 34,1|M36 3 33,1|M39 1,5 37,5|M39 2 37,1|M39 3 36,1|M42 1,5 40,5|M42 2 40,1|M42 3 39,1|M42 4 38,1|M45 1,5 43,5|M45 2 43,1|M45 3 42,1|M45 4 41,1|M48 1,5 46,5|M48 2 46,1|M48 3 45,1|M48 4 44,1|M52 1,5 50,5|M52 2 50,1|M52 3 49,1|M52 4 48,1"},
+ UNC:{t:"UNC (ASME B1.1)",u:"Fios/pol",d:"Nº 4 40 2,3|Nº 6 32 2,8|Nº 8 32 3,4|Nº 10 24 3,9|Nº 12 24 4,5|1/4\" 20 5,2|5/16\" 18 6,7|3/8\" 16 8,1|7/16\" 14 9,5|1/2\" 13 10,9|9/16\" 12 12,4|5/8\" 11 13,8|3/4\" 10 16,8|7/8\" 9 19,7|1\" 8 22,5|1 1/8\" 7 25,3|1 1/4\" 7 28,5|1 3/8\" 6 31,1|1 1/2\" 6 34,3|1 3/4\" 5 39,9|2\" 4 45,1|2 1/4\" 4 51,5|2 1/2\" 4 57,8|2 3/4\" 4 64,1|3\" 4 70,5"},
+ UNF:{t:"UNF (ASME B1.1)",u:"Fios/pol",d:"Nº 4 48 2,4|Nº 6 40 2,9|Nº 8 36 3,5|Nº 10 32 4,1|Nº 12 28 4,7|1/4\" 28 5,5|5/16\" 24 7|3/8\" 24 8,6|7/16\" 20 10|1/2\" 20 11,6|9/16\" 18 13|5/8\" 18 14,6|3/4\" 16 17,6|7/8\" 14 20,6|1\" 12 23,5|1 1/8\" 12 26,6|1 1/4\" 12 29,9|1 3/8\" 12 32,5|1 1/2\" 12 36,2"},
+ G:{t:"Gás BSP paralela G (ISO 228-1)",u:"Fios/pol",d:"G 1/8 28 8,7|G 1/4 19 11,6|G 3/8 19 15,1|G 1/2 14 18,9|G 5/8 14 20,8|G 3/4 14 24,3|G 7/8 14 28,1|G 1 11 30,6|G 1 1/8 11 35,2|G 1 1/4 11 39,2|G 1 3/8 11 41,7|G 1 1/2 11 45,1|G 1 3/4 11 51,1"}
+};
+Object.values(FR).forEach(t=>t.rows=t.d.split("|").map(s=>{const p=s.split(" "),f=p.pop(),n=p.pop();return[p.join(" "),n,f]}));
+// Parafusos (DIN 931 / DIN 934 / ISO 4032 / ISO 273): [M, passo, furo rosca, passante f/m/g, s DIN, s ISO, k, m DIN 934, m ISO 4032, b1, b2, b3]
+const PFX="M3 .5 2,5 3,2/3,4/3,6 5,5 5,5 2 2,4 2,4 12 - -|M4 .7 3,3 4,3/4,5/4,8 7 7 2,8 3,2 3,2 14 - -|M5 .8 4,2 5,3/5,5/5,8 8 8 3,5 4 4,7 16 22 -|M6 1 5 6,4/6,6/7 10 10 4 5 5,2 18 24 -|M8 1,25 6,8 8,4/9/10 13 13 5,3 6,5 6,8 22 28 -|M10 1,5 8,5 10,5/11/12 17 16 6,4 8 8,4 26 32 45|M12 1,75 10,3 13/13,5/14,5 19 18 7,5 10 10,8 30 36 49|M14 2 12,1 15/15,5/16,5 22 21 8,8 11 12,8 34 40 53|M16 2 14,1 17/17,5/18,5 24 24 10 13 14,8 38 44 57|M18 2,5 15,6 19/20/21 27 27 11,5 15 15,8 42 48 61|M20 2,5 17,6 21/22/24 30 30 12,5 16 18 46 52 65|M22 2,5 19,6 23/24/26 32 34 14 18 19,4 50 56 69|M24 3 21,1 25/26/28 36 36 15 19 21,5 54 60 73|M27 3 24,1 28/30/32 41 41 17 22 23,8 60 66 79|M30 3,5 26,6 31/33/35 46 46 18,7 24 25,6 66 72 85|M33 3,5 29,6 34/36/38 50 50 21 26 28,7 72 78 91|M36 4 32,1 37/39/42 55 55 22,5 29 31 78 84 97|M39 4 35,1 40/42/45 60 60 25 31 33,4 84 90 103|M42 4,5 37,6 43/45/48 65 65 26 34 34 90 96 109|M45 4,5 40,6 46/48/52 70 70 28 36 36 96 102 115|M48 5 43,1 50/52/56 75 75 30 38 38 102 108 121|M52 5 47,1 54/56/62 80 80 33 42 42 - 116 129|M56 5,5 50,6 58/62/66 85 85 35 45 45 - 124 137"
+  .split("|").map(s=>s.split(" "));
+// Chavetas DIN 6885-A: [Ø acima de, até, b, h, t1, t2]
+const CHV=[[6,8,2,2,1.2,1],[8,10,3,3,1.8,1.4],[10,12,4,4,2.5,1.8],[12,17,5,5,3,2.3],[17,22,6,6,3.5,2.8],[22,30,8,7,4,3.3],[30,38,10,8,5,3.3],[38,44,12,8,5,3.3],[44,50,14,9,5.5,3.8],
+  [50,58,16,10,6,4.3],[58,65,18,11,7,4.4],[65,75,20,12,7.5,4.9],[75,85,22,14,9,5.4],[85,95,25,14,9,5.4],[95,110,28,16,10,6.4],[110,130,32,18,11,7.4],[130,150,36,20,12,8.4],[150,170,40,22,13,9.4],
+  [170,200,45,25,15,10.5],[200,230,50,28,17,11.4],[230,260,56,32,20,12.4],[260,290,63,32,20,12.4],[290,330,70,36,22,14.4],[330,380,80,40,25,15.4],[380,440,90,45,28,17.4],[440,500,100,50,31,19.5]];
+// tolerâncias da largura do rasgo (µm) por faixa de b: [b até, H9, D10, N9, JS9, P9]
+const CHVT=[[3,["+25/0","+60/+20","−4/−29","±12,5","−6/−31"]],[6,["+30/0","+78/+30","0/−30","±15","−12/−42"]],[10,["+36/0","+98/+40","0/−36","±18","−15/−51"]],[18,["+43/0","+120/+50","0/−43","±21,5","−18/−61"]],
+  [28,["+52/0","+149/+65","0/−52","±26","−22/−74"]],[50,["+62/0","+180/+80","0/−62","±31","−26/−88"]],[80,["+74/0","+220/+100","0/−74","±37","−32/−106"]],[100,["+87/0","+260/+120","0/−87","±43,5","−37/−124"]]];
+const chvTolT=b=>b<=6?"+0,1":b<=32?"+0,2":"+0,3";
+let fxCur=store.get("gt_fx")||"furo",frTipo=store.get("gt_fr")||"M";if(!FR[frTipo])frTipo="M";
+const FXT=[["furo","Furo para rosca"],["paraf","Parafusos e porcas"],["chav","Chavetas DIN 6885"]];
+$("fxTabs").innerHTML=FXT.map(([k,t])=>`<button class="c-shape" data-k="${k}">${t}</button>`).join("");
+$("fxTabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{fxCur=b.dataset.k;store.set("gt_fx",fxCur);fixacao()});
+$("frTipo").innerHTML=Object.entries(FR).map(([k,t])=>`<option value="${k}">${t.t}</option>`).join("");$("frTipo").value=frTipo;
+function fixacao(){
+  if(!FXT.some(t=>t[0]===fxCur))fxCur="furo";
+  $("fxTabs").querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===fxCur));
+  FXT.forEach(([k])=>$("fx-"+k).hidden=k!==fxCur);
+  if(fxCur==="furo")furoRosca();if(fxCur==="paraf")parafusos();if(fxCur==="chav")chavetas();
+}
+function furoRosca(){
+  frTipo=$("frTipo").value;store.set("gt_fr",frTipo);const T=FR[frTipo],q=$("frSearch").value.trim().toLowerCase().replace(/["”]/g,"").replace(/\s+/g," ");
+  $("frHead").innerHTML=`<tr><th>Rosca</th><th class="n">${T.u}</th><th class="n">Ø furo (mm)</th></tr>`;
+  const rows=T.rows.filter(r=>{if(!q)return true;const n=r[0].toLowerCase().replace(/["”]/g,"");return n===q||n.startsWith(q+" ")||n.replace(/^(m|g|nº) ?/,"")===q.replace(/^(m|g|nº) ?/,"")||(!/\s|\//.test(q)&&n.startsWith(q))});
+  $("frBody").innerHTML=rows.map(r=>`<tr><td style="font-weight:600;color:var(--strong)">${r[0]}</td><td class="n">${dec(r[1].replace(/^\./,"0."))}</td><td class="n" style="color:var(--accent);font-weight:600">${r[2].replace(/^\./,"0,")}</td></tr>`).join("")||`<tr><td colspan="3" class="empty">Nenhuma rosca encontrada.</td></tr>`;
+  const D=parseNum($("frD").value),P=parseNum($("frP").value);
+  if(!(D>0&&P>0&&P<D)){$("frAns").innerHTML=`<span class="msg">Para qualquer rosca métrica, informe Ø e passo para calcular o furo.</span>`;return}
+  const f=P>=2?D-P+.1:D-P,hd=D-1.0825*P;
+  $("frAns").innerHTML=`<div><small>Rosca</small><b>M${dec(String(D))} × ${dec(String(P))}</b></div><div><small>Broca</small><b style="color:var(--accent)">Ø ${nf(f,1)} mm</b></div>
+    <div><small>Ø menor da rosca (D1)</small><b>${nf(hd,2)} mm</b></div><span class="msg">Furo ≈ D − P${P>=2?" + 0,1":""}. D1 = D − 1,0825 × P (diâmetro menor teórico da rosca interna).</span>`;
+}
+$("frTipo").addEventListener("change",furoRosca);$("frSearch").addEventListener("input",furoRosca);["frD","frP"].forEach(id=>$(id).addEventListener("input",furoRosca));
+function parafusos(){
+  const q=$("pfxSearch").value.trim().toUpperCase().replace(/\s/g,"");
+  const rows=PFX.filter(r=>!q||r[0]===q||r[0]==="M"+q||(q.length>1&&r[0].startsWith(q)));
+  const c=v=>v==="-"?'<span class="none">—</span>':v;
+  $("pfxBody").innerHTML=rows.map(r=>`<tr><td style="font-weight:600;color:var(--strong)">${r[0]}</td><td class="n">${dec(r[1].replace(/^\./,"0."))}</td><td class="n" style="color:var(--accent);font-weight:600">${r[2]}</td>
+    <td class="n bl">${r[3].replace(/\//g," · ")}</td><td class="n bl" style="color:var(--strong);font-weight:600">${r[4]}</td><td class="n${r[5]!==r[4]?"\" style=\"color:var(--accent)":""}">${r[5]}</td><td class="n bl">${r[6]}</td><td class="n">${r[7]}</td><td class="n">${r[8]}</td>
+    <td class="n bl">${c(r[9])}</td><td class="n">${c(r[10])}</td><td class="n">${c(r[11])}</td></tr>`).join("")||`<tr><td colspan="12" class="empty">Nenhuma bitola encontrada.</td></tr>`;
+}
+$("pfxSearch").addEventListener("input",parafusos);
+function chavetas(){
+  const d=parseNum($("chvD").value),aj=+$("chvAj").value;store.set("gt_chv",[$("chvD").value,aj]);
+  const i=CHV.findIndex(r=>d>r[0]&&d<=r[1]);
+  $("chvBody").innerHTML=CHV.map((r,k)=>`<tr class="${k===i?"hit":""}"><td class="n">${r[0]}</td><td class="n">${r[1]}</td><td class="n bl" style="color:var(--strong);font-weight:600">${r[2]} × ${r[3]}</td><td class="n bl">${nf(r[4],1)}</td><td class="n">${nf(r[5],1)}</td><td class="n bl">${chvTolT(r[2])}</td></tr>`).join("");
+  if(i<0){$("chvAns").innerHTML=`<span class="msg">${d>0?"A DIN 6885 cobre eixos de 6 a 500 mm.":"Digite o diâmetro do eixo."}</span>`;return}
+  const r=CHV[i],t=CHVT.find(x=>r[2]<=x[0])[1],tol=[[t[0],t[1]],[t[2],t[3]],[t[4],t[4]]][aj];
+  $("chvAns").innerHTML=`<div><small>Chaveta</small><b style="color:var(--accent)">${r[2]} × ${r[3]}</b></div><div><small>Medida no eixo (d − t1)</small><b>${nf(d-r[4],1)} mm</b></div>
+    <div><small>Medida no cubo (d + t2)</small><b>${nf(d+r[5],1)} mm</b></div><div><small>Largura do rasgo</small><b>${r[2]} mm</b></div>
+    <span class="msg">Tolerância da largura (µm) · eixo ${tol[0]} · cubo ${tol[1]} · profundidade t1/t2 ${chvTolT(r[2])} mm · faixa do eixo: acima de ${r[0]} até ${r[1]} mm</span>`;
+  centerRow($("chvWrap"),$("chvBody").children[i]);
+}
+{const s=store.get("gt_chv");if(Array.isArray(s)){$("chvD").value=s[0];$("chvAj").value=s[1]}}
+$("chvD").addEventListener("input",chavetas);$("chvAj").addEventListener("change",chavetas);
+
+/* ======================= EQUIVALÊNCIA ======================= */
+// [categoria, AISI/SAE/ASTM, DIN, W.Nr, EN, JIS, Brasil/comercial, aplicação]
+const EQ=[
+ ["Estrutural","ASTM A36","St 37-2 · RSt 37-2","1.0037 · 1.0038","S235JR","SS400","NBR 7007 MR250 · NBR 6648 CG24","Chapas, perfis e estruturas em geral"],
+ ["Estrutural","ASTM A283 Gr C","St 37-2","1.0037","S235JR","SS330","NBR 6648 CG21","Sem exigência severa de resistência"],
+ ["Estrutural","ASTM A570 Gr 40 · A573 Gr 70","St 44-2 · St 44-3","1.0044 · 1.0144","S275JR · S275J2","SM400","NBR 6648 CG26 · NBR 5000 G30","Estruturas com solicitação média"],
+ ["Estrutural","ASTM A572 Gr 50 · A709 Gr 345","St 52-3","1.0570","S355J2","SM490","USI SAR 50 · NBR 5000 G35","Estruturas de alta resistência"],
+ ["Estrutural","ASTM A572 Gr 65","St 60-2","1.0060","E335","—","NBR 5000 G42","Alta resistência, peças de máquinas"],
+ ["Estrutural","ASTM A588 · A242","WTSt 52-3","1.8963","S355J2W","SMA490","USI SAC 350 · CSN COR 500","Aço patinável (resiste à corrosão atmosférica)"],
+ ["Vaso de pressão","ASTM A285 Gr C · A516 Gr 55","H I","1.0345","P235GH","—","—","Caldeiras e vasos de baixa pressão"],
+ ["Vaso de pressão","ASTM A515 · A516 Gr 60/65","H II","1.0425","P265GH","—","—","Vasos de pressão"],
+ ["Vaso de pressão","ASTM A516 Gr 70","17 Mn 4","1.0481","P295GH","—","—","Vasos de pressão (o mais usado)"],
+ ["Vaso de pressão","ASTM A537 Cl 1","19 Mn 6","1.0473","P355GH","—","—","Vasos de alta resistência"],
+ ["Vaso de pressão","ASTM A204 Gr A","15 Mo 3","1.5415","16Mo3","—","—","Alta temperatura (C-Mo)"],
+ ["Vaso de pressão","ASTM A387 Gr 12 · A182 F12","13 CrMo 4 4","1.7335","13CrMo4-5","—","—","Cr-Mo, alta temperatura (P-Nº 4)"],
+ ["Vaso de pressão","ASTM A387 Gr 22 · A182 F22","10 CrMo 9 10","1.7380","10CrMo9-10","—","—","Cr-Mo, alta temperatura (P-Nº 5A)"],
+ ["Tubo","ASTM A106 Gr B · A53 Gr B · API 5L B","St 35.8 · St 37.0","1.0305 · 1.0254","P235GH · P235TR1","STPG370","NBR 5590","Condução e tubulação de processo"],
+ ["Tubo","ASTM A106 Gr C","St 45.8","1.0405","P265GH","STPG410","—","Tubulação de maior pressão"],
+ ["Tubo","ASTM A179 · A192","St 35.8","1.0305","P235GH","STB340","—","Trocadores de calor e caldeiras"],
+ ["Tubo","ASTM A335 P11","13 CrMo 4 4","1.7335","13CrMo4-5","STPA23","—","Tubulação em alta temperatura"],
+ ["Tubo","ASTM A335 P22","10 CrMo 9 10","1.7380","10CrMo9-10","STPA24","—","Tubulação em alta temperatura"],
+ ["Construção mecânica","SAE 1010","C10 · Ck10","1.0301 · 1.1121","C10E","S10C","—","Cementação, estampagem"],
+ ["Construção mecânica","SAE 1020","C22 · Ck22","1.0402 · 1.1151","C22E","S20C","—","Eixos leves, peças soldadas"],
+ ["Construção mecânica","SAE 1035","C35 · Ck35","1.0501 · 1.1181","C35E","S35C","—","Parafusos, peças forjadas"],
+ ["Construção mecânica","SAE 1045","C45 · Ck45","1.0503 · 1.1191","C45E","S45C","Gerdau 1045 · Villares VT45","Eixos, pinos, engrenagens"],
+ ["Construção mecânica","SAE 1060","C60 · Ck60","1.0601 · 1.1221","C60E","S58C","—","Molas, peças de desgaste"],
+ ["Usinagem fácil","SAE 12L14","9 SMnPb 28","1.0718","11SMnPb30","SUM24L","—","Peças de torno automático"],
+ ["Usinagem fácil","SAE 1213","9 SMn 28","1.0715","11SMn30","SUM22","—","Peças de torno automático"],
+ ["Construção mecânica","SAE 4130","25 CrMo 4","1.7218","25CrMo4","SCM430","—","Peças soldáveis de média resistência"],
+ ["Construção mecânica","SAE 4140","42 CrMo 4","1.7225","42CrMo4","SCM440","Gerdau 4140 · Villares VL40","Eixos e engrenagens beneficiados"],
+ ["Construção mecânica","SAE 4340","40 NiCrMo 6 · 34 CrNiMo 6","1.6565 · 1.6582","34CrNiMo6","SNCM439","Villares VM40","Alta resistência e tenacidade"],
+ ["Construção mecânica","SAE 5115 · 5120","16 MnCr 5","1.7131","16MnCr5","SCr415","—","Cementação"],
+ ["Construção mecânica","SAE 5140","41 Cr 4","1.7035","41Cr4","SCr440","—","Beneficiamento"],
+ ["Construção mecânica","SAE 8620","21 NiCrMo 2","1.6523","20NiCrMo2-2","SNCM220","Gerdau 8620 · Villares VB20","Cementação: engrenagens, pinhões"],
+ ["Construção mecânica","SAE 8640","40 NiCrMo 2 2","1.6546","—","SNCM240","Gerdau 8640 · Villares VB40","Beneficiamento"],
+ ["Construção mecânica","SAE 6150","50 CrV 4","1.8159","51CrV4","SUP10","—","Molas e barras de torção"],
+ ["Construção mecânica","SAE 52100","100 Cr 6","1.3505","100Cr6","SUJ2","—","Rolamentos"],
+ ["Inox","AISI 304","X5 CrNi 18 10","1.4301","X5CrNi18-10","SUS304","—","Uso geral, alimentício"],
+ ["Inox","AISI 304L","X2 CrNi 19 11","1.4306","X2CrNi19-11","SUS304L","—","Soldagem sem sensitização"],
+ ["Inox","AISI 316","X5 CrNiMo 17 12 2","1.4401","X5CrNiMo17-12-2","SUS316","—","Meios com cloretos"],
+ ["Inox","AISI 316L","X2 CrNiMo 17 13 2","1.4404","X2CrNiMo17-12-2","SUS316L","—","Química e soldagem"],
+ ["Inox","AISI 321","X6 CrNiTi 18 10","1.4541","X6CrNiTi18-10","SUS321","—","Estabilizado com Ti, alta temperatura"],
+ ["Inox","AISI 310S","X12 CrNi 25 21","1.4845","X8CrNi25-21","SUS310S","—","Refratário"],
+ ["Inox","AISI 410","X10 Cr 13","1.4006","X12Cr13","SUS410","—","Martensítico: bombas e válvulas"],
+ ["Inox","AISI 420","X20 Cr 13","1.4021","X20Cr13","SUS420J1","—","Martensítico: cutelaria, eixos"],
+ ["Inox","AISI 430","X6 Cr 17","1.4016","X6Cr17","SUS430","—","Ferrítico: decoração, eletrodomésticos"],
+ ["Inox","UNS S32205 (duplex 2205)","X2 CrNiMoN 22 5 3","1.4462","X2CrNiMoN22-5-3","SUS329J3L","—","Corrosão sob tensão, alta resistência"],
+ ["Anti-desgaste","~400 HB temperado","—","—","—","—","HARDOX 400 · USI AR 400","Chutes, revestimentos"],
+ ["Anti-desgaste","~450 HB temperado","—","—","—","—","HARDOX 450 · USI AR 450","Caçambas, mineração"],
+ ["Anti-desgaste","~360 HB","—","—","—","—","USI AR 360","Desgaste moderado"]
+];
+$("eqCat").innerHTML=`<option value="">Todas as categorias</option>`+[...new Set(EQ.map(r=>r[0]))].map(c=>`<option>${c}</option>`).join("");
+function equiv(){
+  const q=$("eqSearch").value.trim().toLowerCase().replace(/[\s.\-]/g,""),c=$("eqCat").value;
+  const rows=EQ.filter(r=>(!c||r[0]===c)&&(!q||r.join(" ").toLowerCase().replace(/[\s.\-]/g,"").includes(q)));
+  let last="";
+  $("eqBody").innerHTML=rows.map(r=>{const h=r[0]!==last&&!c?`<tr><td colspan="7" style="background:var(--surface2);font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:7px 14px">${r[0]}</td></tr>`:"";last=r[0];
+    return h+`<tr><td>${r[1]}</td><td>${r[2]}</td><td class="mono">${r[3]}</td><td class="mono">${r[4]}</td><td class="mono">${r[5]}</td><td><small style="color:var(--text)">${r[6]}</small></td><td><small>${r[7]}</small></td></tr>`}).join("");
+  $("eqNone").hidden=rows.length>0;$("eqCount").textContent=`${rows.length} de ${EQ.length} aços`;
+}
+$("eqSearch").addEventListener("input",equiv);$("eqCat").addEventListener("change",equiv);
+
+/* ======================= TINTA ======================= */
+const TN_MET=[["Pincel",15],["Rolo",20],["Pistola convencional",30],["Pistola airless",15]];
+const TN_TIPO=[["Leve (28 a 46 m²/t)",37],["Média (14 a 28 m²/t)",21],["Pesada (9 a 14 m²/t)",11.5],["Extra pesada (5 a 9 m²/t)",7],["Construção industrial (19 a 23 m²/t)",21]];
+$("tnMet").innerHTML=TN_MET.map(([n,p],i)=>`<option value="${i}">${n} · perdas ~${p}%</option>`).join("");
+$("tnTipo").innerHTML=TN_TIPO.map(([n,v],i)=>`<option value="${i}">${n}</option>`).join("");
+let TN=store.get("gt_tn")||{a:"100",met:2,perda:"30",emb:"3.6",rows:[["Primer epóxi","60","75","1"],["Acabamento poliuretano","55","50","1"]]};
+$("tnA").value=TN.a;$("tnMet").value=TN.met;$("tnPerda").value=TN.perda;$("tnEmb").value=TN.emb;
+$("tnMet").onchange=()=>{$("tnPerda").value=TN_MET[+$("tnMet").value][1];tinta()};
+["tnA","tnPerda"].forEach(id=>$(id).addEventListener("input",tinta));$("tnEmb").addEventListener("change",tinta);
+$("tnFromCalc").onclick=()=>{if(!last){$("tnFromMsg").textContent="A calculadora de peso ainda não tem um resultado válido.";return}
+  const a=last.m2*last.q;$("tnA").value=dec(String(Math.round(a*1000)/1000));$("tnFromMsg").textContent=`Área de ${last.q} pç de ${last.perfil} ${last.dim}: ${nf(a,3)} m².`;tinta()};
+$("tnEst").onclick=()=>{const t=parseNum($("tnT").value),k=TN_TIPO[+$("tnTipo").value][1];if(!(t>0))return;
+  $("tnA").value=dec(String(Math.round(t*k*10)/10));$("tnFromMsg").textContent=`Estimativa: ${dec(String(t))} t × ${dec(String(k))} m²/t (média da faixa). Confira com a área real sempre que puder.`;tinta()};
+$("tnAdd").onclick=()=>{TN.rows.push(["Nova tinta","50","40","1"]);tinta()};
+function tinta(){
+  TN.a=$("tnA").value;TN.met=+$("tnMet").value;TN.perda=$("tnPerda").value;TN.emb=$("tnEmb").value;
+  const A=parseNum(TN.a),pd=parseNum(TN.perda),Fa=(100-pd)/100,emb=parseFloat(TN.emb);
+  let tot=0,ok=A>0&&pd>=0&&pd<100;
+  $("tnBody").innerHTML=TN.rows.map((r,i)=>{const sv=parseNum(r[1]),eps=parseNum(r[2]),n=parseNum(r[3]);
+    const Rt=sv>0&&eps>0?sv*10/eps:NaN,Rp=Rt*Fa,L=ok&&Rp>0&&n>0?A/Rp*n:NaN;if(Number.isFinite(L))tot+=L;
+    return `<tr data-i="${i}"><td><input class="tn-in" data-k="0" value="${esc(r[0])}" style="min-width:160px"></td>
+      <td class="n"><input class="tn-in n" data-k="1" value="${esc(r[1])}" inputmode="decimal"></td><td class="n"><input class="tn-in n" data-k="2" value="${esc(r[2])}" inputmode="decimal"></td>
+      <td class="n"><input class="tn-in n" data-k="3" value="${esc(r[3])}" inputmode="numeric"></td>
+      <td class="n bl">${nf(Rt,2)}</td><td class="n">${nf(Rp,2)}</td><td class="n" style="color:var(--strong);font-weight:600">${nf(L,1)}</td>
+      <td><button class="del" title="Remover" aria-label="Remover ${esc(r[0])}">×</button></td></tr>`}).join("");
+  $("tnBody").querySelectorAll("input").forEach(inp=>inp.oninput=()=>{const tr=inp.closest("tr");TN.rows[+tr.dataset.i][+inp.dataset.k]=inp.value;tnRefresh()});
+  $("tnBody").querySelectorAll(".del").forEach(b=>b.onclick=()=>{TN.rows.splice(+b.closest("tr").dataset.i,1);tinta()});
+  tnTotals(tot,ok,emb);store.set("gt_tn",TN);
+}
+function tnRefresh(){ // recalcula sem redesenhar os inputs (mantém o foco)
+  const A=parseNum($("tnA").value),Fa=(100-parseNum($("tnPerda").value))/100,ok=A>0&&Fa>0&&Fa<=1;let tot=0;
+  $("tnBody").querySelectorAll("tr").forEach((tr,i)=>{const r=TN.rows[i],sv=parseNum(r[1]),eps=parseNum(r[2]),n=parseNum(r[3]),Rt=sv>0&&eps>0?sv*10/eps:NaN,Rp=Rt*Fa,L=ok&&Rp>0&&n>0?A/Rp*n:NaN;
+    if(Number.isFinite(L))tot+=L;const td=tr.children;td[4].textContent=nf(Rt,2);td[5].textContent=nf(Rp,2);td[6].textContent=nf(L,1)});
+  tnTotals(tot,ok,parseFloat($("tnEmb").value));store.set("gt_tn",TN);
+}
+function tnTotals(tot,ok,emb){
+  $("tnTot").textContent=ok&&tot>0?nf(tot,1):"–";$("tnEmbN").textContent=ok&&tot>0?String(Math.ceil(tot/emb-1e-9)):"–";
+  $("tnEmbU").textContent=`× ${dec(String(emb))} L`;
+  $("tnNote").textContent=ok?`${TN.rows.length} tinta(s) no esquema · fator de aproveitamento ${nf((100-parseNum($("tnPerda").value))/100,2)} · ${nf(parseNum($("tnA").value),1)} m².`:"Informe a área e uma perda entre 0 e 99%.";
+}
+
+/* ======================= TRONCO DE CONE ======================= */
+{const s=store.get("gt_cn");if(Array.isArray(s))["cnD","cnd","cnH","cnE","cnRef","cnN","cnRho"].forEach((id,i)=>{if(s[i]!=null)$(id).value=s[i]})}
+["cnD","cnd","cnH","cnE","cnN","cnRho"].forEach(id=>$(id).addEventListener("input",cone));$("cnRef").addEventListener("change",cone);
+function cone(){
+  const ids=["cnD","cnd","cnH","cnE","cnRef","cnN","cnRho"];store.set("gt_cn",ids.map(id=>$(id).value));
+  let D=parseNum($("cnD").value),d=parseNum($("cnd").value);const h=parseNum($("cnH").value),e=parseNum($("cnE").value),ref=$("cnRef").value,n=Math.max(1,Math.min(12,parseInt($("cnN").value)||1)),rho=parseNum($("cnRho").value);
+  const fail=m=>{$("cnMsg").hidden=false;$("cnMsg").textContent=m;["cnRM","cnRm"].forEach(i=>$(i).textContent="–");$("cnSub").innerHTML="";$("cnFx").textContent="";$("cnSvg").innerHTML="";$("cnDraw").innerHTML=coneSide(1,.7);return};
+  if(!(D>0&&d>0&&h>0&&e>0&&rho>0))return fail("Preencha D, d, h, espessura e densidade com valores maiores que zero.");
+  if(d>D){const t=D;D=d;d=t}
+  if(ref==="e"){D-=e;d-=e}else if(ref==="i"){D+=e;d+=e}
+  if(d<=0)return fail("Com essa espessura o Ø menor médio fica zero ou negativo.");
+  $("cnMsg").hidden=true;$("cnDraw").innerHTML=coneSide(1,d/D);
+  const R=D/2,r=d/2;
+  if(R-r<1e-6){
+    $("cnRM").textContent="∞";$("cnRm").textContent="∞";
+    $("cnSub").innerHTML=`<span>Desenvolvido (π × Dm)</span><em>${nf(Math.PI*D,1)} mm</em><span>Altura</span><em>${nf(h,1)} mm</em><span>Peso</span><em>${nf(Math.PI*D*h*e*rho/1e6,1)} kg</em>`;
+    $("cnFx").textContent="D = d: é um cilindro. Calandre um retângulo de π × Dm por h.";$("cnSvg").innerHTML="";return}
+  const g=Math.hypot(R-r,h),RM=R*g/(R-r),Rm=RM-g,th=360*R/RM,tp=th/n,a=tp/2*Math.PI/180;
+  const cM=2*RM*Math.sin(a),cm=2*Rm*Math.sin(a);
+  const W=tp<180?cM:2*RM,B=tp<180?RM-Rm*Math.cos(a):RM+RM*Math.cos((360-tp)/2*Math.PI/180);
+  const Areal=tp/360*Math.PI*(RM*RM-Rm*Rm),kgReal=Areal*e*rho/1e6,kgBlank=W*B*e*rho/1e6;
+  $("cnPartLbl").textContent=n>1?`· ${n} partes`:"";
+  $("cnRM").textContent=nf(RM,1);$("cnRm").textContent=nf(Rm,1);
+  $("cnSub").innerHTML=[["Geratriz (g)",nf(g,1)+" mm"],["Ângulo total do setor",nf(th,2)+"°"],n>1?["Ângulo por parte",nf(tp,2)+"°"]:null,
+    [`Corda maior${n>1?" (por parte)":""}`,nf(cM,1)+" mm"],[`Corda menor${n>1?" (por parte)":""}`,nf(cm,1)+" mm"],
+    [`Arco maior / menor${n>1?" (por parte)":""}`,`${nf(Math.PI*D/n,1)} / ${nf(Math.PI*d/n,1)} mm`],
+    [`Blank${n>1?" por parte":""} (L × A)`,`${nf(W,0)} × ${nf(B,0)} mm`],["Chapa (blank × partes)",`${nf(W*B*n/1e6,2)} m² · ${nf(kgBlank*n,1)} kg`],
+    ["Peso real da peça",`${nf(kgReal*n,1)} kg`],["Diâmetros médios usados",`${nf(D,1)} / ${nf(d,1)} mm`],["Inclinação da parede",nf(Math.atan2(h,R-r)*180/Math.PI,2)+"° com a base"]]
+    .filter(Boolean).map(([k,v])=>`<span>${k}</span><em>${v}</em>`).join("");
+  $("cnFx").textContent=`RM = (Dm/2) × g / ((Dm − dm)/2)  ·  Rm = RM − g  ·  θ = 360 × (Dm/2) / RM  ·  g = √(((Dm−dm)/2)² + h²)`;
+  $("cnSvg").innerHTML=coneDev(RM,Rm,tp,W,B,cM);
+}
+function coneSide(D,k){ // vista lateral simples para o painel
+  const bot=140;return `<svg viewBox="0 0 180 170"><style>.k{font:700 11px var(--f-mono);fill:var(--on-accent)}</style>
+    <polygon points="${90-55*k},40 ${90+55*k},40 145,${bot} 35,${bot}" ${SEC}/>
+    ${dimH(35,145,156,"D")}${dimH(90-55*k,90+55*k,22,"d")}${dimV(163,40,bot,"h")}</svg>`}
+function coneDev(RM,Rm,tp,W,B,cM){
+  const a=tp*Math.PI/180,pts=[];const N=60;
+  for(let i=0;i<=N;i++){const t=-a/2+a*i/N;pts.push([RM*Math.sin(t),RM*Math.cos(t)])}
+  for(let i=N;i>=0;i--){const t=-a/2+a*i/N;pts.push([Rm*Math.sin(t),Rm*Math.cos(t)])}
+  const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]),minx=Math.min(...xs),maxx=Math.max(...xs),miny=Math.min(...ys),maxy=Math.max(...ys);
+  const Wv=860,Hmax=360,s=Math.min((Wv-120)/(maxx-minx),(Hmax-90)/(maxy-miny));const H=(maxy-miny)*s+130;
+  const X=x=>60+(x-minx)*s,Y=y=>40+(maxy-y)*s;
+  const d="M"+pts.map(p=>X(p[0]).toFixed(1)+","+Y(p[1]).toFixed(1)).join(" L")+" Z";
+  const bx0=X(minx),bx1=X(maxx),by0=Y(maxy),by1=Y(miny);
+  const t0=-a/2,t1=a/2;
+  return `<svg viewBox="0 0 ${Wv} ${H.toFixed(0)}" style="width:100%;height:auto;display:block" role="img" aria-label="Desenho da planificação">
+    <rect x="${bx0}" y="${by0}" width="${bx1-bx0}" height="${by1-by0}" fill="none" stroke="var(--muted)" stroke-dasharray="6 5"/>
+    <path d="${d}" fill="rgba(240,138,75,.14)" stroke="var(--accent)" stroke-width="2"/>
+    <line x1="${X(RM*Math.sin(t0))}" y1="${Y(RM*Math.cos(t0))}" x2="${X(RM*Math.sin(t1))}" y2="${Y(RM*Math.cos(t1))}" stroke="var(--strong)" stroke-dasharray="3 4"/>
+    <text x="${Wv/2}" y="${by1+30}" text-anchor="middle" style="font:600 16px var(--f-mono);fill:var(--strong)">blank ${nf(W,0)} × ${nf(B,0)} mm</text>
+    <text x="${Wv/2}" y="${by1+54}" text-anchor="middle" style="font:500 15px var(--f-mono);fill:var(--muted)">corda ${nf(cM,1)} · RM ${nf(RM,1)} · Rm ${nf(Rm,1)} · θ ${nf(tp,2)}°</text></svg>`;
+}
+
+/* ======================= FURAÇÃO ======================= */
+// [material, Vc mín, Vc máx (m/min), avanços f (mm/rot) para Ø 1,59 · 3,17 · 6,35 · 9,52 · 12,70]
+const FURO=[
+ ["Aço baixo carbono (1010–1025, A36)",22,30,[.025,.075,.13,.18,.23]],
+ ["Aço médio carbono (1030–1050) sem tratamento",18,25,[.025,.075,.13,.18,.23]],
+ ["Aço de usinagem fácil (1213, 12L14)",30,40,[.025,.075,.13,.215,.3]],
+ ["Aço liga recozido (4140, 4340, 8620) até 225 HB",15,20,[.025,.075,.15,.2,.25]],
+ ["Aço liga beneficiado 275–325 HB",8,12,[.015,.05,.09,.115,.14]],
+ ["Aço anti-desgaste / temperado 300–450 HB (Hardox)",4,8,[.01,.025,.05,.063,.075]],
+ ["Inox austenítico (304, 316, 321)",10,15,[.025,.05,.102,.141,.18]],
+ ["Inox ferrítico / martensítico recozido (410, 430)",15,20,[.025,.075,.15,.2,.25]],
+ ["Ferro fundido cinzento (A48 cl. 20–35)",25,35,[.025,.075,.15,.225,.3]],
+ ["Ferro fundido nodular",18,25,[.025,.05,.102,.141,.18]],
+ ["Latão e bronze de usinagem fácil",45,70,[.025,.075,.15,.2,.25]],
+ ["Alumínio e ligas",60,90,[.025,.075,.15,.225,.3]]
+];
+const FD=[1.59,3.17,6.35,9.52,12.7];
+function feed(m,D){const f=FURO[m][3];if(D<=FD[0])return f[0]*D/FD[0];
+  for(let i=0;i<4;i++)if(D<=FD[i+1])return f[i]+(f[i+1]-f[i])*(D-FD[i])/(FD[i+1]-FD[i]);
+  return Math.min(f[4]+(f[4]-f[3])/(FD[4]-FD[3])*(D-FD[4]),f[4]*2)}
+$("fuMat").innerHTML=FURO.map((m,i)=>`<option value="${i}">${m[0]} · Vc ${m[1]}–${m[2]} m/min</option>`).join("");
+{const s=store.get("gt_fu");if(Array.isArray(s)){$("fuMat").value=s[0];$("fuD").value=s[1];$("fuL").value=s[2]}}
+["fuD","fuL"].forEach(id=>$(id).addEventListener("input",furacao));$("fuMat").addEventListener("change",furacao);
+function furacao(){
+  const m=+$("fuMat").value,D=parseNum($("fuD").value),L=parseNum($("fuL").value),M=FURO[m];store.set("gt_fu",[m,$("fuD").value,$("fuL").value]);
+  $("fuMatLbl").textContent=M[0];
+  const rpm=v=>v*1000/(Math.PI*D);
+  if(!(D>0)){$("fuRes").innerHTML=`<div class="tol-card"><h4>Furação</h4><p>Digite o diâmetro da broca.</p></div>`}
+  else{
+    const k=L>8*D?.8:L>4*D?.9:1,vc=(M[1]+M[2])/2*k,n=rpm(vc),f=feed(m,D)*k,vf=f*n,t=L>0?(L+.3*D)/vf:NaN;
+    const prof=L>8*D?"acima de 8×D: Vc e avanço −20%, use pica-pau":L>4*D?"entre 4 e 8×D: Vc e avanço −10%":"até 4×D: parâmetros cheios";
+    $("fuRes").innerHTML=`<div class="tol-card"><h4>Rotação</h4><div class="big">${nf(n,0)}<i>rpm</i></div><ul><li><span>Faixa (Vc ${M[1]}–${M[2]})</span><b>${nf(rpm(M[1]*k),0)} – ${nf(rpm(M[2]*k),0)}</b></li><li><span>Vc usada</span><b>${nf(vc,1)} m/min</b></li></ul></div>
+      <div class="tol-card"><h4>Avanço</h4><div class="big">${nf(f,3)}<i>mm/rot</i></div><ul><li><span>Avanço da mesa</span><b>${nf(vf,0)} mm/min</b></li></ul></div>
+      <div class="tol-card"><h4>Tempo de corte</h4><div class="big">${Number.isFinite(t)?(t<1?nf(t*60,0)+"<i>s</i>":nf(t,2)+"<i>min</i>"):"–"}</div><ul><li><span>Profundidade</span><b>${Number.isFinite(L)?nf(L,0)+" mm · "+nf(L/D,1)+"×D":"–"}</b></li></ul><p>${prof}. Inclui a ponta de 118° (0,3 × D).</p></div>`;
+  }
+  const ds=[];for(let x=1;x<=6;x+=.5)ds.push(x);for(let x=7;x<=20;x++)ds.push(x);for(let x=22;x<=40;x+=2)ds.push(x);
+  $("fuBody").innerHTML=ds.map(x=>{const n1=M[1]*1000/(Math.PI*x),n2=M[2]*1000/(Math.PI*x),f=feed(m,x);
+    return `<tr class="${Math.abs(x-D)<1e-9?"hit":""}"><td class="n" style="color:var(--strong);font-weight:600">${nf(x,x%1?1:0)}</td><td class="n">${nf(n1,0)}</td><td class="n">${nf(n2,0)}</td><td class="n bl">${nf(f,3)}</td><td class="n">${nf(f*(n1+n2)/2,0)}</td></tr>`}).join("");
+}
 
 /* ======================= CONVERSÃO ======================= */
 const CONV={
