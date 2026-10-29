@@ -413,7 +413,6 @@ header.page p{max-width:960px}
 @media (max-width:380px){.c-big{grid-template-columns:1fr}.c-fields{grid-template-columns:1fr 1fr}}
 
 /* ===== SIDEBAR AJUSTÁVEL ===== */
-.sidebar{position:sticky}
 .sb-resize{position:absolute;top:0;right:0;width:7px;height:100%;cursor:col-resize;z-index:40;touch-action:none}
 .sb-resize::after{content:'';position:absolute;top:0;bottom:0;right:0;width:2px;background:transparent;transition:background .15s}
 .sb-resize:hover::after,.sb-resize:focus-visible::after,.app.sb-dragging .sb-resize::after{background:var(--accent-hi)}
@@ -423,6 +422,64 @@ header.page p{max-width:960px}
 .app.collapsed .sb-resize{display:block}
 @media (max-width:860px){.sb-resize{display:none!important}}
 .pick td:first-child,.scroll-table td:first-child{white-space:nowrap}
+/* ===== TTAT ===== */
+.tt-fams{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.tt-fams .c-shape{padding:7px 12px;font-size:12px}
+.tt-layout{display:grid;grid-template-columns:minmax(220px,300px) minmax(0,1fr);gap:18px;margin-bottom:30px;align-items:start}
+@media (max-width:900px){.tt-layout{grid-template-columns:1fr}}
+.tt-list{display:grid;gap:4px;max-height:760px;overflow:auto;padding-right:2px}
+@media (max-width:900px){.tt-list{display:flex;overflow-x:auto;max-height:none;padding-bottom:6px}.tt-list button{flex:none;min-width:180px}}
+.tt-item{display:flex;align-items:center;gap:10px;text-align:left;border:1px solid var(--border);background:var(--surface);padding:9px 12px;cursor:pointer;color:var(--text);font-size:13px;font-weight:500}
+.tt-item:hover{border-color:var(--strong)}
+.tt-item[aria-pressed="true"]{border-color:var(--accent-hi);background:rgba(240,138,75,.1);color:var(--strong);box-shadow:inset 4px 0 0 var(--accent-hi)}
+.tt-dot{width:9px;height:9px;flex:none;border-radius:50%}
+.tt-item small{display:block;font-size:11px;color:var(--muted);font-weight:400}
+.tt-det{background:var(--surface);border:1px solid var(--border);padding:20px 22px;min-width:0}
+.tt-det h2{margin:0 0 4px;font-size:22px;color:var(--strong)}
+.tt-det .tt-en{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-bottom:12px}
+.tt-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:14px 0}
+.tt-facts div{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--accent-hi);padding:10px 12px}
+.tt-facts small{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;font-family:var(--f-mono)}
+.tt-facts b{font-size:14px;color:var(--strong);font-weight:600}
+.tt-det p{margin:0 0 10px;font-size:13.5px;line-height:1.65}
+.tt-det ul{margin:4px 0 12px;padding-left:18px;font-size:13px}
+.tt-det li{margin-bottom:4px}
+.tt-det h4{margin:16px 0 6px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-family:var(--f-mono);font-weight:500}
+.tt-cyc{background:var(--bg);border:1px solid var(--border);margin-top:6px}
+.tt-cyc svg{display:block;width:100%;height:auto}
+.tt-viz{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:18px;margin-bottom:30px}
+.tt-viz .c-panel{display:flex;flex-direction:column;gap:12px}
+.tt-viz svg{display:block;width:100%;height:auto}
+.tt3d{width:100%;height:380px;display:block;touch-action:none;cursor:grab;background:var(--bg);border:1px solid var(--border)}
+.tt3d:active{cursor:grabbing}
+.tt-legend{display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.tt-legend i{flex:1;height:10px;background:linear-gradient(90deg,#2b5fa8,#2fa38a,#d9c33a,#ef8a2f,#c4321f)}
+.tt-ctl{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.tt-ctl .c-f{min-width:120px;flex:1 1 140px;max-width:220px}
+.tt-ctl input[type=range]{width:100%;accent-color:var(--accent)}
+.tt-note{font-size:12px;color:var(--muted);margin:0}
+.fx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:14px;margin-bottom:28px}
+.fx{background:var(--surface);border:1px solid var(--border);padding:16px 18px}
+.fx h4{margin:0 0 8px;font-size:13px;color:var(--strong)}
+.fx .eq{font-family:var(--f-mono);font-size:13px;color:var(--strong);background:var(--bg);border:1px dashed var(--line2);padding:8px 10px;margin:6px 0 8px;overflow-x:auto;white-space:nowrap}
+.fx p{margin:0;font-size:12px;color:var(--muted)}
+.fx .mini-in{margin-top:10px}
+.fx .mini-in .c-f{min-width:90px;max-width:none;flex:1 1 90px}
+.fx .res{margin-top:8px;font-family:var(--f-mono);font-size:14px;color:var(--accent);font-weight:600}
+.hbar{position:relative;height:16px;background:var(--bg);border:1px solid var(--border);min-width:160px}
+.hbar span{position:absolute;top:2px;bottom:2px}
+.hbar .f{background:#8a9ab0}
+.hbar .t{background:var(--accent-hi);top:5px;bottom:5px;box-shadow:0 0 0 1px var(--accent)}
+.hbar .r{background:#2fa38a;top:6px;bottom:6px}
+.hb-axis{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:10px;color:var(--muted)}
+.tt-flag2{font-size:10px;font-family:var(--f-mono);padding:1px 6px;border:1px solid var(--line2);color:var(--muted);white-space:nowrap}
+.tt-flag2.y{color:var(--accent4);border-color:rgba(30,138,90,.4)}
+.tt-flag2.n{color:var(--muted)}
+#taBody tr.ta-row{cursor:pointer}
+#taBody tr.ta-row td:first-child::before{content:'+';display:inline-block;width:14px;color:var(--muted)}
+#taBody tr.ta-row.open td:first-child::before{content:'−';color:var(--accent)}
+#taBody tr.ta-det td{background:var(--bg);padding:14px 18px 18px;white-space:normal;font-family:var(--f-body);font-weight:400;color:var(--text)}
+#taBody tr.ta-det .det-grid span{white-space:normal;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
@@ -1092,6 +1149,168 @@ header.page p{max-width:960px}
   <p class="src">Canais conforme ISO 4183 / DIN 2211 (perfis estreitos SPZ, SPA, SPB, SPC) e DIN 2217 (clássicos Z, A, B, C, D, ângulo de 36° em D). lp = largura primitiva, b = altura acima do primitivo, h = profundidade abaixo do primitivo, e = passo entre canais, f = distância do eixo do 1º canal à face. Ø externo da polia = dp + 2b. Valores de referência; confira com o fabricante da correia.</p>
 </section>
 
+<!-- ============================================================ TTAT · TRATAMENTOS -->
+<section class="view" id="v-ttat" hidden>
+  <div class="two-col">
+    <div class="info-box"><h4>O que é tratamento térmico</h4><p>É aquecer o aço até uma temperatura, manter o tempo necessário e resfriar numa velocidade controlada para mudar a <strong>microestrutura</strong> e, com ela, dureza, resistência, tenacidade, usinabilidade ou tensões residuais. As três variáveis são sempre <strong>temperatura, tempo e velocidade de resfriamento</strong>; nos termoquímicos entra a quarta, a <strong>atmosfera</strong> (C, N, B).</p></div>
+    <div class="info-box blue"><h4>TTAT na caldeiraria</h4><p><strong>TTAT</strong> = tratamento térmico de alívio de tensões (em inglês, <span class="mono">PWHT</span> quando feito após a solda). Não endurece o aço: reduz as tensões da soldagem e a dureza da ZTA, melhora a tenacidade e a estabilidade dimensional. Use a <strong>Calculadora de TTAT</strong> para patamar e taxas pela ASME VIII ou AWS D1.1.</p></div>
+  </div>
+  <div class="section-title">Tratamentos térmicos do aço</div>
+  <div class="tt-fams" id="ttFams" role="group" aria-label="Família"></div>
+  <div class="tt-layout">
+    <div class="tt-list" id="ttList"></div>
+    <div class="tt-det" id="ttDet"></div>
+  </div>
+
+  <div class="section-title">Diagrama Fe-C e ciclo térmico</div>
+  <div class="tt-viz">
+    <div class="c-panel">
+      <h3 style="margin:0">Diagrama ferro-carbono (lado do aço)</h3>
+      <div class="tt-ctl">
+        <label class="c-f">Carbono<input type="range" id="ttC" min="0.05" max="1.6" step="0.01" value="0.45"></label>
+        <div class="tt-note" id="ttCtxt" style="flex:2 1 220px"></div>
+      </div>
+      <div id="ttFeC"></div>
+      <p class="tt-note">A faixa laranja é a temperatura do tratamento selecionado para o carbono escolhido. A1 = 727 °C (eutetoide); A3 e Acm em aço carbono comum. Elementos de liga deslocam essas linhas: use a tela <strong>CE e Pré-aquecimento</strong> para estimar Ac1, Ac3 e Ms pela composição.</p>
+    </div>
+    <div class="c-panel">
+      <h3 style="margin:0">Curva TTT (esquemática) e caminho de resfriamento</h3>
+      <div id="ttTTT"></div>
+      <p class="tt-note">Diagrama de transformação isotérmica de um aço médio carbono. A linha laranja mostra o caminho do tratamento selecionado: resfriar antes do "nariz" da curva (~1 s a 540 °C) evita a perlita e forma martensita abaixo de Ms. Aços ligados deslocam as curvas para a direita (mais temperabilidade).</p>
+    </div>
+  </div>
+
+  <div class="section-title">Visuais em 3D</div>
+  <div class="tt-viz">
+    <div class="c-panel">
+      <h3 style="margin:0">Estrutura cristalina — arraste para girar</h3>
+      <div class="sub-tabs" id="tcTabs" style="margin:0"></div>
+      <canvas class="tt3d" id="tc3d" aria-label="Estrutura cristalina em 3D"></canvas>
+      <div class="tt-ctl">
+        <label class="c-f">Carbono na martensita<input type="range" id="tcC" min="0" max="1.2" step="0.05" value="0.6"></label>
+        <label class="c-f">Células<select class="c-sel" id="tcN"><option value="1">1 célula</option><option value="2">2 × 2 × 2</option></select></label>
+      </div>
+      <p class="tt-note" id="tcTxt"></p>
+    </div>
+    <div class="c-panel">
+      <h3 style="margin:0">Perfil de dureza no eixo — arraste para girar</h3>
+      <div class="sub-tabs" id="hpTabs" style="margin:0"></div>
+      <canvas class="tt3d" id="hp3d" aria-label="Perfil de dureza em 3D"></canvas>
+      <div class="tt-legend"><span>15 HRC</span><i></i><span>65 HRC</span></div>
+      <div class="tt-ctl">
+        <label class="c-f">Ø do eixo<div class="c-inp"><input id="hpD" type="text" inputmode="decimal" value="60"><span>mm</span></div></label>
+        <label class="c-f">Camada efetiva<div class="c-inp"><input id="hpE" type="text" inputmode="decimal" value="1,2"><span>mm</span></div></label>
+      </div>
+      <div id="hpGraph"></div>
+      <p class="tt-note" id="hpTxt"></p>
+    </div>
+  </div>
+
+  <div class="section-title">Meios de têmpera — severidade H de Grossmann</div>
+  <div class="table-wrap"><table><thead><tr><th>Meio</th><th class="n">Sem agitação</th><th class="n">Agitação moderada</th><th class="n">Agitação forte</th><th>Uso e cuidados</th></tr></thead><tbody id="ttMeios"></tbody></table></div>
+
+  <div class="section-title">Fórmulas e conceitos</div>
+  <div class="fx-grid" id="ttFx"></div>
+  <p class="src">Faixas de temperatura e dureza são de referência (ASM Handbook vol. 4, Chiaverini — Aços e Ferros Fundidos, catálogos Gerdau/Villares). Fórmulas empíricas: Andrews (1965) para Ac1, Ac3 e Ms; Just para dureza máxima da martensita; Grossmann para temperabilidade; Hollomon-Jaffe para revenido; Harris para cementação. O tratamento real sempre segue a especificação do desenho, a norma do produto e o procedimento do fornecedor de TT.</p>
+</section>
+
+<!-- ============================================================ TTAT · AÇOS E DUREZA -->
+<section class="view" id="v-ttat-acos" hidden>
+  <div class="info-box"><h4>Dureza sem e com tratamento térmico</h4><p>Barra cinza = dureza de fornecimento (laminado, normalizado ou trefilado). Barra laranja = dureza depois do tratamento típico (para cementados, é a superfície). Barra verde = faixa J1 do ensaio Jominy (aço "H", SAE J1268), o mais próximo de uma dureza máxima de têmpera normatizada. Escala comum em HB; acima de ~450 HB a conversão é só para comparação. Clique numa linha para ver composição, resistência, soldabilidade e observações.</p></div>
+  <div class="search-bar">
+    <input type="text" id="taSearch" placeholder="Pesquisar aço (ex.: 4140, A516, S355, 42CrMo4, Hardox)">
+    <select id="taCat" aria-label="Categoria"></select>
+    <select id="taTT" aria-label="Endurece por TT"><option value="">Todos</option><option value="s">Ganha dureza por TT</option><option value="n">Não ganha dureza por TT</option></select>
+  </div>
+  <div class="result-count" id="taCount"></div>
+  <div class="table-wrap"><table class="ref" style="min-width:980px">
+    <thead><tr><th>Aço</th><th>EN</th><th class="n">C %</th><th>Fornecimento</th><th>Tratamento típico</th><th style="min-width:240px">Dureza <span style="text-transform:none">(HB)</span><div class="hb-axis" id="taAxis"></div></th><th class="n">Pós-TT HRC</th></tr></thead>
+    <tbody id="taBody"></tbody></table>
+    <div class="empty" id="taNone" hidden>Nenhum aço encontrado.</div></div>
+  <div class="two-col">
+    <div class="info-box"><h4>Como ler</h4><ul id="taNotes"></ul></div>
+    <div class="info-box blue"><h4>Fontes da planilha</h4><ul id="taSrc"></ul></div>
+  </div>
+  <p class="src">Valores de referência. Para compra e inspeção valem o certificado da corrida e a norma do produto. Equivalências entre normas são aproximadas.</p>
+</section>
+
+<!-- ============================================================ TTAT · CALCULADORA PWHT -->
+<section class="view" id="v-ttat-pwht" hidden>
+  <div class="c-bench" style="margin-bottom:24px">
+    <div class="c-panel">
+      <h3>Dados da peça</h3>
+      <div class="c-fields" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">
+        <label class="c-f">Código<select class="c-sel" id="pwNorma"><option value="asme">ASME VIII Div. 1 — UCS-56</option><option value="aws">AWS D1.1 — alívio de tensões</option></select></label>
+        <label class="c-f" id="pwPw">Material (P-Nº)<select class="c-sel" id="pwP"></select></label>
+        <label class="c-f">Espessura governante<div class="c-inp"><input id="pwE" type="text" inputmode="decimal" value="38"><span>mm</span></div></label>
+        <label class="c-f">Temperatura de patamar<div class="c-inp"><input id="pwT" type="text" inputmode="decimal" value="620"><span>°C</span></div></label>
+        <label class="c-f">Temperatura de entrada no forno<div class="c-inp"><input id="pwT0" type="text" inputmode="decimal" value="300"><span>°C</span></div></label>
+      </div>
+      <p class="c-hint" id="pwHint"></p>
+    </div>
+    <div class="c-panel c-result">
+      <h3>Ciclo de TTAT</h3>
+      <div class="c-big"><div><small>Patamar mínimo</small><b id="pwHold">–</b><i></i></div><div><small>Temperatura</small><b id="pwTmin">–</b><i>°C</i></div></div>
+      <div class="c-sub" id="pwSub"></div>
+      <p class="c-msg" id="pwMsg" hidden></p>
+    </div>
+  </div>
+  <div class="section-title">Gráfico do ciclo</div>
+  <div class="c-panel" style="padding:12px;margin-bottom:28px"><div id="pwChart"></div></div>
+  <div class="section-title">Equivalência de revenido / TTAT — Hollomon-Jaffe</div>
+  <div class="c-panel" style="margin-bottom:28px">
+    <div class="mini-in">
+      <label class="c-f">T1<div class="c-inp"><input id="hjT1" type="text" inputmode="decimal" value="620"><span>°C</span></div></label>
+      <label class="c-f">t1<div class="c-inp"><input id="hjt1" type="text" inputmode="decimal" value="2"><span>h</span></div></label>
+      <label class="c-f">T2<div class="c-inp"><input id="hjT2" type="text" inputmode="decimal" value="595"><span>°C</span></div></label>
+      <label class="c-f">Constante C<div class="c-inp"><input id="hjC" type="text" inputmode="decimal" value="20"></div></label>
+    </div>
+    <div class="answer" id="hjAns" style="margin:14px 0 0"></div>
+  </div>
+  <div class="two-col">
+    <div class="info-box"><h4>Regras usadas</h4><ul id="pwRules"></ul></div>
+    <div class="info-box blue"><h4>Boas práticas</h4><ul>
+      <li>Termopares na peça (não só no ar do forno), nos pontos mais grosso e mais fino; registre o gráfico.</li>
+      <li>Apoie a peça para não empenar: no patamar o limite de escoamento cai muito.</li>
+      <li>Usine depois do TTAT as cotas de precisão; flanges e faces podem mexer.</li>
+      <li>Retirar dispositivos, travas e chapas provisórias antes, ou prever o efeito delas.</li>
+      <li>TTAT localizado (resistências ou indução): faixa aquecida ≥ 5√(R·t) para cada lado da solda (orientação comum de ASME e WRC).</li>
+      <li>Aços temperados e revenidos (Hardox, A514, Q&T): o TTAT não pode passar da temperatura de revenido do fabricante.</li></ul></div>
+  </div>
+  <p class="src">ASME BPVC Seção VIII Div. 1, UCS-56 e Tabelas UCS-56-1 a UCS-56-11 (valores resumidos dos P-Nº mais usados); AWS D1.1 Cláusula 5 (alívio de tensões). Confira sempre a edição vigente do código contratual, as notas de isenção por espessura e o procedimento qualificado (a EPS precisa ter sido qualificada com TTAT).</p>
+</section>
+
+<!-- ============================================================ TTAT · CE E PRÉ-AQUECIMENTO -->
+<section class="view" id="v-ttat-ce" hidden>
+  <div class="c-bench" style="margin-bottom:24px">
+    <div class="c-panel">
+      <h3>Composição química (%)</h3>
+      <div class="mini-in" style="margin-bottom:12px"><label class="c-f" style="max-width:none;flex:1 1 260px">Preencher com aço típico<select class="c-sel" id="ceAco"></select></label></div>
+      <div class="c-fields" id="ceFields" style="grid-template-columns:repeat(auto-fill,minmax(96px,1fr))"></div>
+      <h3 style="margin-top:20px">Soldagem</h3>
+      <div class="c-fields" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr))">
+        <label class="c-f">Espessura combinada<div class="c-inp"><input id="ceD" type="text" inputmode="decimal" value="25"><span>mm</span></div></label>
+        <label class="c-f">Hidrogênio difusível HD<div class="c-inp"><input id="ceHD" type="text" inputmode="decimal" value="5"><span>ml/100g</span></div></label>
+        <label class="c-f">Processo (eficiência k)<select class="c-sel" id="ceK"><option value="0.8">SMAW / GMAW / FCAW (0,8)</option><option value="1">SAW (1,0)</option><option value="0.6">GTAW (0,6)</option></select></label>
+        <label class="c-f">Tensão<div class="c-inp"><input id="ceU" type="text" inputmode="decimal" value="26"><span>V</span></div></label>
+        <label class="c-f">Corrente<div class="c-inp"><input id="ceI" type="text" inputmode="decimal" value="220"><span>A</span></div></label>
+        <label class="c-f">Velocidade<div class="c-inp"><input id="ceV" type="text" inputmode="decimal" value="300"><span>mm/min</span></div></label>
+      </div>
+    </div>
+    <div class="c-panel c-result">
+      <h3>Resultado</h3>
+      <div class="c-big"><div><small>CE (IIW)</small><b id="ceIIW">–</b></div><div><small>Pré-aquecimento</small><b id="cePre">–</b><i>°C</i></div></div>
+      <div class="c-sub" id="ceSub"></div>
+      <p class="c-msg" id="ceMsg" hidden></p>
+    </div>
+  </div>
+  <div class="section-title">Temperaturas críticas e temperabilidade</div>
+  <div class="tol-res" id="ceCrit"></div>
+  <div class="section-title">Fórmulas usadas</div>
+  <div class="fx-grid" id="ceFx"></div>
+  <p class="src">CE IIW (ISO/TR 15608 e AWS D1.1 Anexo B), Pcm de Ito-Bessyo (AWS D1.1 Anexo H), CET e pré-aquecimento pelo método B da EN 1011-2 (válido para CET 0,20–0,50, espessura 10–90 mm, HD 1–20, aporte 0,5–4 kJ/mm). Temperaturas críticas por Andrews (1965), dureza máxima por Just, temperabilidade por Grossmann (fatores multiplicativos, grão ASTM 7). São estimativas: o pré-aquecimento final é o da EPS qualificada e do código de projeto.</p>
+</section>
+
 <!-- ============================================================ CONVERSÃO -->
 <section class="view" id="v-conv" hidden>
   <div class="c-shapes" id="cvCats" role="group" aria-label="Grandeza"></div>
@@ -1193,6 +1412,10 @@ const ICON={
   rol:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="5.6" r="1.4"/><circle cx="12" cy="18.4" r="1.4"/><circle cx="5.6" cy="12" r="1.4"/><circle cx="18.4" cy="12" r="1.4"/>',
   polia:'<circle cx="7" cy="14" r="4"/><circle cx="18" cy="8" r="3"/><path d="M5.6 10.3L16.6 5.3M8.6 17.7l10.6-7"/>',
   "maq-fix":'<path d="M9 3h6l2 3-2 3H9L7 6z"/><path d="M10 9v12M14 9v12M10 12l4 1M10 15l4 1M10 18l4 1"/>',
+  ttat:'<path d="M12 3c1 3 4 4.5 4 8.5a4 4 0 01-8 0c0-2 1-3 1.5-4 .5 1.5 1.5 2 2.5 2 0-2.5-1-4.5 0-6.5z"/><path d="M5 21h14"/>',
+  "ttat-acos":'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+  "ttat-pwht":'<path d="M3 18l4-9h6l4 6h4"/><path d="M3 21h18"/><circle cx="7" cy="9" r="1.2"/>',
+  "ttat-ce":'<path d="M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3"/><path d="M7.5 15h9"/>',
   "mat-equiv":'<path d="M4 7h16M4 12h16M4 17h16"/><path d="M8 4v16"/>',
   "mat-acos":'<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>',
   "mat-dureza":'<path d="M12 3l6 7-6 11-6-11z"/><path d="M6 10h12"/>',
@@ -1216,6 +1439,11 @@ const VIEWS=[
     {id:"tabela",label:"Tabela de EPS",count:()=>EPS.length,h:{l:"Solda • Procedimentos",t:"Tabela de <span>EPS</span>",d:"Todas as especificações de procedimento de soldagem cadastradas, com filtro por processo, norma e texto."}},
     {id:"simb",label:"Simbologia de Solda",run:()=>simbologia(),h:{l:"Solda • Desenho",t:"Simbologia de <span>Solda</span>",d:"Como ler e montar o símbolo de solda pela AWS A2.4 e pela ISO 2553: seta, linha de referência, lados, símbolos básicos e complementares, cotas e cauda."}},
     {id:"tol13920",label:"Tolerâncias de Soldados",run:()=>tolerancias(),h:{l:"Solda • Tolerâncias",t:"Tolerâncias de <span>Conjuntos Soldados</span>",d:"ISO 13920: medidas lineares, angulares e de forma para estruturas e caldeiraria. Digite a medida e veja a tolerância de cada classe."}},
+  {g:"TTAT"},
+    {id:"ttat",label:"Tratamentos Térmicos",run:()=>ttat(),h:{l:"TTAT • Tratamento térmico",t:"Tratamentos <span>Térmicos</span>",d:"Todos os tratamentos térmicos e termoquímicos do aço: objetivo, temperatura, tempo, resfriamento, microestrutura e dureza, com diagrama Fe-C, curva TTT, estruturas cristalinas e perfil de dureza em 3D."}},
+    {id:"ttat-acos",label:"Aços e Dureza",run:()=>ttAcos(),h:{l:"TTAT • Materiais",t:"Aços e <span>Dureza</span>",d:"Composição, dureza de fornecimento e dureza depois do tratamento térmico de 47 aços de caldeiraria e construção mecânica, com equivalência ASTM/SAE × EN."}},
+    {id:"ttat-pwht",label:"Calculadora de TTAT",run:()=>pwht(),h:{l:"TTAT • Alívio de tensões",t:"Calculadora de <span>TTAT</span>",d:"Temperatura, patamar e taxas de aquecimento e resfriamento do alívio de tensões pós-solda pela ASME VIII Div. 1 (UCS-56) e AWS D1.1, com gráfico do ciclo e equivalência Hollomon-Jaffe."}},
+    {id:"ttat-ce",label:"CE e Pré-aquecimento",run:()=>ce(),h:{l:"TTAT • Soldabilidade",t:"Carbono Equivalente e <span>Pré-aquecimento</span>",d:"CE IIW, Pcm e CET, pré-aquecimento pela EN 1011-2, temperaturas críticas Ac1, Ac3 e Ms e temperabilidade pela composição química."}},
   {g:"Usinagem"},
     {id:"iso286",label:"Tolerâncias e Ajustes",run:()=>iso286(),h:{l:"Usinagem • ISO 286",t:"Tolerâncias e <span>Ajustes</span>",d:"Afastamentos de furos e eixos por classe (H7, g6, k6…) e faixa de diâmetro, e a folga ou interferência de cada ajuste furo/eixo."}},
     {id:"tol2768",label:"Tolerâncias Gerais",run:()=>tolerancias(),h:{l:"Usinagem • ISO 2768",t:"Tolerâncias <span>Gerais</span>",d:"ISO 2768 para cotas sem tolerância em peças usinadas. Digite a medida e veja a tolerância de cada classe."}},
@@ -1267,6 +1495,10 @@ function badges(){
     rol:[["Séries",String(Object.keys(ROL).length)],["Rolamentos",String(Object.values(ROL).reduce((a,r)=>a+r.rows.length,0))]],
     polia:[["Norma","ISO 4183 · DIN 2211 / 2217"],["Perfis",String(POL.length)]],
     "maq-fix":[["Tabelas","roscas · parafusos · chavetas"]],
+    ttat:[["Tratamentos",String(TT.length)],["Visuais","Fe-C · TTT · 3D"]],
+    "ttat-acos":[["Aços",String(TT_ACOS.length)],["Endurecem por TT",String(TT_ACOS.filter(r=>!/N\/A/.test(String(r[20]))).length)]],
+    "ttat-pwht":[["Códigos","ASME VIII · AWS D1.1"],["P-Nº","1 · 3 · 4 · 5A · 9 · 8"]],
+    "ttat-ce":[["Índices","CE · Pcm · CET"],["Método","EN 1011-2 B"]],
     "mat-equiv":[["Aços",String(EQ.length)]],
     "mat-acos":[["Fonte","Mecpres"]],
     "mat-dureza":[["Escalas","7"]],
@@ -2589,6 +2821,468 @@ function polias(){
   $("plBody").querySelectorAll("tr").forEach(tr=>tr.onclick=()=>{plCur=tr.dataset.k;store.set("gt_pl",plCur);polias()});
 }
 
+const TT_ACOS=[["Estrutural", "ASTM A36", "S235JR", "ASTM A36", "≤0,26", "0,80–1,20 (esp.>20 mm)", "≤0,40", "0,030", "0,030", "—", "—", "—", "Cu ≥0,20 se especificado", "Laminado a quente", 120, 160, "<20 (≈67 HRB)", "<20 (≈84 HRB)", "—", "Não temperável. Só normalização ou alívio de tensões", "N/A", "N/A", "Não ganha dureza por TT", "—", "400–550", "250", "Excelente. Pré-aquecimento só em espessuras grossas (AWS D1.1)", "Sobe dureza só na ZTA de solda/oxicorte. Serviço com H2S: solda ≤22 HRC / 248 HV (NACE MR0175)", "Valor típico (literatura/ASM)"], ["Estrutural", "ASTM A283 Gr C", "S235JR", "ASTM A283", "≤0,24", "≤0,90", "≤0,40", "0,030", "0,030", "—", "—", "—", "Cu ≥0,20 se especificado", "Laminado a quente", 110, 150, "<20 (≈62 HRB)", "<20 (≈81 HRB)", "—", "Não temperável", "N/A", "N/A", "Não ganha dureza por TT", "—", "380–515", "205", "Excelente", "Aço de uso geral, sem exigência de tenacidade", "Valor típico (literatura/ASM)"], ["Estrutural", "ASTM A573 Gr 70 · A570 Gr 40", "S275JR · S275J2", "ASTM A573 (Gr 70)", "≤0,28", "0,85–1,20", "0,15–0,40", "0,035", "0,035", "—", "—", "—", "A570 foi substituída pela A1011 (bobina fina)", "Laminado a quente", 140, 180, "<20 (≈77 HRB)", "<20 (≈89 HRB)", "—", "Não temperável", "N/A", "N/A", "Não ganha dureza por TT", "—", "485–620 (A573-70)", "290", "Muito boa", "Composição e resistência da A573 Gr 70", "Valor típico (literatura/ASM)"], ["Estrutural", "ASTM A572 Gr 50 · A709 Gr 345", "S355J2", "ASTM A572", "≤0,23", "≤1,35", "≤0,40", "0,030", "0,030", "—", "—", "—", "Microligado Nb 0,005–0,05 e/ou V 0,01–0,15", "Laminado a quente", 150, 190, "<20 (≈81 HRB)", "<20 (≈91 HRB)", "—", "Não temperável", "N/A", "N/A", "Não ganha dureza por TT", "—", "≥450", "345", "Boa (CE ≈ 0,40–0,45). Pré-aquecimento por espessura conforme AWS D1.1", "Aço estrutural de alta resistência mais comum", "Valor típico (literatura/ASM)"], ["Estrutural", "ASTM A572 Gr 65", "E335 (aprox.)", "ASTM A572", "≤0,23 (≤12,5 mm) · ≤0,26", "≤1,65", "≤0,40", "0,030", "0,030", "—", "—", "—", "Microligado Nb/V", "Laminado a quente", 170, 210, "<20 (≈87 HRB)", "<20 (≈95 HRB)", "—", "Não temperável", "N/A", "N/A", "Não ganha dureza por TT", "—", "≥550", "450", "Boa. Atenção ao pré-aquecimento em espessuras maiores", "", "Valor típico (literatura/ASM)"], ["Estrutural", "ASTM A588 · A242", "S355J2W", "ASTM A588 (Gr A)", "≤0,19", "0,80–1,25", "0,30–0,65", "0,040", "0,050", "0,40–0,65", "≤0,40", "—", "Cu 0,25–0,40 · V 0,02–0,10", "Laminado a quente", 150, 200, "<20 (≈81 HRB)", "<20 (≈93 HRB)", "—", "Não temperável", "N/A", "N/A", "Não ganha dureza por TT", "—", "≥485", "345", "Boa. Usar consumível patinável (com Ni/Cu) se a solda ficar exposta", "Patinável: forma pátina protetora", "Valor típico (literatura/ASM)"], ["Vaso de pressão", "ASTM A285 Gr C · A516 Gr 55", "P235GH", "ASTM A285 (Gr C)", "≤0,28", "≤0,90", "—", "0,025", "0,025", "—", "—", "—", "", "Laminado (ou normalizado)", 115, 150, "<20 (≈64 HRB)", "<20 (≈81 HRB)", "—", "Normalização / TTAT pós-solda (alívio)", "N/A", "N/A", "PWHT não endurece; reduz dureza da ZTA", "—", "380–515", "205", "Excelente", "PWHT conforme ASME VIII UCS-56 pela espessura", "Valor típico (literatura/ASM)"], ["Vaso de pressão", "ASTM A515 · A516 Gr 60/65", "P265GH", "ASTM A516 (Gr 60/65)", "≤0,21–0,28 (cresce com grau e espessura)", "0,85–1,20", "0,15–0,40", "0,025", "0,025", "—", "—", "—", "", "Laminado ou normalizado", 130, 170, "<20 (≈72 HRB)", "<20 (≈87 HRB)", "—", "Normalização / TTAT pós-solda", "N/A", "N/A", "PWHT não endurece", "—", "415–550 (60) · 450–585 (65)", "220 (60) · 240 (65)", "Excelente", "", "Valor típico (literatura/ASM)"], ["Vaso de pressão", "ASTM A516 Gr 70", "P295GH (P355GH aprox.)", "ASTM A516 (Gr 70)", "≤0,27 (≤12,5 mm) a ≤0,31 (>100 mm)", "0,85–1,20", "0,15–0,40", "0,025", "0,025", "—", "—", "—", "", "Laminado ou normalizado (normalização obrigatória acima de 40 mm quando exigido tenacidade)", 140, 180, "<20 (≈77 HRB)", "<20 (≈89 HRB)", "—", "Normalização / TTAT pós-solda", "N/A", "N/A", "PWHT não endurece", "—", "485–620", "260", "Boa. Pré-aquecimento por espessura (ASME VIII, apêndice não obrigatório R)", "Serviço com H2S/HIC: dureza de solda ≤200 HB (NACE SP0472)", "Valor típico (literatura/ASM)"], ["Vaso de pressão", "ASTM A537 Cl 1", "P355GH", "ASTM A537", "≤0,24", "0,70–1,35 (≤40 mm) · 1,00–1,60", "0,15–0,50", "0,025", "0,025", "≤0,25", "≤0,25", "≤0,08", "Cu ≤0,35", "Normalizado", 150, 190, "<20 (≈81 HRB)", "<20 (≈91 HRB)", "—", "Cl 1: normalizado · Cl 2: temperado e revenido", "N/A", "N/A", "Cl 2 (temperado e revenido) tem maior resistência, não é aço para dureza", "—", "485–620", "345", "Boa", "", "Valor típico (literatura/ASM)"], ["Vaso de pressão", "ASTM A204 Gr A", "16Mo3", "ASTM A204", "≤0,18 (≤25 mm) a ≤0,25", "≤0,90", "0,15–0,40", "0,025", "0,025", "—", "—", "0,45–0,60", "", "Laminado ou normalizado", 140, 180, "<20 (≈77 HRB)", "<20 (≈89 HRB)", "—", "TTAT pós-solda (≈595–720 °C)", "N/A", "N/A", "PWHT não endurece", "—", "450–585", "255", "Regular. Pré-aquecimento ~80–150 °C", "Aço C-Mo para temperatura elevada", "Valor típico (literatura/ASM)"], ["Vaso de pressão", "ASTM A387 Gr 12 · A182 F12", "13CrMo4-5", "ASTM A387", "0,05–0,17", "0,40–0,65", "0,15–0,40", "0,025", "0,025", "0,80–1,15", "—", "0,45–0,60", "", "Normalizado e revenido", 140, 190, "<20 (≈77 HRB)", "<20 (≈91 HRB)", "—", "TTAT pós-solda obrigatório (P-Nº 4)", "N/A", "N/A", "PWHT reduz a dureza da solda", "—", "Cl1 380–550 · Cl2 450–585", "Cl1 230 · Cl2 275", "Exige cuidado: pré-aquecimento ≥150 °C e PWHT", "Especificações de refinaria costumam limitar a solda a ~225–241 HB. Confirmar na especificação do cliente", "Valor típico (literatura/ASM)"], ["Vaso de pressão", "ASTM A387 Gr 22 · A182 F22", "10CrMo9-10", "ASTM A387", "0,05–0,15", "0,30–0,60", "≤0,50", "0,025", "0,025", "2,00–2,50", "—", "0,90–1,10", "", "Normalizado e revenido", 150, 200, "<20 (≈81 HRB)", "<20 (≈93 HRB)", "—", "TTAT pós-solda obrigatório (P-Nº 5A)", "N/A", "N/A", "PWHT reduz a dureza da solda", "—", "Cl1 415–585 · Cl2 515–690", "Cl1 205 · Cl2 310", "Exige cuidado: pré-aquecimento ≥200 °C e PWHT", "Mesma observação de limite de dureza de solda da linha acima", "Valor típico (literatura/ASM)"], ["Tubo", "ASTM A106 Gr B · A53 Gr B · API 5L B", "P235GH · P235TR1", "ASTM A106 (Gr B)", "≤0,30", "0,29–1,06", "≥0,10", "0,035", "0,035", "≤0,40", "≤0,40", "≤0,15", "Cu ≤0,40 · V ≤0,08", "Laminado / normalizado", 130, 170, "<20 (≈72 HRB)", "<20 (≈87 HRB)", "—", "Não temperável", "N/A", "N/A", "Não ganha dureza por TT", "—", "≥415", "240", "Excelente", "A53 e API 5L têm limites de C/Mn um pouco diferentes", "Valor típico (literatura/ASM)"], ["Tubo", "ASTM A106 Gr C", "P265GH", "ASTM A106 (Gr C)", "≤0,35", "0,29–1,06", "≥0,10", "0,035", "0,035", "≤0,40", "≤0,40", "≤0,15", "Cu ≤0,40 · V ≤0,08", "Laminado / normalizado", 150, 190, "<20 (≈81 HRB)", "<20 (≈91 HRB)", "—", "Não temperável", "N/A", "N/A", "Não ganha dureza por TT", "—", "≥485", "275", "Boa", "", "Valor típico (literatura/ASM)"], ["Tubo", "ASTM A179 · A192", "P235GH", "ASTM A179 / A192", "0,06–0,18", "0,27–0,63", "A192 ≤0,25", "0,035", "0,035", "—", "—", "—", "", "Trefilado a frio e recozido", 100, 125, "<20", "<20 (≈70 HRB)", "—", "Não temperável", "N/A", "N/A", "Não ganha dureza por TT", "—", "≥325", "180", "Excelente", "Dureza máxima NORMATIVA: A179 ≤72 HRB (~125 HB) · A192 ≤77 HRB (~137 HB)", "Norma de produto (limite normativo)"], ["Tubo", "ASTM A335 P11", "13CrMo4-5 (aprox.)", "ASTM A335", "0,05–0,15", "0,30–0,60", "0,50–1,00", "0,025", "0,025", "1,00–1,50", "—", "0,44–0,65", "", "Normalizado e revenido / recozido", 140, 180, "<20 (≈77 HRB)", "<20 (≈89 HRB)", "—", "TTAT pós-solda obrigatório", "N/A", "N/A", "PWHT reduz a dureza da solda", "—", "≥415", "205", "Exige cuidado: pré-aquecimento ≥150 °C e PWHT", "", "Valor típico (literatura/ASM)"], ["Tubo", "ASTM A335 P22", "10CrMo9-10", "ASTM A335", "0,05–0,15", "0,30–0,60", "≤0,50", "0,025", "0,025", "1,90–2,60", "—", "0,87–1,13", "", "Normalizado e revenido / recozido", 140, 190, "<20 (≈77 HRB)", "<20 (≈91 HRB)", "—", "TTAT pós-solda obrigatório", "N/A", "N/A", "PWHT reduz a dureza da solda", "—", "≥415", "205", "Exige cuidado: pré-aquecimento ≥200 °C e PWHT", "", "Valor típico (literatura/ASM)"], ["Construção mecânica", "SAE 1010", "C10E", "SAE J403", "0,08–0,13", "0,30–0,60", "(0,15–0,35 usual)", "0,030", "0,050", "—", "—", "—", "", "Laminado / normalizado", 110, 140, "<20 (≈62 HRB)", "<20 (≈77 HRB)", "≤110 (recoz.) · 45–55 HRB (esf.)", "Cementação + têmpera", 58, 62, "Superfície cementada 58–62 HRC; núcleo continua <20 HRC", "—", "~320–400 (laminado)", "~180", "Excelente", "Sem carbono para temperar sozinho", "Catálogo Gerdau 2003 (tab. 6.1/6.2)"], ["Construção mecânica", "SAE 1020", "C22E", "SAE J403", "0,18–0,23", "0,30–0,60", "(0,15–0,35 usual)", "0,030", "0,050", "—", "—", "—", "", "Laminado / normalizado", 120, 170, "<20 (≈67 HRB)", "<20 (≈87 HRB)", "≤145 (recoz.) · ≤75 HRB (esf.)", "Cementação + têmpera", 58, 62, "Superfície cementada 58–62 HRC; têmpera direta pouco eficaz", "—", "~380–450 (laminado)", "~210", "Excelente", "", "Catálogo Gerdau 2003 (tab. 6.1/6.2)"], ["Construção mecânica", "SAE 1035", "C35E", "SAE J403", "0,32–0,38", "0,60–0,90", "(0,15–0,35 usual)", "0,030", "0,050", "—", "—", "—", "", "Laminado / normalizado", 150, 220, "<20 (≈81 HRB)", "<20 (≈97 HRB)", "≤174 (recoz.) · ≤163 (esf.)", "Beneficiamento (têmpera em água + revenido)", "<20 (≈89 HRB)", 20, "Beneficiado Gerdau: 180–228 HB (Ø<40) · 159–215 HB (Ø40–100). Temperado sem revenir ~50 HRC na superfície", "1038H: 51–58", "600–750 (benef. Ø<40)", "370", "Boa. Pré-aquecimento 100–200 °C em peças grossas", "", "Catálogo Gerdau 2003 (tab. 6.1/6.2)"], ["Construção mecânica", "SAE 1045", "C45E", "SAE J403", "0,43–0,50", "0,60–0,90", "(0,15–0,35 usual)", "0,030", "0,050", "—", "—", "—", "", "Laminado / normalizado", 165, 250, "<20 (≈85 HRB)", 24, "≤180 (recoz.) · ≤169 (esf.)", "Beneficiamento ou têmpera superficial (indução/chama)", "<20 (≈92 HRB)", 21, "Beneficiado Gerdau: 195–234 HB (Ø<40) · 180–228 HB (Ø40–100). Têmpera por indução/chama: 52–58 HRC na superfície", "1045H: 55–62", "650–800 (benef. Ø<40)", "430", "Regular. Pré-aquecimento 150–250 °C; eletrodo básico", "Baixa temperabilidade: em diâmetros grandes o núcleo não tempera", "Catálogo Gerdau 2003 (tab. 6.1/6.2)"], ["Construção mecânica", "SAE 1060", "C60E", "SAE J403", "0,55–0,65", "0,60–0,90", "(0,15–0,35 usual)", "0,030", "0,050", "—", "—", "—", "", "Laminado / normalizado", 200, 272, "<20 (≈93 HRB)", 28, "≤198 (esf.)", "Beneficiamento ou têmpera para mola", 23, 50, "Beneficiado Gerdau: 240–285 HB (Ø<40) · 228–271 HB (Ø40–100). Mola: temperado e revenido 42–50 HRC", "~60–64 (temperado, típico)", "800–950 (benef. Ø<40)", "520", "Ruim. Evitar soldar; se necessário, pré-aquecimento ≥250 °C", "", "Catálogo Gerdau 2003 (tab. 6.1/6.2)"], ["Usinagem fácil", "SAE 12L14", "11SMnPb30", "SAE J403", "≤0,15", "0,85–1,15", "—", "0,04–0,09", "0,26–0,35", "—", "—", "—", "Pb 0,15–0,35", "Laminado ou trefilado", 115, 170, "<20 (≈64 HRB)", "<20 (≈87 HRB)", "≤160 (recoz.)", "Não temperável; pode ser cementado", 55, 60, "Somente cementado (superfície ~55–60 HRC)", "—", "~390–540 (trefilado)", "~230", "Não soldável (Pb e S geram trinca e fumos)", "Dureza de fornecimento pela linha DIN 9SMn28 do catálogo Gerdau", "Catálogo Gerdau 2003 (tab. 6.1/6.2)"], ["Usinagem fácil", "SAE 1213", "11SMn30", "SAE J403", "≤0,13", "0,70–1,00", "—", "0,07–0,12", "0,24–0,33", "—", "—", "—", "", "Laminado ou trefilado", 115, 170, "<20 (≈64 HRB)", "<20 (≈87 HRB)", "≤160 (recoz.)", "Não temperável; pode ser cementado", 55, 60, "Somente cementado (superfície ~55–60 HRC)", "—", "~390–540 (trefilado)", "~230", "Ruim (S alto)", "Dureza de fornecimento pela linha DIN 9SMn28 do catálogo Gerdau", "Catálogo Gerdau 2003 (tab. 6.1/6.2)"], ["Construção mecânica", "SAE 4130", "25CrMo4", "SAE J404 / J403", "0,28–0,33", "0,40–0,60", "0,15–0,35", "0,030", "0,040", "0,80–1,10", "—", "0,15–0,25", "", "Normalizado ou recozido", 156, 230, "<20 (≈83 HRB)", 21, "~156–197 (recoz., típico)", "Beneficiamento", 28, 36, "Uso usual 28–36 HRC (temperado e revenido)", "4130H: 49–56", "~900–1100 (benef.)", "~700", "Boa para aço ligado. Pré-aquecimento 150–260 °C; PWHT recomendado", "", "Valor típico (literatura/ASM)"], ["Construção mecânica", "SAE 4140", "42CrMo4", "SAE J404 / J403", "0,38–0,43", "0,75–1,00", "0,15–0,35", "0,030", "0,040", "0,80–1,10", "—", "0,15–0,25", "", "Laminado / normalizado", 240, 350, 23, 38, "≤228 (recoz.) · ≤190 (esf.)", "Beneficiamento; pode ser nitretado", 26, 36, "Beneficiado Gerdau: 300–340 HB (Ø<40) · 260–320 HB (Ø40–100) · 230–275 HB (Ø100–160). Pedido usual 28–32 HRC. Nitretado: superfície ~50–55 HRC", "4140H: 53–60", "1000–1200 (benef. Ø<40)", "750", "Difícil. Pré-aquecimento 200–300 °C, controle de interpasse e PWHT logo após", "Serviço com H2S: ≤22 HRC", "Catálogo Gerdau 2003 (tab. 6.1/6.2)"], ["Construção mecânica", "SAE 4340", "34CrNiMo6", "SAE J404 / J403", "0,38–0,43", "0,60–0,80", "0,15–0,35", "0,030", "0,040", "0,70–0,90", "1,65–2,00", "0,20–0,30", "", "Laminado / normalizado", 260, 380, 26, 41, "≤260 (recoz.) · ≤210 (esf.)", "Beneficiamento", 28, 36, "Beneficiado Gerdau: 300–340 HB (Ø<40 e Ø40–100) · 270–330 HB (Ø100–160). Alta temperabilidade: tempera bem em diâmetros grandes", "4340H: 53–60", "1000–1200 (benef.)", "900", "Difícil. Pré-aquecimento 250–300 °C e PWHT", "", "Catálogo Gerdau 2003 (tab. 6.1/6.2)"], ["Construção mecânica", "SAE 5115 · 5120 (16MnCr5)", "16MnCr5", "SAE J404 · EN 10084", "5120: 0,17–0,22 · 16MnCr5: 0,14–0,19", "5120: 0,70–0,90 · 16MnCr5: 1,00–1,30", "0,15–0,35 (≤0,40)", "0,030", "0,040", "5120: 0,70–0,90 · 16MnCr5: 0,80–1,10", "—", "—", "", "Laminado / normalizado", 130, 250, "<20 (≈72 HRB)", 24, "≤180 (recoz.) · ≤165 (esf.)", "Cementação + têmpera", 58, 62, "Superfície cementada 58–62 HRC; núcleo ~30–40 HRC (depende da bitola)", "5120H: 40–48", "~800–1100 (núcleo)", "—", "Regular. Pré-aquecimento 150–200 °C", "Faixa de fornecimento: 16MnCr5 130–250 HB · SAE 5115 130–210 HB (Gerdau)", "Catálogo Gerdau 2003 (tab. 6.1/6.2)"], ["Construção mecânica", "SAE 5140", "41Cr4", "SAE J404 / J403", "0,38–0,43", "0,70–0,90", "0,15–0,35", "0,030", "0,040", "0,70–0,90", "—", "—", "", "Laminado / normalizado", 180, 275, "<20 (≈89 HRB)", 29, "≤207 (recoz.) · ≤172 (esf.)", "Beneficiamento", 23, 36, "Beneficiado Gerdau: 271–335 HB (Ø<40) · 240–285 HB (Ø40–100)", "5140H: 53–60", "900–1100 (benef. Ø<40)", "660", "Difícil. Pré-aquecimento 200–300 °C", "", "Catálogo Gerdau 2003 (tab. 6.1/6.2)"], ["Construção mecânica", "SAE 8620", "20NiCrMo2-2", "SAE J404 / J403", "0,18–0,23", "0,70–0,90", "0,15–0,35", "0,030", "0,040", "0,40–0,60", "0,40–0,70", "0,15–0,25", "", "Laminado / normalizado", 140, 250, "<20 (≈77 HRB)", 24, "≤180 (recoz.)", "Cementação + têmpera", 58, 62, "Superfície cementada 58–62 HRC; núcleo ~25–40 HRC", "8620H: 41–48", "~900–1200 (núcleo)", "—", "Boa para aço ligado. Pré-aquecimento 100–150 °C", "Aço de cementação mais usado em engrenagens", "Catálogo Gerdau 2003 (tab. 6.1/6.2)"], ["Construção mecânica", "SAE 8640", "40NiCrMo2-2", "SAE J404 / J403", "0,38–0,43", "0,75–1,00", "0,15–0,35", "0,030", "0,040", "0,40–0,60", "0,40–0,70", "0,15–0,25", "", "Laminado / normalizado", 240, 330, 23, 35, "≤228 (recoz.) · ≤183 (esf.)", "Beneficiamento", 23, 37, "Beneficiado Gerdau: 271–345 HB (Ø<40) · 240–271 HB (Ø40–100) · 228–271 HB (Ø100–160)", "8640H: 53–60", "900–1150 (benef. Ø<40)", "—", "Difícil. Pré-aquecimento 200–300 °C", "", "Catálogo Gerdau 2003 (tab. 6.1/6.2)"], ["Construção mecânica", "SAE 6150", "51CrV4", "SAE J404 / J403", "0,48–0,53", "0,70–0,90", "0,15–0,35", "0,030", "0,040", "0,80–1,10", "—", "—", "V ≥0,15", "Laminado / normalizado", "—", 400, "—", 43, "≤235 (recoz.) · ≤200 (esf.)", "Beneficiamento ou têmpera para mola", 25, 50, "Beneficiado Gerdau: 300–340 HB (Ø<40) · 271–335 HB (Ø40–100) · 253–300 HB (Ø100–160). Mola: 42–50 HRC", "6150H: 56–65", "1000–1200 (benef. Ø<40)", "800", "Ruim. Evitar soldar", "Catálogo dá só o máximo laminado (≤400 HB)", "Catálogo Gerdau 2003 (tab. 6.1/6.2)"], ["Construção mecânica", "SAE 52100", "100Cr6", "SAE J404 / J403", "0,98–1,10", "0,25–0,45", "0,15–0,35", "0,025", "0,025", "1,30–1,60", "—", "—", "", "Laminado / esferoidizado", "—", 400, "—", 43, "≤250 (recoz.) · ≤207 (esf.)", "Têmpera em óleo + revenido baixo (150–180 °C)", 58, 64, "Rolamentos: 58–64 HRC. Temperado sem revenir ~62–66 HRC", "~62–66 (temperado, típico)", "—", "—", "Não soldável", "Usinar no estado esferoidizado (≤207 HB)", "Catálogo Gerdau 2003 (tab. 6.1/6.2)"], ["Inox", "AISI 304", "X5CrNi18-10", "ASTM A240 / A276", "≤0,08", "≤2,00", "≤0,75", "0,045", "0,030", "18,0–20,0", "8,0–10,5", "—", "N ≤0,10", "Solubilizado", "—", 201, "—", "<20 (≈93 HRB)", "—", "Não endurece por TT (só por encruamento). Solubilização ~1040 °C", "N/A", "N/A", "Não ganha dureza por TT", "—", "≥515", "205", "Excelente (consumível 308/308L)", "Dureza máxima NORMATIVA ≤201 HB / 92 HRB (ASTM A240)", "Norma de produto (limite normativo)"], ["Inox", "AISI 304L", "X2CrNi19-11", "ASTM A240 / A276", "≤0,030", "≤2,00", "≤0,75", "0,045", "0,030", "18,0–20,0", "8,0–12,0", "—", "N ≤0,10", "Solubilizado", "—", 201, "—", "<20 (≈93 HRB)", "—", "Não endurece por TT", "N/A", "N/A", "Não ganha dureza por TT", "—", "≥485", "170", "Excelente (308L)", "Dureza máxima NORMATIVA ≤201 HB / 92 HRB (ASTM A240)", "Norma de produto (limite normativo)"], ["Inox", "AISI 316", "X5CrNiMo17-12-2", "ASTM A240 / A276", "≤0,08", "≤2,00", "≤0,75", "0,045", "0,030", "16,0–18,0", "10,0–14,0", "2,00–3,00", "N ≤0,10", "Solubilizado", "—", 217, "—", "<20 (≈96 HRB)", "—", "Não endurece por TT", "N/A", "N/A", "Não ganha dureza por TT", "—", "≥515", "205", "Excelente (316/316L)", "Dureza máxima NORMATIVA ≤217 HB / 95 HRB (ASTM A240)", "Norma de produto (limite normativo)"], ["Inox", "AISI 316L", "X2CrNiMo17-12-2", "ASTM A240 / A276", "≤0,030", "≤2,00", "≤0,75", "0,045", "0,030", "16,0–18,0", "10,0–14,0", "2,00–3,00", "N ≤0,10", "Solubilizado", "—", 217, "—", "<20 (≈96 HRB)", "—", "Não endurece por TT", "N/A", "N/A", "Não ganha dureza por TT", "—", "≥485", "170", "Excelente (316L)", "Dureza máxima NORMATIVA ≤217 HB / 95 HRB (ASTM A240)", "Norma de produto (limite normativo)"], ["Inox", "AISI 321", "X6CrNiTi18-10", "ASTM A240 / A276", "≤0,08", "≤2,00", "≤0,75", "0,045", "0,030", "17,0–19,0", "9,0–12,0", "—", "Ti 5×(C+N) a 0,70", "Solubilizado", "—", 217, "—", "<20 (≈96 HRB)", "—", "Não endurece por TT", "N/A", "N/A", "Não ganha dureza por TT", "—", "≥515", "205", "Boa (consumível 347)", "Dureza máxima NORMATIVA ≤217 HB / 95 HRB (ASTM A240)", "Norma de produto (limite normativo)"], ["Inox", "AISI 310S", "X8CrNi25-21", "ASTM A240 / A276", "≤0,08", "≤2,00", "≤1,50", "0,045", "0,030", "24,0–26,0", "19,0–22,0", "—", "", "Solubilizado", "—", 217, "—", "<20 (≈96 HRB)", "—", "Não endurece por TT", "N/A", "N/A", "Não ganha dureza por TT", "—", "≥515", "205", "Boa (consumível 310)", "Dureza máxima NORMATIVA ≤217 HB / 95 HRB (ASTM A240)", "Norma de produto (limite normativo)"], ["Inox", "AISI 410", "X12Cr13", "ASTM A240 / A276", "0,08–0,15", "≤1,00", "≤1,00", "0,040", "0,030", "11,5–13,5", "≤0,75", "—", "", "Recozido", "—", 217, "—", "<20 (≈96 HRB)", "≤217 (recoz.)", "Têmpera (~980 °C) + revenido", 20, 40, "Temperado e revenido: 20–40 HRC conforme revenido (temperado ~38–45 HRC)", "—", "≥450 (recoz.)", "205", "Difícil. Pré-aquecimento 200–300 °C e PWHT", "Recozido: dureza máxima NORMATIVA ≤217 HB / 96 HRB (ASTM A240)", "Norma de produto (limite normativo)"], ["Inox", "AISI 420", "X20Cr13", "ASTM A240 / A276", "≥0,15 (X20Cr13: 0,16–0,25)", "≤1,00", "≤1,00", "0,040", "0,030", "12,0–14,0", "≤0,75", "—", "", "Recozido", "—", 217, "—", "<20 (≈96 HRB)", "≤217 (recoz.)", "Têmpera (~1000 °C) + revenido", 30, 52, "Revenido baixo: 48–52 HRC · revenido alto (~600 °C): ~30 HRC", "—", "≥690 (recoz.)", "345", "Difícil. Pré-aquecimento 200–300 °C e PWHT", "Recozido ≤217 HB (ASTM A240). Confirmar o grau exato de C pedido", "Norma de produto (limite normativo)"], ["Inox", "AISI 430", "X6Cr17", "ASTM A240 / A276", "≤0,12", "≤1,00", "≤1,00", "0,040", "0,030", "16,0–18,0", "≤0,75", "—", "", "Recozido", "—", 183, "—", "<20 (≈90 HRB)", "≤183 (recoz.)", "Não temperável (ferrítico)", "N/A", "N/A", "Não ganha dureza por TT", "—", "≥450", "205", "Regular (crescimento de grão na ZTA)", "Dureza máxima NORMATIVA ≤183 HB / 89 HRB (ASTM A240)", "Norma de produto (limite normativo)"], ["Inox", "UNS S32205 (duplex 2205)", "X2CrNiMoN22-5-3", "ASTM A240", "≤0,030", "≤2,00", "≤1,00", "0,030", "0,020", "22,0–23,0", "4,5–6,5", "3,0–3,5", "N 0,14–0,20", "Solubilizado", "—", 293, "—", 31, "—", "Não endurece por TT", "N/A", "N/A", "Não ganha dureza por TT", "—", "≥655", "450", "Boa com controle de aporte (ferrita 35–65%)", "Dureza máxima NORMATIVA ≤293 HB / 31 HRC (ASTM A240)", "Norma de produto (limite normativo)"], ["Anti-desgaste", "HARDOX 400 · USI AR 400", "—", "Catálogo do fabricante", "≤0,32 (cresce com a esp.)", "≤1,60", "≤0,70", "0,025", "0,010", "≤2,0 (varia)", "≤1,5 (varia)", "≤0,60 (varia)", "B ≤0,004", "Temperado de fábrica", 370, 430, 40, 46, "—", "Já vem temperado. Não refazer TT", "N/A", "N/A", "Acima de ~250 °C perde dureza (cuidado com corte e solda)", "—", "~1250", "~1000", "Boa com controle: pré-aquecimento conforme espessura/CET, consumível de baixo hidrogênio", "Faixa 370–430 HBW do HARDOX 400; USI AR 400 nominal similar — confirmar catálogo Usiminas", "Catálogo do fabricante"], ["Anti-desgaste", "HARDOX 450 · USI AR 450", "—", "Catálogo do fabricante", "≤0,26–0,30 (cresce com a esp.)", "≤1,60", "≤0,70", "0,025", "0,010", "≤1,4 (varia)", "≤1,5 (varia)", "≤0,60 (varia)", "B ≤0,005", "Temperado de fábrica", 425, 475, 45, 50, "—", "Já vem temperado. Não refazer TT", "N/A", "N/A", "Acima de ~250 °C perde dureza", "—", "~1400", "~1200", "Boa com controle: pré-aquecimento conforme espessura/CET", "Faixa 425–475 HBW do HARDOX 450; confirmar catálogo Usiminas para o USI AR 450", "Catálogo do fabricante"], ["Anti-desgaste", "USI AR 360", "—", "Catálogo Usiminas", "Conforme catálogo", "—", "—", "—", "—", "—", "—", "—", "", "Temperado de fábrica", 330, 390, 35, 42, "—", "Já vem temperado. Não refazer TT", "N/A", "N/A", "Acima de ~250 °C perde dureza", "—", "—", "—", "Boa com controle de aporte", "Faixa estimada em torno de 360 HB nominal — CONFIRMAR no catálogo Usiminas", "Catálogo do fabricante"]];
+const TT_HRB=[[60,107],[65,116],[70,125],[75,137],[80,146],[85,163],[90,185],[95,210],[100,240]];
+/* ======================= TTAT · GUIA DE TRATAMENTOS ======================= */
+const TTF={amol:["Recozimento e normalização","#2b7fc4"],end:["Têmpera e revenido","#c4321f"],sup:["Têmpera superficial","#ef8a2f"],tq:["Termoquímicos","#6b4fbb"],sol:["Soldagem e TTAT","#1e8a5a"],esp:["Inox e especiais","#8a6d1e"]};
+const FA1=727,FA3=c=>c<0.77?912-240.3*c:727,FAcm=c=>c>0.77?727+314*(c-0.77):727;
+const up=c=>c<0.77?FA3(c):FA1;// temperatura de austenitização base
+const msC=c=>539-423*c-30.4*0.75;// Ms com Mn 0,75
+// k, nome, inglês, família, faixa(C), tempo, resfriamento, objetivo, microestrutura, dureza, aplicações, cuidados, caminho TTT, ciclo(C)
+const TT=[
+ ["recoz","Recozimento pleno","Full annealing","amol",c=>[up(c)+30,up(c)+50],"≈ 1 h por 25 mm depois que o núcleo atinge a temperatura","Muito lento, no forno desligado (10–30 °C/h) até ~550 °C, depois ao ar",
+  "Deixar o aço o mais mole possível, refinar e homogeneizar a estrutura e apagar o efeito de conformação, forjamento ou tratamento anterior. Prepara para usinagem pesada e conformação.",
+  "Perlita grossa + ferrita (hipoeutetoide) ou perlita + cementita (hipereutetoide)","A menor do aço: 1045 ≈ 170–190 HB · 4140 ≈ 190–220 HB","Forjados e barras antes de usinar, peças para conformar, aços-ferramenta antes de usinar",
+  "Hipereutetoide não deve passar de Acm: forma rede de cementita nos contornos de grão, frágil. Ciclo longo e caro; muitas vezes a normalização resolve.","forno",c=>cyc(up(c)+40,"forno")],
+ ["esfer","Esferoidização (recozimento globular)","Spheroidizing","amol",c=>[FA1-30,FA1+20],"8 a 30 h, ou ciclos oscilando ±20 °C em torno de A1","Lento, no forno",
+  "Transformar as lamelas de cementita em glóbulos. Dá a menor dureza e a melhor usinabilidade em aços de alto carbono (52100, aço-ferramenta) e a melhor conformação a frio (parafusos, estampagem profunda).",
+  "Cementita globular em matriz de ferrita","52100 ≈ 180–210 HB · 1045 ≈ 160–170 HB","Barras para rolamento, arame para parafuso (cabeçamento a frio), aço-ferramenta",
+  "Ciclo muito longo. Em aço baixo carbono a melhora de usinabilidade é pequena (cavaco pegajoso).","forno",c=>[[0,25],[2,FA1+15],[3,FA1-25],[4,FA1+15],[5,FA1-25],[6,FA1+15],[7,FA1-25],[10,560],[11,25]]],
+ ["subcrit","Recozimento subcrítico (recristalização)","Process annealing","amol",c=>[550,690],"1 a 4 h","Ao ar ou no forno",
+  "Recuperar a ductilidade de chapas, arames e tubos encruados na conformação a frio, sem passar por A1 (não há transformação de fase). Usado entre etapas de trefilação e estampagem.",
+  "Ferrita recristalizada (grãos novos e equiaxiais) + perlita/cementita sem mudança","Volta à dureza de antes do encruamento","Chapas estampadas em várias etapas, arames trefilados, tubos repuxados",
+  "Encruamento pequeno (5–10%) pode gerar crescimento exagerado de grão.","none",c=>[[0,25],[2,650],[5,650],[7,25]]],
+ ["normal","Normalização","Normalizing","amol",c=>c<0.77?[FA3(c)+50,FA3(c)+80]:[FAcm(c)+30,FAcm(c)+50],"≈ 1 h por 25 mm","Ao ar calmo",
+  "Refinar e uniformizar o grão depois de forjamento, fundição, laminação ou solda. Dá resistência e tenacidade maiores que o recozimento. É a condição de fornecimento de muitas chapas de vaso de pressão (A516 N) e de forjados.",
+  "Perlita fina + ferrita, grão fino","Um pouco acima do recozido: 1045 ≈ 190–220 HB","Chapas de vaso de pressão, forjados, fundidos de aço, preparação para têmpera",
+  "Peças com seções muito diferentes esfriam de forma desigual e podem empenar. Aços ligados podem endurecer ao ar: aí se faz normalização + revenido.","ar",c=>cyc(up(c)+65,"ar")],
+ ["alivio","Alívio de tensões (TTAT / PWHT)","Stress relief · post-weld heat treatment","sol",c=>[595,650],"1 h por 25 mm (ASME VIII, AWS D1.1), mínimo 15 min","Controlado no forno até ~425 °C, depois ao ar calmo",
+  "Reduzir tensões residuais de soldagem, usinagem pesada, conformação e desempeno a quente. Baixa a dureza da ZTA, melhora a tenacidade, reduz o risco de trinca por hidrogênio e de corrosão sob tensão (H₂S, soda) e estabiliza as dimensões para a usinagem final.",
+  "Não muda as fases; revenimento leve da solda e da ZTA","Cai um pouco: ZTA de 300+ HV para menos de ~250 HV em aço carbono","Vasos de pressão, tubulações Cr-Mo, bases de máquina soldadas antes de usinar, serviço ácido (NACE MR0175)",
+  "Não passar da temperatura de revenido de aço temperado e revenido (Hardox, A514, Q&T). Inox austenítico na faixa 500–800 °C sensitiza. Apoiar bem a peça. A EPS precisa ter sido qualificada com TTAT.","none",c=>[[0,25],[0.5,300],[3,620],[5,620],[7.5,425],[9,25]]],
+ ["tempera","Têmpera","Quenching · hardening","end",c=>[up(c)+30,up(c)+50],"Encharque ≈ 1 h por 25 mm (aços ligados: um pouco mais)","Rápido: água, salmoura, polímero ou óleo, conforme a temperabilidade",
+  "Endurecer o aço transformando a austenita em martensita. É a base do beneficiamento, da martêmpera e das têmperas superficiais.",
+  "Martensita (e austenita retida em alto carbono)","Depende do carbono: 1045 ≈ 55–58 HRC · 4140 ≈ 54–58 · 52100 ≈ 62–66 HRC","Ferramentas, facas, pinos, buchas, base do beneficiamento",
+  "Revenir logo depois, no mesmo dia: martensita sem revenir pode trincar sozinha. Cantos vivos, furos perto da borda e mudanças bruscas de seção concentram trincas. Aço ligado em água trinca.","agua",c=>cyc(up(c)+40,"agua")],
+ ["revenido","Revenimento","Tempering","end",c=>[150,650],"1 a 2 h por 25 mm, mínimo 1 h; revenido duplo em aço-ferramenta","Ao ar",
+  "Aliviar as tensões da têmpera e trocar dureza por tenacidade. Quanto maior a temperatura de revenido, menor a dureza e maior a tenacidade.",
+  "Martensita revenida","4140: 200 °C ≈ 54 HRC · 400 °C ≈ 45 · 500 °C ≈ 38 · 600 °C ≈ 30 HRC","Toda peça temperada",
+  "Evite 250–400 °C (fragilidade da martensita revenida, a cor azul). Em aços Cr-Ni-Mn evite ficar em 375–575 °C e resfrie rápido depois (fragilidade ao revenido).","rev",c=>cyc(up(c)+40,"agua",c<0.6?560:200)],
+ ["benef","Beneficiamento (têmpera + revenido alto)","Quench and temper (Q&T)","end",c=>[up(c)+30,up(c)+50],"Encharque ≈ 1 h por 25 mm + revenido 2 h ou mais","Têmpera em óleo ou água + revenido 500–650 °C",
+  "Alta resistência com boa tenacidade. É o estado de eixos, engrenagens, parafusos de alta resistência (8.8, 10.9), pinos e flanges de responsabilidade.",
+  "Martensita revenida (sorbita)","Pedido usual 28–36 HRC (4140, 4340); cai com o diâmetro","Eixos, engrenagens, parafusos classe 8.8 a 12.9, ferramentas de mineração",
+  "A dureza cai do centro para fora em seções grandes (ver a tela Aços e Dureza). No desenho, indique a dureza e onde medir.","oleo",c=>cyc(up(c)+40,"oleo",580)],
+ ["marte","Martêmpera","Marquenching · martempering","end",c=>[up(c)+30,up(c)+50],"Banho logo acima de Ms até igualar superfície e núcleo (minutos)","Banho de sal ou óleo quente (~200–300 °C), depois ao ar; revenir em seguida",
+  "Formar martensita com menos tensão e menos empeno que a têmpera direta, porque a peça inteira passa por Ms quase ao mesmo tempo.",
+  "Martensita (revenir depois)","Igual à da têmpera","Engrenagens, peças de seção variada, ferramentas, rolamentos",
+  "Precisa de aço com boa temperabilidade (ligados); peça grossa demais forma bainita ou perlita no núcleo.","marte",c=>[[0,25],[2,up(c)+40],[4,up(c)+40],[4.2,msC(c)+30],[5.6,msC(c)+30],[7,25],[7.6,25],[8.2,200],[9.6,200],[10.2,25]]],
+ ["auste","Austêmpera","Austempering","end",c=>[up(c)+30,up(c)+50],"Banho mantido até completar a bainita (minutos a horas)","Banho de sal a 260–400 °C, depois ao ar (não precisa revenir)",
+  "Formar bainita inferior: na mesma dureza, mais tenaz e resistente a impacto que a martensita revenida, praticamente sem empeno. É o processo do ferro fundido ADI.",
+  "Bainita","38–52 HRC, conforme a temperatura do banho","Molas planas, grampos, lâminas, arruelas de pressão, ADI",
+  "Seções finas (até ~10–15 mm em aço carbono) ou aços com alta temperabilidade.","auste",c=>[[0,25],[2,up(c)+40],[4,up(c)+40],[4.2,340],[8,340],[8.6,25]]],
+ ["inducao","Têmpera por indução","Induction hardening","sup",c=>c<0.77?[FA3(c)+60,FA3(c)+130]:[FA1+60,FA1+130],"Segundos: só a camada é aquecida","Ducha de água ou polímero logo depois da bobina; revenir a 150–200 °C",
+  "Camada dura e resistente ao desgaste com núcleo tenaz. A profundidade é controlada pela frequência (quanto maior, mais fina) e pelo tempo.",
+  "Martensita na camada; núcleo sem mudança","1045: 52–58 HRC · 4140: 54–58 HRC; camada 1–6 mm","Eixos, pinos, munhões, pistas, dentes de engrenagem, hastes de cilindro, roletes",
+  "Use aço com 0,35–0,55 %C, de preferência beneficiado antes. Furos, rasgos e cantos na zona aquecida concentram trincas. A profundidade aproximada é δ ≈ 500/√f mm (f em Hz).","agua",c=>[[0,25],[0.15,up(c)+90],[0.25,up(c)+90],[0.35,25],[2,25],[2.5,180],[4,180],[4.5,25]]],
+ ["chama","Têmpera por chama e a laser","Flame · laser hardening","sup",c=>c<0.77?[FA3(c)+50,FA3(c)+120]:[FA1+50,FA1+120],"Segundos a minutos (maçarico); milissegundos (laser)","Chama: ducha de água. Laser: autotêmpera pela massa da peça, sem meio",
+  "Mesma ideia da indução, para peças grandes ou únicas (chama) ou para camadas finas sem empeno (laser).",
+  "Martensita na camada","50–60 HRC; camada 1,5–6 mm (chama) ou 0,2–1,5 mm (laser)","Engrenagens grandes, guias de máquina, trilhos, cames, gumes e moldes",
+  "Chama exige operador experiente (risco de superaquecer). Revenir a 150–200 °C.","agua",c=>[[0,25],[0.4,up(c)+80],[0.6,up(c)+80],[0.75,25],[2,25],[2.5,180],[4,180],[4.5,25]]],
+ ["cement","Cementação","Carburizing","tq",c=>[880,950],"Horas: camada ≈ 0,64·√t mm a 925 °C (t em h)","Têmpera direta ou reaquecimento a 800–850 °C + têmpera em óleo; revenir a 150–180 °C",
+  "Enriquecer de carbono (0,8–1,0 %C) a superfície de um aço baixo carbono: superfície dura e resistente ao desgaste e núcleo tenaz. Variantes: gasosa (a mais comum), em caixa (sólida), em banho de sal (em desuso) e a vácuo (baixa pressão).",
+  "Superfície: martensita de alto carbono · núcleo: martensita de baixo carbono, bainita ou ferrita","Superfície 58–62 HRC · núcleo 25–40 HRC (8620, 16MnCr5)","Engrenagens, pinhões, eixos-pinhão, pinos, cames, cruzetas",
+  "Proteja com pasta ou cobre as áreas que serão usinadas depois. Deixe sobremetal para retificar. Camada efetiva = profundidade até 550 HV (≈ 52 HRC), ISO 2639.","oleo",c=>[[0,25],[2,925],[7,925],[7.4,850],[8,850],[8.2,25],[9,25],[9.5,170],[11,170],[11.5,25]]],
+ ["carbonit","Carbonitretação","Carbonitriding","tq",c=>[800,870],"1 a 4 h (camada 0,1–0,75 mm)","Têmpera em óleo; revenir a 150–180 °C",
+  "Introduz carbono e nitrogênio na superfície. O nitrogênio aumenta a temperabilidade da camada, por isso funciona em aços baixo carbono e de usinagem fácil com menos empeno que a cementação.",
+  "Martensita de alto C e N na camada","58–62 HRC na superfície","Peças pequenas de 1010, 1020, 12L14, 1213: pinos, buchas, arruelas, peças estampadas",
+  "Camadas finas: não serve para carga de contato alta. Austenita retida em excesso se o N for alto.","oleo",c=>[[0,25],[2,840],[5,840],[5.2,25],[6,25],[6.5,170],[8,170],[8.5,25]]],
+ ["nitret","Nitretação","Nitriding (gás, plasma)","tq",c=>[495,570],"10 a 80 h a gás; o plasma (iônica) é mais rápido","Lento, no forno. Sem têmpera",
+  "O nitrogênio forma nitretos duros com Cr, Mo, Al e V. Dá superfície muito dura, resistente ao desgaste e à fadiga, com empeno mínimo porque a temperatura é baixa e não há têmpera.",
+  "Camada de compostos (camada branca, ε/γ') + zona de difusão com nitretos","600–1100 HV (≈ 55–70 HRC); camada 0,1–0,6 mm","Virabrequins, moldes, matrizes, fusos, engrenagens de precisão, camisas, aços 4140, 4340, H13, 31CrMoV9",
+  "Beneficie antes, com revenido pelo menos 30 °C acima da temperatura de nitretação. A camada branca é frágil: controle ou retire. Aço carbono comum nitreta pouco.","none",c=>[[0,25],[2,520],[10,520],[12,25]]],
+ ["nitrocarb","Nitrocarbonetação (QPQ, Tenifer)","Ferritic nitrocarburizing","tq",c=>[560,590],"1 a 4 h (banho de sal ou gás)","Água, óleo ou banho oxidante (QPQ)",
+  "Camada de compostos fina (10–25 µm) muito resistente ao desgaste, à escoriação e, com a oxidação final (QPQ), à corrosão. Substitui cromo duro em hastes e pinos.",
+  "Camada de compostos ε + zona de difusão","500–700 HV no aço carbono; mais em aço ligado","Hastes de cilindro, pinos, eixos de bomba, peças de arma, matrizes",
+  "Camada muito fina: não aguenta carga de contato alta.","none",c=>[[0,25],[1.5,575],[4,575],[4.3,25]]],
+ ["boret","Boretação","Boriding","tq",c=>[850,950],"2 a 10 h (pó, pasta ou gás)","Ao ar ou têmpera (se o núcleo precisar)",
+  "Forma boretos de ferro (FeB, Fe₂B) extremamente duros na superfície, para desgaste abrasivo severo.",
+  "Camada de boretos em dentes de serra","1400–2000 HV; camada 20–250 µm","Bicos, roscas de extrusora, ferramentas para cerâmica, peças de mineração e agrícolas",
+  "Camada frágil, não usinável (só retífica). Empeno pela temperatura alta.","none",c=>[[0,25],[2,900],[7,900],[9,25]]],
+ ["subzero","Tratamento sub-zero (criogênico)","Sub-zero · cryogenic treatment","esp",c=>[-196,-80],"1 a 4 h (−80 °C); até 24 h (−196 °C, nitrogênio líquido)","Volta lenta à temperatura ambiente e revenido logo em seguida",
+  "Transformar em martensita a austenita retida que sobra da têmpera de aços alto carbono e aços-ferramenta. Dá mais dureza, estabilidade dimensional e resistência ao desgaste.",
+  "Martensita (menos austenita retida)","+1 a 3 HRC em relação à têmpera","Calibres, blocos-padrão, rolamentos de precisão (52100), aços-ferramenta D2, M2",
+  "Fazer logo depois da têmpera, antes do revenido. Peças com cantos vivos podem trincar no choque térmico.","none",c=>[[0,25],[2,up(c)+40],[3.5,up(c)+40],[3.8,25],[4.4,25],[4.8,-80],[6.4,-80],[7,25],[7.4,180],[9,180],[9.4,25]]],
+ ["solub","Solubilização (inox austenítico e duplex)","Solution annealing","esp",c=>[1040,1120],"≈ 2–3 min por mm (mínimo alguns minutos)","Rápido: água ou ar forçado",
+  "Dissolver carbonetos de cromo e fases intermetálicas (sigma) depois de solda, conformação ou serviço em alta temperatura. Recupera a resistência à corrosão e amolece o material. Duplex: 1020–1100 °C.",
+  "Austenita (ou austenita + ferrita no duplex) sem precipitados","Amolece: 304/316 ≤ 201–217 HB","Inox soldado ou conformado para serviço corrosivo, peças repuxadas, tubos",
+  "Resfriar rápido de 900 a 450 °C para não sensitizar. Empena muito: prever dispositivo.","agua",c=>[[0,25],[2,1080],[3,1080],[3.2,25]]],
+ ["estab","Estabilização (inox 321 e 347)","Stabilizing anneal","esp",c=>[870,900],"2 a 4 h","Ao ar",
+  "Fazer o titânio (321) ou o nióbio (347) prenderem o carbono como TiC/NbC, deixando o cromo livre. Evita a sensitização em serviço entre 400 e 800 °C.",
+  "Austenita + carbonetos de Ti ou Nb","Sem mudança relevante","Tubulações e equipamentos de refinaria e caldeira em alta temperatura",
+  "Só faz efeito em aço estabilizado (321, 347).","none",c=>[[0,25],[2,885],[5,885],[6,25]]],
+ ["envelh","Envelhecimento (endurecimento por precipitação)","Precipitation hardening · aging","esp",c=>[480,620],"1 a 4 h, conforme a condição (H900 a H1150)","Ao ar",
+  "Endurecer inox PH (17-4PH, 15-5PH) e aços maraging pela precipitação de partículas finas de cobre ou intermetálicos. Baixa temperatura, quase sem empeno.",
+  "Martensita de baixo C com precipitados finos","17-4PH: H900 (482 °C) 40–47 HRC · H1025 35–42 · H1150 (621 °C) 28–37 HRC","Eixos de bomba, válvulas, peças aeronáuticas e de petróleo",
+  "Parte da condição A (solubilizado). H900 tem baixa tenacidade; para serviço com H₂S use H1150D (NACE).","none",c=>[[0,25],[2,1040],[2.6,1040],[2.8,25],[3.6,25],[4.6,550],[7,550],[7.6,25]]],
+ ["homog","Homogeneização","Homogenizing","amol",c=>[1100,1250],"Várias horas a dias","No forno ou ao ar; depois normalizar",
+  "Reduzir por difusão a segregação química de lingotes, fundidos e forjados grandes antes da conformação ou da normalização.",
+  "Austenita homogênea (grão grosso, por isso normaliza depois)","Não é objetivo","Lingotes, peças fundidas de grande porte, forjados pesados",
+  "Grão cresce muito e há oxidação/descarbonetação.","ar",c=>[[0,25],[3,1180],[9,1180],[11,25]]],
+ ["preaq","Pré-aquecimento","Preheating","sol",c=>[50,250],"Antes e durante a soldagem (também entre passes)","—",
+  "Reduzir a velocidade de resfriamento da solda: baixa a dureza da ZTA, ajuda o hidrogênio a sair e reduz tensões. Necessário em aços com carbono equivalente alto, chapas grossas e restrição alta.",
+  "Evita martensita dura na ZTA","Limita a dureza da ZTA (meta usual ≤ 350 HV)","Aço com CE > 0,40, Cr-Mo, chapas grossas, aços temperados (com limite máximo)",
+  "Medir a 75 mm da junta (ou 4× a espessura), do lado oposto à chama. Não exceder o máximo do fabricante em aços Q&T (ex.: Hardox).","none",c=>[[0,20],[1,150],[1.3,1300],[1.6,150],[2,150],[2.2,1300],[2.6,150],[4,150],[6,25]]],
+ ["posaq","Pós-aquecimento (desidrogenação)","Post-heating · dehydrogenation","sol",c=>[200,350],"1 a 4 h, logo após a soldagem","Ao ar ou isolado com manta",
+  "Logo depois da solda, sem deixar esfriar abaixo da temperatura de interpasse, manter a junta quente para o hidrogênio difusível sair. Evita a trinca a frio (trinca retardada).",
+  "Sem mudança de fase","—","Aços temperáveis, Cr-Mo, chapas grossas, reparos com eletrodo celulósico, peças que vão esperar o TTAT",
+  "Não substitui o TTAT quando o código exige.","none",c=>[[0,20],[0.6,150],[0.8,1300],[1.2,200],[1.4,250],[3.6,250],[5.5,25]]]
+];
+function cyc(Ta,med,Tr){const cool={forno:[[10,560],[11,25]],ar:[[5.2,400],[6.4,25]],agua:[[4.2,25]],oleo:[[4.5,60],[4.9,25]]}[med];
+  const p=[[0,25],[2,Ta],[4,Ta],...cool];if(Tr){const s=p[p.length-1][0];p.push([s+0.6,25],[s+1.2,Tr],[s+3,Tr],[s+3.6,25])}return p}
+let ttSel=store.get("gt_tt")||"tempera",ttFam=store.get("gt_ttf")||"";if(!TT.some(t=>t[0]===ttSel))ttSel="tempera";
+$("ttFams").innerHTML=`<button class="c-shape" data-k="">Todos (${TT.length})</button>`+Object.entries(TTF).map(([k,[n,c]])=>`<button class="c-shape" data-k="${k}"><span class="tt-dot" style="display:inline-block;background:${c};margin-right:6px"></span>${n}</button>`).join("");
+$("ttFams").querySelectorAll("button").forEach(b=>b.onclick=()=>{ttFam=b.dataset.k;store.set("gt_ttf",ttFam);ttRender()});
+$("ttC").value=store.get("gt_ttc")||0.45;
+$("ttC").addEventListener("input",()=>{store.set("gt_ttc",$("ttC").value);ttRender()});
+function ttRender(){
+  const C=+$("ttC").value,T=TT.find(t=>t[0]===ttSel);
+  $("ttFams").querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===ttFam));
+  $("ttList").innerHTML=TT.filter(t=>!ttFam||t[3]===ttFam).map(t=>`<button class="tt-item" data-k="${t[0]}" aria-pressed="${t[0]===ttSel}"><span class="tt-dot" style="background:${TTF[t[3]][1]}"></span><span>${t[1]}<small>${TTF[t[3]][0]}</small></span></button>`).join("");
+  $("ttList").querySelectorAll("button").forEach(b=>b.onclick=()=>{ttSel=b.dataset.k;store.set("gt_tt",ttSel);ttRender()});
+  const [lo,hi]=T[4](C).map(Math.round),fam=TTF[T[3]];
+  $("ttDet").innerHTML=`<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span class="tt-dot" style="background:${fam[1]}"></span><span class="tt-note">${fam[0]}</span></div>
+    <h2>${T[1]}</h2><div class="tt-en">${T[2]}</div><p>${T[7]}</p>
+    <div class="tt-facts"><div><small>Temperatura (C = ${nf(C,2)} %)</small><b>${lo} a ${hi} °C</b></div><div><small>Tempo</small><b>${T[5]}</b></div><div><small>Resfriamento</small><b>${T[6]}</b></div>
+      <div><small>Microestrutura</small><b>${T[8]}</b></div><div><small>Dureza típica</small><b>${T[9]}</b></div></div>
+    <h4>Onde se usa</h4><p>${T[10]}</p><h4>Cuidados</h4><p>${T[11]}</p>
+    <h4>Ciclo térmico (esquemático)</h4><div class="tt-cyc">${cycSVG(T[13](C),fam[1])}</div>`;
+  $("ttCtxt").innerHTML=`<b class="mono" style="color:var(--strong)">C = ${nf(C,2)} %</b> · ${C<0.77?"hipoeutetoide":C<0.79?"eutetoide":"hipereutetoide"} · A3/Acm ≈ ${Math.round(C<0.77?FA3(C):FAcm(C))} °C · Ms ≈ ${Math.round(msC(C))} °C`;
+  $("ttFeC").innerHTML=fecSVG(C,[lo,hi],fam[1],T[1]);
+  $("ttTTT").innerHTML=tttSVG(T[12],C);
+}
+function cycSVG(pts,col){
+  const W=640,H=230,L=46,R=14,Tp=16,B=30,tmax=Math.max(...pts.map(p=>p[0])),ymin=Math.min(0,...pts.map(p=>p[1])),ymax=Math.max(...pts.map(p=>p[1]))*1.1;
+  const X=t=>L+(W-L-R)*t/tmax,Y=v=>Tp+(H-Tp-B)*(1-(v-ymin)/(ymax-ymin));
+  const step=ymax-ymin>900?200:ymax-ymin>400?100:50;let g="";
+  for(let v=Math.ceil(ymin/step)*step;v<=ymax;v+=step)g+=`<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--border)"/><text x="${L-6}" y="${Y(v)+4}" text-anchor="end" style="font:500 10px var(--f-mono);fill:var(--muted)">${v}</text>`;
+  if(ymin<0)g+=`<line x1="${L}" x2="${W-R}" y1="${Y(0)}" y2="${Y(0)}" stroke="var(--muted)"/>`;
+  g+=`<line x1="${L}" x2="${L}" y1="${Tp}" y2="${H-B}" stroke="var(--muted)"/><line x1="${L}" x2="${W-R}" y1="${H-B}" y2="${H-B}" stroke="var(--muted)"/>
+    <text x="${W-R}" y="${H-8}" text-anchor="end" style="font:500 10px var(--f-mono);fill:var(--muted)">tempo →</text><text x="8" y="${Tp+4}" style="font:500 10px var(--f-mono);fill:var(--muted)">°C</text>`;
+  g+=`<polyline points="${pts.map(p=>X(p[0])+","+Y(p[1])).join(" ")}" fill="none" stroke="${col}" stroke-width="2.6" stroke-linejoin="round"/>`;
+  const seen=new Set();pts.forEach((p,i)=>{const n=pts[i+1];if(n&&Math.abs(n[1]-p[1])<1&&p[1]>40&&!seen.has(Math.round(p[1]))){seen.add(Math.round(p[1]));
+    g+=`<text x="${(X(p[0])+X(n[0]))/2}" y="${Y(p[1])-7}" text-anchor="middle" style="font:600 11px var(--f-mono);fill:var(--strong)">${Math.round(p[1])} °C</text>`}
+    if(n&&Math.abs(n[1]-p[1])<1&&p[1]<0)g+=`<text x="${(X(p[0])+X(n[0]))/2}" y="${Y(p[1])+15}" text-anchor="middle" style="font:600 11px var(--f-mono);fill:var(--strong)">${Math.round(p[1])} °C</text>`});
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Ciclo térmico">${g}</svg>`;
+}
+function fecSVG(C,band,col,name){
+  const W=640,H=400,L=48,R=16,Tp=14,B=34,cx=1.6,y0=100,y1=1250;
+  const X=c=>L+(W-L-R)*c/cx,Y=t=>Tp+(H-Tp-B)*(1-(t-y0)/(y1-y0));let g="";
+  for(let t=200;t<=1200;t+=100)g+=`<line x1="${L}" x2="${W-R}" y1="${Y(t)}" y2="${Y(t)}" stroke="var(--border)"/><text x="${L-6}" y="${Y(t)+4}" text-anchor="end" style="font:500 10px var(--f-mono);fill:var(--muted)">${t}</text>`;
+  for(let c=0;c<=1.6001;c+=0.2)g+=`<text x="${X(c)}" y="${H-B+16}" text-anchor="middle" style="font:500 10px var(--f-mono);fill:var(--muted)">${nf(c,1)}</text>`;
+  g+=`<text x="${W-R}" y="${H-4}" text-anchor="end" style="font:500 10px var(--f-mono);fill:var(--muted)">% carbono</text>`;
+  const a3=[],acm=[];for(let c=0;c<=0.77;c+=0.01)a3.push(X(c)+","+Y(FA3(c)));for(let c=0.77;c<=1.6;c+=0.01)acm.push(X(c)+","+Y(FAcm(c)));
+  // regiões
+  g+=`<polygon points="${X(0)},${Y(912)} ${a3.join(" ")} ${acm.join(" ")} ${X(1.6)},${Y(1250)} ${X(0)},${Y(1250)}" fill="rgba(239,138,47,.08)"/>`;
+  const [lo,hi]=band,blo=Math.max(y0,lo),bhi=Math.min(y1,hi);
+  if(bhi>blo)g+=`<rect x="${L}" y="${Y(bhi)}" width="${W-L-R}" height="${Y(blo)-Y(bhi)}" fill="${col}" opacity=".16"/><rect x="${X(C)-7}" y="${Y(bhi)}" width="14" height="${Y(blo)-Y(bhi)}" fill="${col}" opacity=".85"/>`;
+  g+=`<polyline points="${a3.join(" ")}" fill="none" stroke="var(--strong)" stroke-width="2"/><polyline points="${acm.join(" ")}" fill="none" stroke="var(--strong)" stroke-width="2"/>
+    <line x1="${X(0.022)}" x2="${W-R}" y1="${Y(727)}" y2="${Y(727)}" stroke="var(--strong)" stroke-width="2"/><line x1="${X(C)}" x2="${X(C)}" y1="${Tp}" y2="${H-B}" stroke="var(--accent)" stroke-dasharray="4 3"/>`;
+  const lab=(x,y,t,s="var(--muted)",a="start")=>`<text x="${x}" y="${y}" text-anchor="${a}" style="font:600 11px var(--f-body);fill:${s}">${t}</text>`;
+  g+=lab(X(0.9),Y(1050),"Austenita (γ)","var(--strong)")+lab(X(0.08),Y(790),"α + γ")+lab(X(1.0),Y(790),"γ + Fe₃C")+lab(X(0.12),Y(560),"Ferrita + perlita")+lab(X(0.95),Y(560),"Perlita + cementita")+
+    lab(X(0.3),Y(860),"A3","var(--strong)")+lab(X(1.25),Y(990),"Acm","var(--strong)")+lab(W-R-4,Y(727)-6,"A1 = 727 °C","var(--strong)","end");
+  if(lo<y0)g+=lab(L+6,H-B-8,`${name}: ${Math.round(lo)} a ${Math.round(hi)} °C (abaixo do gráfico)`,col);
+  else g+=lab(X(C)+12,Y(bhi)+14,`${Math.round(lo)}–${Math.round(hi)} °C`,col);
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Diagrama ferro-carbono">${g}</svg>`;
+}
+function tttSVG(path,C){
+  const W=640,H=380,L=48,R=16,Tp=14,B=36,lx0=-1,lx1=5,y0=0,y1=900;
+  const X=l=>L+(W-L-R)*(l-lx0)/(lx1-lx0),Y=t=>Tp+(H-Tp-B)*(1-(t-y0)/(y1-y0));
+  const Ms=Math.max(150,msC(C)),Mf=Ms-215,Tn=540;let g="";
+  for(let t=0;t<=900;t+=100)g+=`<line x1="${L}" x2="${W-R}" y1="${Y(t)}" y2="${Y(t)}" stroke="var(--border)"/><text x="${L-6}" y="${Y(t)+4}" text-anchor="end" style="font:500 10px var(--f-mono);fill:var(--muted)">${t}</text>`;
+  ["0,1","1","10","100","1000","10⁴","10⁵"].forEach((s,i)=>g+=`<text x="${X(i-1)}" y="${H-B+16}" text-anchor="middle" style="font:500 10px var(--f-mono);fill:var(--muted)">${s}</text>`);
+  g+=`<text x="${W-R}" y="${H-4}" text-anchor="end" style="font:500 10px var(--f-mono);fill:var(--muted)">tempo (s, escala log)</text>`;
+  const ts=T=>{const w=T>Tn?95:150;return Math.log10(0.8)+((T-Tn)/w)**2},cs=[],cf=[];
+  for(let T=Math.round(Ms);T<=705;T+=5){cs.push(X(Math.min(lx1,ts(T)))+","+Y(T));cf.push(X(Math.min(lx1,ts(T)+1.5))+","+Y(T))}
+  g+=`<line x1="${L}" x2="${W-R}" y1="${Y(727)}" y2="${Y(727)}" stroke="var(--strong)" stroke-dasharray="6 4"/><line x1="${L}" x2="${W-R}" y1="${Y(Ms)}" y2="${Y(Ms)}" stroke="var(--accent2)" stroke-width="1.6"/>
+    <line x1="${L}" x2="${W-R}" y1="${Y(Mf)}" y2="${Y(Mf)}" stroke="var(--accent2)" stroke-dasharray="5 4"/>
+    <polyline points="${cs.join(" ")}" fill="none" stroke="var(--strong)" stroke-width="2.2"/><polyline points="${cf.join(" ")}" fill="none" stroke="var(--strong)" stroke-width="1.6" stroke-dasharray="7 4"/>`;
+  const lab=(x,y,t,s="var(--muted)",a="start")=>`<text x="${x}" y="${y}" text-anchor="${a}" style="font:600 11px var(--f-body);fill:${s}">${t}</text>`;
+  g+=lab(X(-0.9),Y(800),"Austenita","var(--strong)")+lab(W-R-4,Y(727)-6,"A1","var(--strong)","end")+lab(X(3.2),Y(640),"Perlita")+lab(X(3.3),Y(430),"Bainita")+
+    lab(W-R-4,Y(Ms)-6,`Ms ≈ ${Math.round(Ms)} °C`,"var(--accent2)","end")+lab(W-R-4,Y(Mf)-6,"Mf","var(--accent2)","end")+lab(X(-0.9),Y((Ms+Mf)/2+10),"Martensita","var(--accent2)")+
+    lab(X(1.35),Y(560),"início","var(--muted)")+lab(X(2.85),Y(560),"fim","var(--muted)");
+  const pth=[];const add=(fn,t0,t1)=>{for(let l=Math.log10(t0);l<=Math.log10(t1)+1e-9;l+=0.04){const t=10**l;pth.push([l,fn(t)])}};
+  const ex=(T0,Tinf,tau)=>t=>Tinf+(T0-Tinf)*Math.exp(-t/tau);
+  const P={agua:[[ex(850,25,0.4),0.1,1e5]],oleo:[[ex(850,40,1.6),0.1,1e5]],ar:[[ex(850,25,90),0.1,1e5]],forno:[[ex(850,25,4000),0.1,1e5]],rev:[[ex(850,25,0.4),0.1,1e5]],
+    marte:[[ex(850,Ms+20,0.35),0.1,8],[t=>Ms+28,8,120],[t=>25+(Ms+28-25)*Math.exp(-(t-120)/400),120,1e5]],
+    auste:[[ex(850,345,0.35),0.1,6],[t=>352,6,2500],[t=>25+327*Math.exp(-(t-2500)/900),2500,1e5]]}[path];
+  if(P){P.forEach(([fn,a,b])=>add(fn,a,b));g+=`<polyline points="${pth.filter(p=>p[1]>=0).map(p=>X(p[0])+","+Y(p[1])).join(" ")}" fill="none" stroke="var(--accent-hi)" stroke-width="3" stroke-linejoin="round"/>`;
+    const res={agua:"água → martensita",oleo:"óleo → martensita (se a seção permitir)",ar:"ar → perlita fina (normalização)",forno:"forno → perlita grossa (recozimento)",rev:"têmpera → martensita, depois revenir",marte:"para acima de Ms, depois esfria → martensita com menos tensão",auste:"isotérmico acima de Ms → bainita"}[path];
+    g+=`<rect x="${L+8}" y="${Tp+6}" width="${Math.min(W-L-R-16,res.length*6.6+20)}" height="22" fill="var(--surface)" stroke="var(--accent-hi)"/>`+lab(L+18,Tp+21,res,"var(--strong)")}
+  else g+=`<rect x="${L+8}" y="${Tp+6}" width="420" height="22" fill="var(--surface)" stroke="var(--border)"/>`+lab(L+18,Tp+21,"Este tratamento não passa por transformação no resfriamento","var(--muted)");
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Curva TTT">${g}</svg>`;
+}
+
+/* ---------- motor 3D simples (canvas) ---------- */
+function View3D(cv,build){
+  const ctx=cv.getContext("2d");let yaw=0.7,pitch=0.38,drag=null,auto=true,scene=null,raf=0,last=0;
+  const st=()=>getComputedStyle(cv);
+  this.set=s=>{scene=s;this.draw()};
+  const proj=(p,w,h,sc)=>{const cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);
+    let x=p[0]*cy-p[2]*sy,z=p[0]*sy+p[2]*cy,y=p[1];const y2=y*cp-z*sp,z2=y*sp+z*cp;const f=4.2/(4.2+z2*0.35);return[w/2+x*sc*f,h/2-y2*sc*f,z2,f]};
+  const rot=v=>{const cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);let x=v[0]*cy-v[2]*sy,z=v[0]*sy+v[2]*cy,y=v[1];return[x,y*cp-z*sp,y*sp+z*cp]};
+  this.draw=()=>{if(!scene||!cv.offsetParent)return;const dpr=Math.min(2,window.devicePixelRatio||1),w=cv.clientWidth,h=cv.clientHeight;
+    if(cv.width!==Math.round(w*dpr)||cv.height!==Math.round(h*dpr)){cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr)}
+    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);const sc=Math.min(w,h)*(scene.scale||0.3),items=[];
+    (scene.quads||[]).forEach(q=>{const P=q.p.map(p=>proj(p,w,h,sc));const n=rot(q.n);if(n[2]>0.02&&!q.two)return;
+      const lum=0.55+0.45*Math.max(0,-n[2]*0.8+n[1]*0.35);items.push({z:P.reduce((a,b)=>a+b[2],0)/4,d:()=>{ctx.beginPath();P.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.closePath();
+        const c=q.c;ctx.fillStyle=`rgb(${c[0]*lum|0},${c[1]*lum|0},${c[2]*lum|0})`;ctx.fill();ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=0.6;ctx.stroke()}})});
+    (scene.lines||[]).forEach(l=>{const a=proj(l.a,w,h,sc),b=proj(l.b,w,h,sc);items.push({z:(a[2]+b[2])/2+0.01,d:()=>{ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.strokeStyle=l.c;ctx.lineWidth=l.w||1.4;ctx.setLineDash(l.dash||[]);ctx.stroke();ctx.setLineDash([])}})});
+    (scene.atoms||[]).forEach(s=>{const a=proj(s.p,w,h,sc);items.push({z:a[2],d:()=>{const r=s.r*sc*a[3],gr=ctx.createRadialGradient(a[0]-r*0.35,a[1]-r*0.35,r*0.1,a[0],a[1],r);
+      gr.addColorStop(0,s.hi||"#ffffff");gr.addColorStop(0.35,s.c);gr.addColorStop(1,s.lo||"#1b2533");ctx.globalAlpha=s.a||1;ctx.beginPath();ctx.arc(a[0],a[1],r,0,7);ctx.fillStyle=gr;ctx.fill();ctx.globalAlpha=1}})});
+    items.sort((a,b)=>b.z-a.z).forEach(i=>i.d());
+    (scene.labels||[]).forEach(l=>{const a=proj(l.p,w,h,sc);ctx.font="600 12px "+st().getPropertyValue("--f-mono");ctx.fillStyle=l.c||"#0E1B2C";ctx.fillText(l.t,a[0]+6,a[1]-6)})};
+  const loop=t=>{raf=0;if(!cv.offsetParent)return;if(auto&&!drag){yaw+=Math.min(50,t-(last||t))*0.00035}last=t;this.draw();if(auto&&!drag)raf=requestAnimationFrame(loop)};
+  this.start=()=>{if(!raf){last=0;raf=requestAnimationFrame(loop)}};
+  cv.addEventListener("pointerdown",e=>{drag=[e.clientX,e.clientY,yaw,pitch];cv.setPointerCapture(e.pointerId);auto=false});
+  cv.addEventListener("pointermove",e=>{if(!drag)return;yaw=drag[2]+(e.clientX-drag[0])*0.01;pitch=Math.max(-1.4,Math.min(1.4,drag[3]+(e.clientY-drag[1])*0.01));this.draw()});
+  const end=()=>{drag=null;clearTimeout(this.tm);this.tm=setTimeout(()=>{auto=true;this.start()},3500)};
+  cv.addEventListener("pointerup",end);cv.addEventListener("pointercancel",end);
+  window.addEventListener("resize",()=>this.draw());
+}
+/* estruturas cristalinas */
+const FE={c:"#8fa3b8",hi:"#f4f7fb",lo:"#33475e"},CA={c:"#3a3a3a",hi:"#9a9a9a",lo:"#050505"};
+const TC=[["ccc","Ferrita α — CCC"],["cfc","Austenita γ — CFC"],["tcc","Martensita — TCC"]];
+let tcCur=store.get("gt_tc")||"ccc";
+$("tcTabs").innerHTML=TC.map(([k,n])=>`<button class="c-shape" data-k="${k}">${n}</button>`).join("");
+$("tcTabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{tcCur=b.dataset.k;store.set("gt_tc",tcCur);crystal()});
+const v3c=new View3D($("tc3d"));
+["tcC","tcN"].forEach(id=>$(id).addEventListener("input",crystal));
+function crystal(){
+  $("tcTabs").querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===tcCur));
+  const n=+$("tcN").value,Cm=+$("tcC").value,ex=5,ca=tcCur==="tcc"?1+0.045*Cm*ex:1;
+  const base=tcCur==="cfc"?[[0,0,0],[.5,.5,0],[.5,0,.5],[0,.5,.5]]:[[0,0,0],[.5,.5,.5]];
+  const cs=tcCur==="cfc"?[[.5,.5,.5],[.5,0,0],[0,.5,0],[0,0,.5]]:tcCur==="tcc"?[[0,0,.5],[.5,.5,0]]:[];
+  const key=p=>p.map(v=>v.toFixed(3)).join(),seen=new Set(),atoms=[],lines=[],off=n/2;
+  const put=(p,s)=>{for(let i=0;i<3;i++)if(p[i]<-1e-6||p[i]>n+1e-6)return;const k=key(p);if(seen.has(k))return;seen.add(k);
+    atoms.push({...s,p:[p[0]-off,(p[2]*ca)-off*ca,p[1]-off]})};
+  for(let i=0;i<=n;i++)for(let j=0;j<=n;j++)for(let k=0;k<=n;k++){base.forEach(b=>put([i+b[0],j+b[1],k+b[2]],{r:tcCur==="cfc"?0.19:0.2,...FE}));
+    cs.forEach((b,ix)=>{if(tcCur==="cfc"&&ix>0)return;const show=tcCur==="cfc"?((i+j+k)%2===0):((i*7+j*3+k*5+ix)%3===0);if(show)put([i+b[0],j+b[1],k+b[2]],{r:0.085,...CA})})}
+  const E=(a,b)=>lines.push({a:[a[0]-off,a[2]*ca-off*ca,a[1]-off],b:[b[0]-off,b[2]*ca-off*ca,b[1]-off],c:"rgba(74,90,112,.55)",w:1.2});
+  for(let i=0;i<=n;i++)for(let j=0;j<=n;j++){E([i,j,0],[i,j,n]);E([i,0,j],[i,n,j]);E([0,i,j],[n,i,j])}
+  v3c.set({atoms,lines,scale:n>1?0.2:0.34});v3c.start();
+  const T={ccc:`<b>Cúbica de corpo centrado.</b> 2 átomos de Fe por célula, a ≈ 0,2866 nm, fator de empacotamento 0,68. É a ferrita, estável abaixo de A1/A3. Os vazios entre os átomos são pequenos: dissolve no máximo 0,022 % de carbono (a 727 °C), por isso o carbono que sobra forma cementita (Fe₃C) e perlita no resfriamento lento.`,
+    cfc:`<b>Cúbica de face centrada.</b> 4 átomos de Fe por célula, a ≈ 0,36 nm, fator de empacotamento 0,74. É a austenita, estável acima de A3 (ou A1). O vazio octaédrico no centro da célula (átomo escuro) é maior: dissolve até 2,11 % de C. Por isso aquecemos acima de A3 para temperar: todo o carbono entra em solução.`,
+    tcc:`<b>Tetragonal de corpo centrado.</b> Na têmpera o resfriamento é tão rápido que o carbono não tem tempo de sair: a austenita vira uma estrutura CCC esticada no eixo c, com c/a ≈ 1 + 0,045 × %C = <b>${nf(1+0.045*Cm,3)}</b> para ${nf(Cm,2)} %C (distorção desenhada 5× maior para ficar visível). Os átomos escuros mostram onde o carbono fica preso. Essa distorção trava o movimento das discordâncias: é a dureza da martensita.`}[tcCur];
+  $("tcTxt").innerHTML=T;
+}
+/* perfil de dureza 3D */
+const HP=[["benef","Beneficiado (4140)"],["cement","Cementado (8620)"],["ind","Indução (1045)"],["nitr","Nitretado (4140)"],["temp","Temperado em água (1045)"]];
+let hpCur=store.get("gt_hp")||"cement";if(!HP.some(h=>h[0]===hpCur))hpCur="cement";
+$("hpTabs").innerHTML=HP.map(([k,n])=>`<button class="c-shape" data-k="${k}">${n}</button>`).join("");
+const HPDEF={cement:"1,2",ind:"3",nitr:"0,4"};
+$("hpTabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{hpCur=b.dataset.k;store.set("gt_hp",hpCur);if(HPDEF[hpCur])$("hpE").value=HPDEF[hpCur];hprof()});
+const v3h=new View3D($("hp3d"));
+["hpD","hpE"].forEach(id=>$(id).addEventListener("input",hprof));
+const logi=(Hs,Hc,e,Ht,sf)=>{const s=Math.max(0.02,e*sf),x0=e-s*Math.log((Hs-Hc)/(Ht-Hc)-1);return x=>Hc+(Hs-Hc)/(1+Math.exp((x-x0)/s))};
+function hpModel(D,e){const R=D/2;
+  if(hpCur==="benef"){const Hs=D<40?34:D<100?30.5:D<160?25:22,Hc=Hs-Math.min(10,D/22);return{f:x=>Hs-(Hs-Hc)*Math.min(1,x/R)**1.5,txt:`Beneficiado: dureza quase uniforme, caindo para o núcleo (${nf(Hs,0)} → ${nf(Hc,0)} HRC). Quanto maior o Ø, menor a dureza que o aço alcança (catálogo Gerdau: 4140 Ø<40 mm 300–340 HB; Ø100–160 mm 230–275 HB).`,useE:false}}
+  if(hpCur==="cement"){const Hc=D<25?40:D<50?36:32;return{f:logi(61,Hc,e,52,0.28),txt:`Cementado e temperado: superfície ~61 HRC, camada efetiva ${dec(String(e))} mm até 52 HRC (550 HV, ISO 2639), núcleo ~${Hc} HRC. A camada é escolhida pela carga de contato: regra prática ≈ 0,15 × módulo da engrenagem.`,useE:true}}
+  if(hpCur==="ind"){return{f:logi(56,15,e,44.8,0.14),txt:`Indução em 1045 normalizado: camada de ${dec(String(e))} mm a 56 HRC (profundidade até 80 % da dureza superficial, ISO 3754), núcleo sem mudar (~200 HB). Transição curta e bem definida.`,useE:true}}
+  if(hpCur==="nitr"){return{f:logi(62,31,e,36,0.32),txt:`Nitretado sobre 4140 beneficiado: superfície ~62 HRC (≈ 750 HV), profundidade de nitretação ${dec(String(e))} mm (até núcleo + 50 HV, ISO 18203). Raramente passa de 0,6 mm.${e>0.8?" Atenção: camada acima do usual para nitretação.":""}`,useE:true}}
+  const full=D<=20,hd=full?R:Math.min(R,3.5+20/D);return{f:x=>x<=hd?57-(full?x/R*3:0):Math.max(18,57-(x-hd)*12),txt:full?`Ø ${nf(D,0)} mm em água: o 1045 tempera até o núcleo (diâmetro crítico em água ≈ 20–25 mm).`:`Ø ${nf(D,0)} mm: só uma casca de ~${nf(hd,1)} mm tempera; o núcleo fica perlítico. É o efeito de massa da baixa temperabilidade do aço carbono.`,useE:false}}
+function hcol(H){const s=[[15,[43,95,168]],[28,[47,163,138]],[40,[217,195,58]],[52,[239,138,47]],[65,[196,50,31]]];if(H<=s[0][0])return s[0][1];
+  for(let i=0;i<s.length-1;i++)if(H<=s[i+1][0]){const t=(H-s[i][0])/(s[i+1][0]-s[i][0]);return s[i][1].map((v,k)=>v+(s[i+1][1][k]-v)*t)}return s[s.length-1][1]}
+function hprof(){
+  $("hpTabs").querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===hpCur));
+  let D=parseNum($("hpD").value),e=parseNum($("hpE").value);if(!(D>=5))D=60;if(!(e>0))e=1;e=Math.min(e,D/2*0.9);
+  const M=hpModel(D,e),R=D/2;$("hpE").closest(".c-f").style.opacity=M.useE?1:0.45;$("hpE").disabled=!M.useE;
+  // 3D: eixo ao longo de x, cunha de 90° removida (θ 0..90)
+  const NR=26,NT=28,NX=6,Lh=1.25,quads=[],rr=i=>i/NR,depth=r=>(1-r)*R;
+  const vis=e*3<R?0.55:0;// distorcer a escala radial para ver camadas finas
+  const rm=r=>{if(!vis)return r;const d=(1-r)*R,lim=e*3;return d<lim?1-(d/lim)*vis:1-vis-(d-lim)/(R-lim)*(1-vis)};
+  const P=(x,r,t)=>[x,r*Math.sin(t),r*Math.cos(t)],t0=Math.PI/2,t1=2*Math.PI,dt=(t1-t0)/NT;
+  for(let k=0;k<NT;k++){const a=t0+k*dt,b=a+dt,m=(a+b)/2,c=hcol(M.f(0));for(let s=0;s<NX;s++){const x0=-Lh+2*Lh*s/NX,x1=x0+2*Lh/NX;
+    quads.push({p:[P(x0,1,a),P(x1,1,a),P(x1,1,b),P(x0,1,b)],n:[0,Math.sin(m),Math.cos(m)],c})}}
+  for(let i=0;i<NR;i++){const r0=rm(rr(i)),r1=rm(rr(i+1)),H=M.f(depth((rr(i)+rr(i+1))/2)),c=hcol(H);
+    for(let k=0;k<NT;k++){const a=t0+k*dt,b=a+dt;quads.push({p:[P(Lh,r0,a),P(Lh,r1,a),P(Lh,r1,b),P(Lh,r0,b)],n:[1,0,0],c});quads.push({p:[P(-Lh,r0,b),P(-Lh,r1,b),P(-Lh,r1,a),P(-Lh,r0,a)],n:[-1,0,0],c})}
+    for(let s=0;s<NX;s++){const x0=-Lh+2*Lh*s/NX,x1=x0+2*Lh/NX;quads.push({p:[P(x0,r0,0),P(x1,r0,0),P(x1,r1,0),P(x0,r1,0)],n:[0,0,1],c,two:1});quads.push({p:[P(x0,r0,t0),P(x0,r1,t0),P(x1,r1,t0),P(x1,r0,t0)],n:[0,1,0],c,two:1})}}
+  v3h.set({quads,scale:0.3});v3h.start();
+  // gráfico 2D dureza × profundidade
+  const W=640,H=200,L=44,Rr=14,Tp=12,B=30,xm=M.useE?Math.min(R,Math.max(e*3,1)):R,X=x=>L+(W-L-Rr)*x/xm,Y=h=>Tp+(H-Tp-B)*(1-(h-10)/60);let g="";
+  for(let h=20;h<=70;h+=10)g+=`<line x1="${L}" x2="${W-Rr}" y1="${Y(h)}" y2="${Y(h)}" stroke="var(--border)"/><text x="${L-6}" y="${Y(h)+4}" text-anchor="end" style="font:500 10px var(--f-mono);fill:var(--muted)">${h}</text>`;
+  for(let i=0;i<=5;i++){const x=xm*i/5;g+=`<text x="${X(x)}" y="${H-B+16}" text-anchor="middle" style="font:500 10px var(--f-mono);fill:var(--muted)">${nf(x,x<10?1:0)}</text>`}
+  g+=`<text x="${W-Rr}" y="${H-4}" text-anchor="end" style="font:500 10px var(--f-mono);fill:var(--muted)">profundidade (mm)</text><text x="6" y="${Tp+8}" style="font:500 10px var(--f-mono);fill:var(--muted)">HRC</text>`;
+  const pts=[];for(let i=0;i<=120;i++){const x=xm*i/120;pts.push(X(x)+","+Y(M.f(x)))}
+  if(M.useE)g+=`<line x1="${X(e)}" x2="${X(e)}" y1="${Tp}" y2="${H-B}" stroke="var(--accent)" stroke-dasharray="4 3"/><text x="${X(e)+5}" y="${Tp+12}" style="font:600 11px var(--f-mono);fill:var(--accent)">${dec(String(e))} mm</text>`;
+  g+=`<polyline points="${pts.join(" ")}" fill="none" stroke="var(--strong)" stroke-width="2.4"/>`;
+  $("hpGraph").innerHTML=`<svg viewBox="0 0 ${W} ${H}" style="display:block;width:100%;height:auto;background:var(--bg);border:1px solid var(--border)" role="img" aria-label="Dureza por profundidade">${g}</svg>`;
+  $("hpTxt").textContent=M.txt+(vis?" No 3D a camada foi ampliada radialmente para ficar visível.":"");
+}
+/* meios de têmpera e fórmulas */
+$("ttMeios").innerHTML=[["Ar calmo / ventilado","0,02","0,05","0,08","Normalização; têmpera só de aço-ferramenta temperável ao ar (A2, D2) e aços muito ligados"],
+  ["Gás sob pressão (forno a vácuo, N₂ 2–20 bar)","0,05","0,1–0,2","0,3","Aços-ferramenta e peças acabadas: sem oxidação e pouco empeno"],
+  ["Banho de sal fundido","0,15","0,3","0,5","Martêmpera e austêmpera"],["Óleo de têmpera","0,25–0,30","0,35–0,40","0,8–1,1","Aços ligados (4140, 4340, 8620, 52100): menos trinca e empeno que a água"],
+  ["Polímero (PAG em água, 5–25 %)","0,3","0,6–1,0","1,0–1,5","Entre óleo e água conforme a concentração; não pega fogo"],
+  ["Água","0,9–1,0","1,2–1,3","4,0","Aço carbono (1020–1045) e peças simples: alto risco de trinca em aço ligado"],["Salmoura (água + 10 % sal)","2,0","2,0–2,2","5,0","A mais severa: quebra a camada de vapor; aço carbono de baixa temperabilidade"]]
+  .map(r=>`<tr><td style="font-weight:600;color:var(--strong)">${r[0]}</td><td class="n mono">${r[1]}</td><td class="n mono">${r[2]}</td><td class="n mono">${r[3]}</td><td style="font-size:12px">${r[4]}</td></tr>`).join("");
+const FX=[
+ ["Dureza máxima da martensita (Just)","HRC ≈ 20 + 60·√C","Vale até ~0,6 %C; acima disso a dureza satura em 64–66 HRC (sobra austenita retida). Mostra que a dureza de têmpera depende quase só do carbono; a liga muda a temperabilidade (profundidade), não o máximo.",[["C","%","0,45"]],v=>`${nf(Math.min(66,20+60*Math.sqrt(Math.min(v[0],0.8))),1)} HRC`],
+ ["Parâmetro de revenido (Hollomon-Jaffe)","P = T·(20 + log t) / 1000","T em kelvin, t em horas. Mesmo P ≈ mesma dureza depois do revenido: dá para trocar temperatura por tempo. Use na Calculadora de TTAT para converter ciclos.",[["T","°C","600"],["t","h","2"]],v=>`P = ${nf((v[0]+273.15)*(20+Math.log10(v[1]))/1000,2)}`],
+ ["Profundidade de cementação (Harris)","d = 31,6·√t / 10^(6700 / T°R)   [pol]","t em horas, T em graus Rankine. A 925 °C dá ≈ 0,64 mm·√h. A camada cresce com a raiz do tempo: dobrar a camada exige 4× o tempo.",[["T","°C","925"],["t","h","4"]],v=>{const TR=(v[0]+273.15)*1.8;return `d ≈ ${nf(31.6*Math.sqrt(v[1])/10**(6700/TR)*25.4,2)} mm`}],
+ ["Profundidade de aquecimento na indução","δ ≈ 500 / √f   [mm, f em Hz]","Acima do ponto Curie (~770 °C) o aço deixa de ser magnético e a corrente penetra até δ. 1 kHz ≈ 16 mm · 10 kHz ≈ 5 mm · 100 kHz ≈ 1,6 mm · 400 kHz ≈ 0,8 mm.",[["f","kHz","10"]],v=>`δ ≈ ${nf(500/Math.sqrt(v[0]*1000),2)} mm`],
+ ["Tempo de encharque (regra prática)","t ≈ 1 h por 25 mm de espessura","Contado depois que a superfície chega à temperatura. Aços ligados e altos-ligados pedem mais; peças finas, mínimo de 30 min. Nos códigos de TTAT a regra é a mesma (1 h/25 mm).",[["e","mm","50"]],v=>`t ≈ ${nf(Math.max(0.5,v[0]/25),1)} h`],
+ ["Dureza × resistência à tração","LR ≈ 3,45 × HB   [MPa]","Aproximação da ISO 18265 / ASTM A370 para aço carbono e baixa liga. Boa para estimar se um aço beneficiado atende uma classe de parafuso ou um LR de projeto.",[["HB","","300"]],v=>`LR ≈ ${nf(3.45*v[0],0)} MPa`],
+ ["Difusão (lei de Fick)","x ≈ √(D·t),  D = D₀·e^(−Q/RT)","Explica por que os termoquímicos dependem tanto da temperatura: o C na austenita tem D₀ = 2,3×10⁻⁵ m²/s e Q = 148 kJ/mol; subir de 900 para 950 °C aumenta D em ~60 %.",[["T","°C","925"],["t","h","4"]],v=>{const D=2.3e-5*Math.exp(-148000/(8.314*(v[0]+273.15)));return `√(D·t) ≈ ${nf(Math.sqrt(D*v[1]*3600)*1000,3)} mm`}],
+ ["Temperaturas críticas e Ms (Andrews)","Ms = 539 − 423C − 30,4Mn − 17,7Ni − 12,1Cr − 7,5Mo","Ac1, Ac3 e Ms dependem da liga. Calcule com a composição completa e o carbono equivalente na tela CE e Pré-aquecimento.",[["C","%","0,40"],["Mn","%","0,85"]],v=>`Ms ≈ ${nf(539-423*v[0]-30.4*v[1],0)} °C`]
+];
+$("ttFx").innerHTML=FX.map((f,i)=>`<div class="fx"><h4>${f[0]}</h4><div class="eq">${f[1]}</div><p>${f[2]}</p><div class="mini-in">${f[3].map(([k,u,d],j)=>`<label class="c-f">${k}<div class="c-inp"><input data-f="${i}" data-j="${j}" type="text" inputmode="decimal" value="${d}">${u?`<span>${u}</span>`:""}</div></label>`).join("")}</div><div class="res" id="fxR${i}"></div></div>`).join("");
+function fxCalc(i){const v=[...$("ttFx").querySelectorAll(`input[data-f="${i}"]`)].map(x=>parseNum(x.value));$("fxR"+i).textContent=v.every(x=>Number.isFinite(x)&&x>0)?FX[i][4](v):"–"}
+$("ttFx").querySelectorAll("input").forEach(inp=>inp.addEventListener("input",()=>fxCalc(+inp.dataset.f)));FX.forEach((_,i)=>fxCalc(i));
+function ttat(){ttRender();crystal();hprof()}
+
+/* ======================= TTAT · AÇOS E DUREZA ======================= */
+const dzHB=(()=>{const pts=DZ.map(r=>[dzNum(r[0]),dzNum(r[1])]).filter(p=>Number.isFinite(p[0])&&Number.isFinite(p[1])).sort((a,b)=>a[0]-b[0]);
+  return h=>{if(!Number.isFinite(h))return NaN;if(h<=pts[0][0])return pts[0][1];if(h>=pts[pts.length-1][0])return pts[pts.length-1][1]+(h-pts[pts.length-1][0])*17;
+    for(let i=0;i<pts.length-1;i++)if(h<=pts[i+1][0]){const t=(h-pts[i][0])/(pts[i+1][0]-pts[i][0]);return pts[i][1]+(pts[i+1][1]-pts[i][1])*t}}})();
+const hrbHB=b=>{const p=TT_HRB;if(b<=p[0][0])return p[0][1];for(let i=0;i<p.length-1;i++)if(b<=p[i+1][0]){const t=(b-p[i][0])/(p[i+1][0]-p[i][0]);return p[i][1]+(p[i+1][1]-p[i][1])*t}return p[p.length-1][1]};
+const ttNum=s=>{const m=String(s).replace(/,/g,".").match(/-?\d+(\.\d+)?/);return m?parseFloat(m[0]):NaN};
+const hardHB=v=>{if(typeof v==="number")return dzHB(v);const s=String(v);const m=s.match(/≈\s*(\d+)\s*HRB/);if(m)return hrbHB(+m[1]);const n=ttNum(s);return Number.isFinite(n)&&!/N\/A/.test(s)?dzHB(n):NaN};
+const j1HB=s=>{const t=String(s).split(":").pop().match(/(\d+)\s*[–-]\s*(\d+)/);return t?[dzHB(+t[1]),dzHB(+t[2])]:null};
+const HBMAX=760,hx=v=>Math.max(0,Math.min(100,(v-80)/(HBMAX-80)*100));
+const taOpen=new Set();
+$("taCat").innerHTML=`<option value="">Todas as categorias</option>`+[...new Set(TT_ACOS.map(r=>r[0]))].map(c=>`<option>${c}</option>`).join("");
+$("taAxis").innerHTML=[100,250,400,550,700].map(v=>`<span>${v}</span>`).join("");
+$("taNotes").innerHTML=[["HRC sem TT","Aços de caldeiraria ficam abaixo de 20 HRC, fora da escala C; nesse caso a planilha traz '<20 (≈ xx HRB)'."],["Conversão","HB → HRC/HRB pela ASTM E140 (aço não austenítico), interpolada. Dureza de aceitação deve ser medida na escala pedida."],
+  ["Pós-TT","Em beneficiados vem da faixa HB de material beneficiado do catálogo Gerdau (cai com o diâmetro). Em cementados é a dureza da superfície."],["Faixa J1","Dureza mín–máx na ponta temperada do ensaio Jominy (SAE J1268, aço H)."],
+  ["N/A","Aço que não ganha dureza por TT (estrutural, vaso de pressão, inox austenítico/ferrítico). Nele o TTAT serve para reduzir tensões e a dureza da ZTA."]].map(([a,b])=>`<li><strong>${a}:</strong> ${b}</li>`).join("");
+$("taSrc").innerHTML=[["Catálogo Gerdau 2003","Manual de Aços, tab. 6.1 e 6.2 (durezas laminado, normalizado, recozido, esferoidizado e beneficiado)."],["Normas de produto","ASTM A240, A179/A192 (durezas máximas)."],
+  ["Composição","SAE J403/J404, ASTM A36, A283, A572, A588, A516, A537, A204, A387, A106, A179, A192, A335, A240."],["Valor típico","ASM Handbook, Machinery's Handbook e prática de fabricação."],["Anti-desgaste","Catálogos SSAB (Hardox) e Usiminas (USI AR)."]].map(([a,b])=>`<li><strong>${a}:</strong> ${b}</li>`).join("");
+function ttAcos(){
+  const q=$("taSearch").value.trim().toLowerCase().replace(/[\s.\-]/g,""),c=$("taCat").value,f=$("taTT").value;
+  const hard=r=>!/N\/A/.test(String(r[20]));
+  const rows=TT_ACOS.map((r,i)=>[r,i]).filter(([r])=>(!c||r[0]===c)&&(!f||(f==="s")===hard(r))&&(!q||r.join(" ").toLowerCase().replace(/[\s.\-]/g,"").includes(q)));
+  let last="";
+  $("taBody").innerHTML=rows.map(([r,i])=>{const head=r[0]!==last&&!c?`<tr><td colspan="7" style="background:var(--surface2);font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">${r[0]}</td></tr>`:"";last=r[0];
+    const f0=Number.isFinite(+r[14])&&r[14]!==""?+r[14]:null,f1=+r[15],t0=hardHB(r[20]),t1=hardHB(r[21]),j=j1HB(r[23]),open=taOpen.has(i);
+    const bar=`<div class="hbar" title="Fornecimento ${f0??"≤"}–${f1} HB${Number.isFinite(t0)?` · pós-TT ≈ ${Math.round(t0)}–${Math.round(t1)} HB`:""}">
+      ${Number.isFinite(f1)?`<span class="f" style="left:${hx(f0??f1-50)}%;width:${Math.max(1.2,hx(f1)-hx(f0??f1-50))}%;${f0==null?"opacity:.55":""}"></span>`:""}
+      ${j?`<span class="r" style="left:${hx(j[0])}%;width:${Math.max(1.2,hx(j[1])-hx(j[0]))}%"></span>`:""}
+      ${Number.isFinite(t0)&&Number.isFinite(t1)?`<span class="t" style="left:${hx(Math.min(t0,t1))}%;width:${Math.max(1.2,Math.abs(hx(t1)-hx(t0)))}%"></span>`:""}</div>`;
+    const pos=hard(r)?`${typeof r[20]==="number"?r[20]:String(r[20]).replace(/\s*\(.*/,"")}–${r[21]}`:`<span class="tt-flag2 n">não endurece</span>`;
+    return head+`<tr class="ta-row${open?" open":""}" data-i="${i}" tabindex="0" aria-expanded="${open}"><td style="font-weight:600;color:var(--strong)">${esc(r[1])}</td><td class="mono" style="font-size:12px">${esc(r[2])}</td><td class="n mono" style="font-size:12px">${esc(r[4])}</td>
+      <td style="font-size:12px">${esc(r[13])}<br><small>${f0??"≤"}–${r[15]} HB</small></td><td style="font-size:12px">${esc(r[19])}</td><td>${bar}</td><td class="n mono" style="font-weight:600;color:var(--strong)">${pos}</td></tr>`+
+      (open?`<tr class="ta-det"><td colspan="7"><div class="det-grid">${[["Norma de composição",r[3]],["Mn %",r[5]],["Si %",r[6]],["P / S máx %",`${r[7]} / ${r[8]}`],["Cr %",r[9]],["Ni %",r[10]],["Mo %",r[11]],["Outros",r[12]],
+        ["Dureza fornec. HRC",`${r[16]} a ${r[17]}`],["Recozido / esferoidizado",r[18]],["Pós-TT — detalhe",r[22]],["Faixa J1 (Jominy)",r[23]],["LR (MPa)",r[24]],["LE mín (MPa)",r[25]],["Soldabilidade / pré-aquecimento",r[26]],["Observações",r[27]],["Fonte",r[28]]]
+        .map(([k,v])=>`<div><small>${k}</small><span>${v===""||v==null?'<span class="none">—</span>':esc(v)}</span></div>`).join("")}</div>
+        <button class="btn ghost" style="margin-top:14px" data-ce="${i}">Calcular CE e pré-aquecimento deste aço</button></td></tr>`:"")}).join("");
+  $("taBody").querySelectorAll("tr.ta-row").forEach(tr=>{const tog=()=>{const i=+tr.dataset.i;taOpen.has(i)?taOpen.delete(i):taOpen.add(i);ttAcos()};tr.onclick=tog;tr.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();tog()}}});
+  $("taBody").querySelectorAll("button[data-ce]").forEach(b=>b.onclick=e=>{e.stopPropagation();$("ceAco").value=b.dataset.ce;ceFill();show("ttat-ce")});
+  $("taNone").hidden=rows.length>0;$("taCount").textContent=`${rows.length} de ${TT_ACOS.length} aços · ${rows.filter(([r])=>hard(r)).length} ganham dureza por TT`;
+}
+["taSearch","taCat","taTT"].forEach(id=>$(id).addEventListener("input",ttAcos));
+
+/* ======================= TTAT · CALCULADORA PWHT ======================= */
+// [rótulo, T mín °C, regra: "a" (P1/P3) ou "b" (P4/P5)]
+const PWP=[["P-Nº 1 — aço carbono (A36, A516, A106, A105)",595,"a"],["P-Nº 3 — C-½Mo, Mn-Mo (A204, A302)",595,"a"],["P-Nº 4 — 1¼Cr-½Mo (A387 Gr 11/12, P11)",650,"b"],
+  ["P-Nº 5A — 2¼Cr-1Mo (A387 Gr 22, P22)",675,"b"],["P-Nº 9A/9B — aço ao níquel (A203)",595,"a"],["P-Nº 8 — inox austenítico (304, 316)",0,"x"]];
+$("pwP").innerHTML=PWP.map((p,i)=>`<option value="${i}">${p[0]}</option>`).join("");
+{const s=store.get("gt_pw");if(Array.isArray(s))["pwNorma","pwP","pwE","pwT","pwT0"].forEach((id,i)=>{if(s[i]!=null)$(id).value=s[i]})}
+["pwNorma","pwP","pwE","pwT","pwT0"].forEach(id=>$(id).addEventListener("input",pwht));
+const hfmt=h=>{const m=Math.round(h*60);return m<60?m+" min":Math.floor(m/60)+" h"+(m%60?" "+String(m%60).padStart(2,"0")+" min":"")};
+function pwht(){
+  const nor=$("pwNorma").value,p=PWP[+$("pwP").value],e=parseNum($("pwE").value),T=parseNum($("pwT").value),T0=parseNum($("pwT0").value);
+  store.set("gt_pw",["pwNorma","pwP","pwE","pwT","pwT0"].map(id=>$(id).value));
+  $("pwPw").hidden=nor!=="asme";
+  const rules=[],warn=[];let Tmin,hold,rh,rc,Tctl,Tmax;
+  if(!(e>0)){$("pwMsg").hidden=false;$("pwMsg").textContent="Informe a espessura governante.";return}
+  const n25=e/25;
+  if(nor==="asme"){
+    if(p[2]==="x"){$("pwHold").textContent="—";$("pwTmin").textContent="—";$("pwSub").innerHTML=`<span>ASME VIII</span><em>não exige nem proíbe</em>`;
+      $("pwMsg").hidden=false;$("pwMsg").textContent="Inox austenítico (P-Nº 8): a UCS/UHA não exige TTAT. Evite 500–800 °C (sensitização); se precisar aliviar, use solubilização ou alívio a ~400 °C conforme especificação.";
+      $("pwChart").innerHTML="";$("pwRules").innerHTML="<li>UHA-32: TTAT de P-Nº 8 não é exigido nem proibido.</li>";return}
+    Tmin=p[1];Tctl=425;Tmax=p[2]==="a"?650:760;
+    if(p[2]==="a")hold=e<=50?Math.max(0.25,n25):2+0.25*(e-50)/25;
+    else hold=e<=125?Math.max(0.25,n25):5+0.25*(e-125)/25;
+    rh=Math.max(55,Math.min(222,222/n25));rc=Math.max(55,Math.min(278,278/n25));
+    rules.push(`Temperatura mínima de patamar: ${Tmin} °C.`,p[2]==="a"?"Patamar: até 50 mm, 1 h por 25 mm (mínimo 15 min); acima de 50 mm, 2 h + 15 min por 25 mm adicional.":"Patamar: até 125 mm, 1 h por 25 mm (mínimo 15 min); acima de 125 mm, 5 h + 15 min por 25 mm adicional.",
+      "Carga no forno a no máximo 425 °C.","Acima de 425 °C: aquecer a no máximo 222 °C/h ÷ (espessura/25 mm), limitado a 222 °C/h; não precisa ser menor que 55 °C/h.",
+      "Resfriar acima de 425 °C a no máximo 278 °C/h ÷ (espessura/25 mm), limitado a 278 °C/h e não precisa ser menor que 55 °C/h; abaixo de 425 °C, ao ar calmo.",
+      "Durante aquecimento e patamar, diferença máxima de 139 °C (250 °F) ao longo de 4,6 m; no patamar a diferença entre o ponto mais quente e o mais frio ≤ 83 °C.");
+    if(p[2]==="a"&&T<Tmin){const d=Tmin-T,f=d<=28?2:d<=56?4:d<=83?10:d<=111?20:null;
+      if(f){hold=Math.max(hold,f*n25);warn.push(`Abaixo da mínima em ${Math.round(d)} °C: a Tabela UCS-56.1 permite com patamar de ${f} h por 25 mm${d>56?" (só P-Nº 1 Gr 1 e 2, ver notas)":""}.`)}
+      else warn.push("Mais de 111 °C abaixo da mínima: não permitido.")}
+    else if(T<Tmin)warn.push(`A temperatura informada está abaixo da mínima de ${Tmin} °C para este P-Nº.`);
+  }else{
+    Tmin=595;Tmax=650;Tctl=315;hold=e<=50?Math.max(0.25,n25):2+0.25*(e-50)/25;rh=Math.min(220,220/n25);rc=Math.min(260,260/n25);
+    rules.push("Temperatura de patamar: 595 a 650 °C (aços com LE ≤ 345 MPa; aços Q&T: limite do fabricante).","Patamar: até 50 mm, 1 h por 25 mm (mínimo 15 min); acima de 50 mm, 2 h + 15 min por 25 mm adicional.",
+      "Carga no forno a no máximo 315 °C.","Acima de 315 °C: aquecer a no máximo 220 °C/h ÷ (espessura/25 mm), limitado a 220 °C/h.","Resfriar acima de 315 °C a no máximo 260 °C/h ÷ (espessura/25 mm), limitado a 260 °C/h; abaixo de 315 °C, ao ar calmo.",
+      "A AWS D1.1 também aceita, com aprovação do engenheiro, temperatura menor com tempo maior (tabela da cláusula de alívio de tensões).");
+    if(T<Tmin||T>Tmax)warn.push(`A AWS D1.1 pede patamar entre ${Tmin} e ${Tmax} °C.`);
+  }
+  if(nor==="asme"&&p[2]==="a"&&T>Tmax)warn.push("Acima de ~650 °C em aço carbono há risco de passar da temperatura de revenido/normalização e perder resistência; confira a especificação do material.");
+  if(T0>Tctl)warn.push(`Temperatura de entrada acima do máximo de ${Tctl} °C.`);
+  const Th=Number.isFinite(T)?T:Tmin,Ts=Math.min(Number.isFinite(T0)?T0:Tctl,Tctl),theat=(Th-Tctl)/rh,tcool=(Th-Tctl)/rc,tpre=Math.max(0,(Tctl-Ts)/Math.max(rh,100)),tair=(Tctl-80)/120;
+  $("pwHold").textContent=hfmt(hold);$("pwTmin").textContent=String(Tmin);
+  $("pwSub").innerHTML=[["Faixa de patamar",nor==="asme"?`≥ ${Tmin} °C${p[2]==="a"?" (prática: até 650 °C)":""}`:"595 a 650 °C"],["Taxa máx. de aquecimento",`${nf(rh,0)} °C/h acima de ${Tctl} °C`],["Taxa máx. de resfriamento",`${nf(rc,0)} °C/h até ${Tctl} °C`],
+    ["Aquecimento de "+Tctl+" °C ao patamar",hfmt(theat)],["Resfriamento controlado",hfmt(tcool)],["Ciclo total no forno (estimado)",hfmt(tpre+theat+hold+tcool)]].map(([a,b])=>`<span>${a}</span><em>${b}</em>`).join("");
+  $("pwMsg").hidden=!warn.length;$("pwMsg").textContent=warn.join(" ");
+  $("pwHint").textContent=nor==="asme"?"Espessura governante (UW-40): a da solda que exige o TTAT, normalmente a menor das espessuras unidas por solda de topo ou a garganta do filete.":"Espessura: a da solda ou da peça que vai ser aliviada, conforme o projeto.";
+  $("pwRules").innerHTML=rules.map(r=>`<li>${r}</li>`).join("");
+  // gráfico
+  const pts=[[0,Ts],[tpre,Tctl],[tpre+theat,Th],[tpre+theat+hold,Th],[tpre+theat+hold+tcool,Tctl],[tpre+theat+hold+tcool+tair,80]];
+  const W=900,H=300,L=50,R=20,Tp=20,B=34,tm=pts[pts.length-1][0]*1.04,X=t=>L+(W-L-R)*t/tm,Y=v=>Tp+(H-Tp-B)*(1-v/Math.max(800,Th+80));let g="";
+  for(let v=0;v<=Math.max(800,Th+80);v+=100)g+=`<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--border)"/><text x="${L-6}" y="${Y(v)+4}" text-anchor="end" style="font:500 10px var(--f-mono);fill:var(--muted)">${v}</text>`;
+  const stp=tm>40?10:tm>16?4:tm>8?2:1;for(let t=0;t<=tm;t+=stp)g+=`<text x="${X(t)}" y="${H-B+16}" text-anchor="middle" style="font:500 10px var(--f-mono);fill:var(--muted)">${t} h</text>`;
+  g+=`<line x1="${L}" x2="${W-R}" y1="${Y(Tctl)}" y2="${Y(Tctl)}" stroke="var(--accent2)" stroke-dasharray="6 4"/><text x="${W-R}" y="${Y(Tctl)-6}" text-anchor="end" style="font:600 11px var(--f-mono);fill:var(--accent2)">${Tctl} °C — controle de taxa</text>`;
+  {const top=nor==="asme"?(p[2]==="a"?650:Math.max(Tmin+40,Th)):Tmax;g+=`<rect x="${L}" y="${Y(top)}" width="${W-L-R}" height="${Math.max(0,Y(Tmin)-Y(top))}" fill="rgba(30,138,90,.12)"/><text x="${L+6}" y="${Y(top)+12}" style="font:600 10px var(--f-mono);fill:var(--accent4)">faixa de patamar ${Tmin}–${top} °C</text>`}
+  g+=`<polyline points="${pts.map(p=>X(p[0])+","+Y(p[1])).join(" ")}" fill="none" stroke="var(--accent-hi)" stroke-width="3" stroke-linejoin="round"/>`;
+  const lab=(x,y,t,a="middle")=>`<text x="${x}" y="${y}" text-anchor="${a}" style="font:600 11px var(--f-mono);fill:var(--strong)">${t}</text>`;
+  g+=lab((X(pts[2][0])+X(pts[3][0]))/2,Y(Th)-8,`${Math.round(Th)} °C · ${hfmt(hold)}`)+lab((X(pts[1][0])+X(pts[2][0]))/2-10,(Y(Tctl)+Y(Th))/2,`≤ ${nf(rh,0)} °C/h`,"end")+lab((X(pts[3][0])+X(pts[4][0]))/2+10,(Y(Tctl)+Y(Th))/2,`≤ ${nf(rc,0)} °C/h`,"start")+lab(X(pts[5][0])-4,Y(160),"ar calmo","end");
+  $("pwChart").innerHTML=`<svg viewBox="0 0 ${W} ${H}" style="display:block;width:100%;height:auto" role="img" aria-label="Ciclo de TTAT">${g}</svg>`;
+  hj();
+}
+function hj(){const T1=parseNum($("hjT1").value),t1=parseNum($("hjt1").value),T2=parseNum($("hjT2").value),C=parseNum($("hjC").value);
+  if(!(T1>0&&t1>0&&T2>0&&C>0)){$("hjAns").innerHTML=`<span class="msg">Preencha T1, t1, T2 e a constante (20 para aço carbono e baixa liga).</span>`;return}
+  const P=(T1+273.15)*(C+Math.log10(t1)),t2=10**(P/(T2+273.15)-C);
+  $("hjAns").innerHTML=`<div><small>Parâmetro P</small><b>${nf(P/1000,2)} ×10³</b></div><div><small>Tempo equivalente a ${nf(T2,0)} °C</small><b style="color:var(--accent)">${t2<1000?hfmt(t2):">1000 h"}</b></div>
+    <span class="msg">Mesmo efeito de revenido de ${nf(t1,1)} h a ${nf(T1,0)} °C. Útil para somar ciclos de TTAT (vários TTATs, reparos) e checar se o material ainda atende a resistência mínima: a norma do material ou o código costuma limitar o P total acumulado.</span>`}
+["hjT1","hjt1","hjT2","hjC"].forEach(id=>$(id).addEventListener("input",hj));
+
+/* ======================= TTAT · CE E PRÉ-AQUECIMENTO ======================= */
+const CEK=[["C",0.20],["Mn",1.00],["Si",0.25],["Cr",0],["Ni",0],["Mo",0],["V",0],["Cu",0],["B",0]];
+$("ceFields").innerHTML=CEK.map(([k,v])=>`<label class="c-f">${k}<div class="c-inp"><input id="ce_${k}" type="text" inputmode="decimal" value="${dec(String(v))}"><span>%</span></div></label>`).join("");
+const ceMid=s=>{const str=String(s).replace(/,/g,".");if(!str||/—|^-$/.test(str))return 0;const m=str.match(/(\d*\.?\d+)\s*[–-]\s*(\d*\.?\d+)/);if(m)return(+m[1]+ +m[2])/2;const n=str.match(/\d*\.?\d+/);if(!n)return 0;const v=+n[0];return /≤|máx/.test(str)?v*0.85:v};
+$("ceAco").innerHTML=`<option value="">Personalizado</option>`+TT_ACOS.map((r,i)=>`<option value="${i}">${esc(r[1])}${r[2]&&r[2]!=="—"?" · "+esc(r[2]):""}</option>`).join("");
+function ceFill(){const i=$("ceAco").value;if(i==="")return;const r=TT_ACOS[+i];
+  const v={C:ceMid(r[4]),Mn:ceMid(r[5]),Si:ceMid(r[6]),Cr:ceMid(r[9]),Ni:ceMid(r[10]),Mo:ceMid(r[11]),V:/V\s/.test(r[12])?0.05:0,Cu:/Cu/.test(r[12])?0.25:0,B:0};
+  CEK.forEach(([k])=>$("ce_"+k).value=dec(String(Math.round(v[k]*1000)/1000)));store.set("gt_ceaco",i);ce()}
+$("ceAco").addEventListener("change",ceFill);
+CEK.forEach(([k])=>$("ce_"+k).addEventListener("input",()=>{$("ceAco").value="";ce()}));["ceD","ceHD","ceK","ceU","ceI","ceV"].forEach(id=>$(id).addEventListener("input",ce));
+{const s=store.get("gt_ceaco");if(s!=null&&s!==""&&TT_ACOS[+s]){$("ceAco").value=s}else $("ceAco").value=String(TT_ACOS.findIndex(r=>/A572 Gr 50/.test(r[1])))}
+function ce(){
+  const v={};CEK.forEach(([k])=>{const x=parseNum($("ce_"+k).value);v[k]=Number.isFinite(x)?x:0});
+  const d=parseNum($("ceD").value),HD=parseNum($("ceHD").value),k=+$("ceK").value,U=parseNum($("ceU").value),I=parseNum($("ceI").value),vs=parseNum($("ceV").value);
+  const CE=v.C+v.Mn/6+(v.Cr+v.Mo+v.V)/5+(v.Ni+v.Cu)/15,Pcm=v.C+v.Si/30+(v.Mn+v.Cu+v.Cr)/20+v.Ni/60+v.Mo/15+v.V/10+5*v.B,CET=v.C+(v.Mn+v.Mo)/10+(v.Cr+v.Cu)/20+v.Ni/40;
+  const Q=U>0&&I>0&&vs>0?k*U*I*60/(1000*vs):NaN;
+  let Tp=NaN;const warn=[];
+  if(d>0&&HD>0&&Q>0){Tp=697*CET+160*Math.tanh(d/35)+62*HD**0.35+(53*CET-32)*Q-328;
+    if(CET<0.2||CET>0.5)warn.push("CET fora de 0,20–0,50: o método B da EN 1011-2 não vale.");if(d<10||d>90)warn.push("Espessura fora de 10–90 mm.");if(HD<1||HD>20)warn.push("HD fora de 1–20 ml/100g.");if(Q<0.5||Q>4)warn.push("Aporte fora de 0,5–4 kJ/mm.")}
+  $("ceIIW").textContent=nf(CE,3);$("cePre").textContent=Number.isFinite(Tp)?(Tp<=20?"ambiente":String(Math.ceil(Tp/5)*5)):"–";
+  const rule=CE<0.40?"normalmente sem pré-aquecimento (até ~25 mm)":CE<0.45?"pré-aquecimento leve em chapa grossa (50–100 °C)":CE<0.60?"pré-aquecimento 100–200 °C":"pré 200–350 °C + pós-aquecimento; avaliar TTAT";
+  $("ceSub").innerHTML=[["Pcm (Ito-Bessyo)",nf(Pcm,3)],["CET (EN 1011-2)",nf(CET,3)],["Aporte térmico Q",Number.isFinite(Q)?nf(Q,2)+" kJ/mm":"–"],["Regra prática pelo CE IIW",rule],
+    ["Pré-aquecimento EN 1011-2 (B)",Number.isFinite(Tp)?(Tp<=20?"não exigido":`≈ ${Math.ceil(Tp/5)*5} °C`):"–"]].map(([a,b])=>`<span>${a}</span><em>${b}</em>`).join("");
+  $("ceMsg").hidden=!warn.length;$("ceMsg").textContent=warn.join(" ");
+  // críticas
+  const Ac1=723-10.7*v.Mn-16.9*v.Ni+29.1*v.Si+16.9*v.Cr,Ac3=910-203*Math.sqrt(Math.max(0,v.C))-15.2*v.Ni+44.7*v.Si+104*v.V+31.5*v.Mo,Ms=539-423*v.C-30.4*v.Mn-17.7*v.Ni-12.1*v.Cr-7.5*v.Mo;
+  const Hm=Math.min(66,20+60*Math.sqrt(Math.min(v.C,0.8)));
+  const fMn=v.Mn<=1.2?1+3.3333*v.Mn:5.1*v.Mn-1.12,DI=0.35*Math.sqrt(Math.max(0.05,v.C))*fMn*(1+0.7*v.Si)*(1+0.363*v.Ni)*(1+2.16*v.Cr)*(1+3*v.Mo)*(1+1.73*v.V)*(1+0.365*v.Cu)*(v.B>0.0005?1.5:1);
+  const DImm=DI*25.4,dw=DImm*Math.min(0.85,0.65+0.03*DI),dol=DImm*Math.min(0.65,0.38+0.04*DI);
+  const card=(t,big,u,list,p)=>`<div class="tol-card"><h4>${t}</h4><div class="big">${big}<i>${u}</i></div><ul>${list.map(([a,b])=>`<li><span>${a}</span><b>${b}</b></li>`).join("")}</ul>${p?`<p>${p}</p>`:""}</div>`;
+  $("ceCrit").innerHTML=card("Temperaturas críticas (Andrews)",Math.round(Ac3),"°C Ac3",[["Ac1",Math.round(Ac1)+" °C"],["Ac3",Math.round(Ac3)+" °C"],["Austenitizar (têmpera)",`${Math.round((v.C<0.77?Ac3:Ac1)+30)}–${Math.round((v.C<0.77?Ac3:Ac1)+50)} °C`],["Normalizar",`${Math.round(Ac3+50)}–${Math.round(Ac3+80)} °C`],["TTAT abaixo de Ac1",`≤ ${Math.round(Ac1-30)} °C`]],"Fórmulas válidas para aço baixa liga com C < 0,6 %.")+
+    card("Martensita",Math.round(Ms),"°C Ms",[["Ms (início)",Math.round(Ms)+" °C"],["Mf (fim, aprox.)",Math.round(Ms-215)+" °C"],["Dureza máx. (Just)",nf(Hm,0)+" HRC"],["Banho de martêmpera",`${Math.round(Ms+10)}–${Math.round(Ms+40)} °C`]],Ms<150?"Ms baixo: muita austenita retida; considerar sub-zero.":"Ms alto em aço baixo C: a martensita se auto-revene na têmpera.")+
+    card("Temperabilidade (Grossmann)",nf(DImm,0),"mm DI",[["Diâmetro crítico ideal DI",`${nf(DI,2)} pol · ${nf(DImm,0)} mm`],["Tempera até o núcleo em água (≈)",`Ø ${nf(dw,0)} mm`],["Tempera até o núcleo em óleo (≈)",`Ø ${nf(dol,0)} mm`]],"DI = diâmetro que fica com 50 % de martensita no centro num meio ideal. Estimativa por fatores (ASTM A255, grão 7); use só para comparar aços.")+
+    card("Leitura rápida",nf(CE,2),"CE",[["Soldabilidade",CE<0.4?"boa":CE<0.5?"cuidado":CE<0.6?"difícil":"muito difícil"],["Risco de trinca a frio",Pcm<0.2?"baixo":Pcm<0.25?"moderado":"alto"],["Endurece na têmpera?",v.C>=0.25?"sim":"pouco (precisa cementar)"]],"Combine com o hidrogênio do consumível (H4, H8, H16) e a restrição da junta.");
+}
+$("ceFx").innerHTML=[["Carbono equivalente IIW","CE = C + Mn/6 + (Cr+Mo+V)/5 + (Ni+Cu)/15","O mais usado (AWS D1.1, ISO 15608). Até 0,40 a soldagem costuma dispensar pré-aquecimento em espessuras comuns."],
+  ["Pcm (Ito-Bessyo)","Pcm = C + Si/30 + (Mn+Cu+Cr)/20 + Ni/60 + Mo/15 + V/10 + 5B","Mais preciso para aços de baixo carbono (C ≤ 0,11 %) e microligados. Usado no método de controle de hidrogênio da AWS D1.1 Anexo H."],
+  ["CET (EN 1011-2)","CET = C + (Mn+Mo)/10 + (Cr+Cu)/20 + Ni/40","Base do método B da EN 1011-2 para o pré-aquecimento."],
+  ["Pré-aquecimento EN 1011-2 método B","Tp = 697·CET + 160·tanh(d/35) + 62·HD^0,35 + (53·CET − 32)·Q − 328","d = espessura combinada (mm), HD = hidrogênio difusível (ml/100 g), Q = aporte (kJ/mm)."],
+  ["Aporte térmico","Q = k · U · I · 60 / (1000 · v)","U em V, I em A, v em mm/min, Q em kJ/mm. k = eficiência térmica: SAW 1,0 · SMAW/GMAW/FCAW 0,8 · GTAW 0,6 (ISO/TR 17671)."],
+  ["Andrews (1965)","Ac1 = 723 − 10,7Mn − 16,9Ni + 29,1Si + 16,9Cr\nAc3 = 910 − 203√C − 15,2Ni + 44,7Si + 104V + 31,5Mo\nMs = 539 − 423C − 30,4Mn − 17,7Ni − 12,1Cr − 7,5Mo","Temperaturas em °C, teores em %. Para aço baixa liga."]]
+  .map(([a,b,c])=>`<div class="fx"><h4>${a}</h4><div class="eq" style="white-space:pre">${b}</div><p>${c}</p></div>`).join("");
+
+if($("ceAco").value!=="")ceFill();else ce();
+pwht();
 /* ======================= INÍCIO ======================= */
 setTb(tbCur);
 renderEPS();
