@@ -411,6 +411,18 @@ header.page p{max-width:960px}
   .section-title{margin-bottom:12px}
 }
 @media (max-width:380px){.c-big{grid-template-columns:1fr}.c-fields{grid-template-columns:1fr 1fr}}
+
+/* ===== SIDEBAR AJUSTÁVEL ===== */
+.sidebar{position:sticky}
+.sb-resize{position:absolute;top:0;right:0;width:7px;height:100%;cursor:col-resize;z-index:40;touch-action:none}
+.sb-resize::after{content:'';position:absolute;top:0;bottom:0;right:0;width:2px;background:transparent;transition:background .15s}
+.sb-resize:hover::after,.sb-resize:focus-visible::after,.app.sb-dragging .sb-resize::after{background:var(--accent-hi)}
+.sb-resize:focus-visible{outline:none}
+.app.sb-dragging,.app.sb-dragging *{cursor:col-resize!important;user-select:none!important}
+.app.sb-dragging .sidebar{transition:none!important}
+.app.collapsed .sb-resize{display:block}
+@media (max-width:860px){.sb-resize{display:none!important}}
+.pick td:first-child,.scroll-table td:first-child{white-space:nowrap}
 </style>
 </head>
 <body>
@@ -426,6 +438,7 @@ header.page p{max-width:960px}
     </div>
     <nav class="sb-nav" id="nav"></nav>
     <div class="sb-foot">v4 · <span>cotas em mm · peso em kg</span><br>por Guilherme S. Braz · <a href="https://www.linkedin.com/in/guilherme-santos-66b8162a0" target="_blank" rel="noopener">LinkedIn</a></div>
+    <div class="sb-resize" id="sbResize" role="separator" aria-orientation="vertical" aria-label="Ajustar largura do menu" tabindex="0" title="Arraste para ajustar a largura · duplo clique volta ao padrão"></div>
   </aside>
   <div class="scrim" id="scrim"></div>
 
@@ -1287,6 +1300,24 @@ $("sbToggle").onclick=()=>{
 $("menuBtn").onclick=()=>app.classList.add("drawer-open");
 $("scrim").onclick=closeDrawer;
 function closeDrawer(){app.classList.remove("drawer-open")}
+/* largura ajustável da sidebar (arrastar a borda) */
+{const MIN=200,MAX=440,DEF=252,SNAP=150,root=document.documentElement,h=$("sbResize");
+ const setW=w=>{w=Math.round(Math.min(MAX,Math.max(MIN,w)));root.style.setProperty("--sb-w",w+"px");return w};
+ const saved=store.get("gt_sbw");if(saved)setW(saved);
+ const collapse=on=>{app.classList.toggle("collapsed",on);store.set("gt_collapsed",on);$("sbToggle").setAttribute("aria-label",on?"Expandir menu":"Recolher menu")};
+ h.addEventListener("pointerdown",e=>{if(mq.matches)return;e.preventDefault();h.setPointerCapture(e.pointerId);app.classList.add("sb-dragging");
+   const left=$("sidebar").getBoundingClientRect().left;
+   const move=ev=>{const x=ev.clientX-left;
+     if(x<SNAP){if(!app.classList.contains("collapsed"))collapse(true)}
+     else{if(app.classList.contains("collapsed"))collapse(false);store.set("gt_sbw",setW(x))}};
+   const up=()=>{app.classList.remove("sb-dragging");h.removeEventListener("pointermove",move);h.removeEventListener("pointerup",up);h.removeEventListener("pointercancel",up)};
+   h.addEventListener("pointermove",move);h.addEventListener("pointerup",up);h.addEventListener("pointercancel",up)});
+ h.addEventListener("dblclick",()=>{collapse(false);store.set("gt_sbw",setW(DEF))});
+ h.addEventListener("keydown",e=>{if(e.key!=="ArrowLeft"&&e.key!=="ArrowRight")return;e.preventDefault();
+   if(app.classList.contains("collapsed")){if(e.key==="ArrowRight")collapse(false);return}
+   const cur=parseInt(getComputedStyle(root).getPropertyValue("--sb-w"))||DEF,n=cur+(e.key==="ArrowRight"?16:-16);
+   if(n<MIN){collapse(true);return}store.set("gt_sbw",setW(n))});
+}
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer();if(e.key==="["&&!/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)&&!mq.matches)$("sbToggle").click()});
 
 /* ======================= TABELA EPS ======================= */
