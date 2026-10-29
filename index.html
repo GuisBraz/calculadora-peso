@@ -1642,7 +1642,23 @@ PF.L={t:"Cantoneira L (abas iguais)",data:PERF_L,src:"Cantoneiras de abas iguais
   row:r=>`<td>${r[0]}</td><td class="n" style="color:var(--strong);font-weight:600">${nf(r[1],2)}</td><td class="n">${nf(r[2],1)}</td><td class="n">${nf(r[3],2)}</td><td class="n bl">${nf(r[4],2)}</td><td class="n">${nf(r[5],2)}</td><td class="n">${nf(r[6],2)}</td><td class="n">${nf(r[7],2)}</td><td class="n">${nf(r[8],2)}</td><td class="n">${nf(r[9],2)}</td>`,
   paint:r=>(4*r[2])/1000,dims:r=>`b ${nf(r[2],1)} · t ${nf(r[3],2)} mm`,
   series:[["","Todas as abas"],...L_SIZES.map(([b])=>[b,b+'"'])],filt:(r,se)=>r[0].startsWith(`L ${se}" ×`)};
-const PF_ORDER=["W","I","U","UD","L"];
+// U enrijecido (Ue) dobrado a frio, NBR 6355: h × b × d (enrijecedor) × t, raio interno = t
+function ueProps(h,b,d,t){const ri=t,Lc=(h-2*(ri+t))+2*(b-2*(ri+t))+2*(d-(ri+t))+4*Math.PI/2*(ri+t/2),A=Lc*t;
+  const hc=h-t,bc=b-t,dc=d-t/2,Ac=t*(hc+2*bc+2*dc);
+  const Ix=t*hc**3/12+2*bc*t*(hc/2)**2+2*(t*dc**3/12+t*dc*(hc/2-dc/2)**2);
+  const xg=(2*bc*t*bc/2+2*dc*t*bc)/Ac,Iy=t*hc*xg**2+2*(t*bc**3/12+t*bc*(bc/2-xg)**2)+2*t*dc*(bc-xg)**2;
+  return{A,kg:A*7.85e-3,Ix,W:Ix/(h/2),Iy,Wy:Iy/(bc-xg+t/2),x:xg+t/2,rx:Math.sqrt(Ix/Ac),ry:Math.sqrt(Iy/Ac)}}
+const UE_SIZES=[[50,25,10],[75,40,15],[100,40,17],[100,50,17],[125,50,17],[127,50,17],[150,50,17],[150,60,20],[200,75,20],[200,75,25],[250,85,25],[300,85,25]];
+const UE_T=[1.50,2.00,2.25,2.65,3.00,3.35,3.75,4.25,4.75];
+const PERF_UE=[];UE_SIZES.forEach(([h,b,d])=>UE_T.forEach(t=>{if(t>d/4||t<h/200)return;const p=ueProps(h,b,d,t);
+  PERF_UE.push([`Ue ${h} × ${b} × ${d} × ${nf(t,2)}`,p.kg,h,b,d,t,p.A/100,p.Ix/1e4,p.W/1e3,p.Iy/1e4,p.Wy/1e3,p.x/10])}));
+PF.UE={t:"Perfil U enrijecido (Ue)",data:PERF_UE,src:"Perfil U enrijecido dobrado a frio (NBR 6355), cotas externas h × b × d × t, raio interno de dobra = t. Peso e área pela linha média com os raios (mesmo método dos catálogos e da tabela SINAPI). Ix, Iy, Wx e Wy pela linha média com cantos vivos; x = distância do centroide à face externa da alma. Bitolas usuais; confirme a disponibilidade com o fornecedor.",
+  head:`<tr><th>Perfil h × b × d × t</th><th class="n">kg/m</th><th class="n">h</th><th class="n">b</th><th class="n">d</th><th class="n">t</th><th class="n bl">A cm²</th><th class="n">Ix cm⁴</th><th class="n">Wx cm³</th><th class="n bl">Iy cm⁴</th><th class="n">Wy cm³</th><th class="n">x cm</th></tr>`,
+  row:r=>`<td>${r[0]}</td><td class="n" style="color:var(--strong);font-weight:600">${nf(r[1],2)}</td><td class="n">${r[2]}</td><td class="n">${r[3]}</td><td class="n">${r[4]}</td><td class="n">${nf(r[5],2)}</td>
+    <td class="n bl">${nf(r[6],2)}</td><td class="n">${nf(r[7],1)}</td><td class="n">${nf(r[8],2)}</td><td class="n bl">${nf(r[9],2)}</td><td class="n">${nf(r[10],2)}</td><td class="n">${nf(r[11],2)}</td>`,
+  paint:r=>(2*r[2]+4*r[3]+4*r[4]-4*r[5])/1000,dims:r=>`h ${r[2]} · b ${r[3]} · d ${r[4]} · t ${nf(r[5],2)} mm · ri = t`,
+  series:[["","Todas as espessuras"],...UE_T.map(t=>[String(t),nf(t,2)+" mm"])],filt:(r,se)=>Math.abs(r[5]-+se)<1e-9};
+const PF_ORDER=["W","I","U","UD","UE","L"];
 let pfTipo=store.get("gt_pf")||"W",pfSel=null;if(!PF[pfTipo])pfTipo="W";
 $("pfTabs").innerHTML=PF_ORDER.map(k=>[k,PF[k]]).map(([k,p])=>`<button class="c-shape" data-k="${k}">${p.t}</button>`).join("");
 $("pfTabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{pfTipo=b.dataset.k;pfSel=null;store.set("gt_pf",pfTipo);perfis()});
