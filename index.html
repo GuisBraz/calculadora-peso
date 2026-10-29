@@ -367,6 +367,50 @@ td.bl,th.bl{border-left:1px solid var(--border)}
 .credits a{color:var(--accent);font-weight:500}
 @media (max-width:700px){.credits{padding:16px 16px 24px}}
 .callout{font-family:var(--f-mono);font-size:13px;color:var(--strong);background:var(--surface);border:1px dashed var(--line2);padding:10px 14px;display:inline-block;margin:4px 0 0}
+
+/* ===== RESPONSIVO / APROVEITAMENTO DE TELA ===== */
+.sb-nav{overflow-x:hidden}
+.nav-item{min-width:0}
+.nav-label{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.content{max-width:none;padding:clamp(20px,2.2vw,40px) clamp(16px,2.6vw,48px) 56px}
+.credits{max-width:none;padding-left:clamp(16px,2.6vw,48px);padding-right:clamp(16px,2.6vw,48px)}
+header.page{padding:clamp(22px,2.4vw,36px) clamp(16px,2.6vw,48px) clamp(18px,1.8vw,26px)}
+header.page p{max-width:960px}
+.info-box p,.info-box li,.note,.src{max-width:150ch}
+.scroll-table{max-height:clamp(360px,calc(100vh - 200px),1000px)}
+.tol-res{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.cards{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+@media (min-width:1700px){
+  .c-bench{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+  .tol-in{max-width:1100px}
+}
+@media (max-width:1000px){.c-panel{padding:16px}}
+@media (max-width:860px){
+  .c-inp input,.c-sel,.search-bar input,.search-bar select,.c-add input,.tn-in{font-size:16px}
+  .sb-group{padding-top:12px}
+}
+@media (max-width:700px){
+  header.page h1{font-size:24px}
+  header.page p{font-size:14px}
+  .header-label{font-size:11px}
+  .header-meta{gap:6px 8px;margin-top:12px}
+  .badge{padding:3px 8px;font-size:10px}
+  .sub-tabs,#cShapes,#cvCats,#tbTabs,#smNorma,#plTabs,#rlTabs,#tuTabs,#pfTabs,#fgTabs,#fxTabs,#isQuick{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:6px;margin-right:-16px;padding-right:16px}
+  .sub-tabs>*,#cShapes>*,#cvCats>*,#smNorma>*,#plTabs>*,#rlTabs>*,#tuTabs>*,#pfTabs>*,#fgTabs>*,#fxTabs>*,#isQuick>*{flex:none}
+  th,td{padding:8px 10px}
+  table{font-size:12.5px}
+  .tol-t td,.tol-t th{padding:7px 8px}
+  .answer{padding:12px 14px;gap:8px 18px}
+  .answer div b{font-size:17px}
+  .c-big b{font-size:20px}
+  .tol-card .big{font-size:22px}
+  .lookup .c-f{max-width:none}
+  .mini-in .c-f{max-width:none;flex:1 1 140px}
+  .cards{grid-template-columns:1fr}
+  .tol-res{grid-template-columns:1fr}
+  .section-title{margin-bottom:12px}
+}
+@media (max-width:380px){.c-big{grid-template-columns:1fr}.c-fields{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -1234,7 +1278,7 @@ function show(id){
 /* sidebar retrátil */
 const app=$("app");
 const mq=window.matchMedia("(max-width:860px)");
-if(store.get("gt_collapsed"))app.classList.add("collapsed");
+{const c=store.get("gt_collapsed");if(c||(c==null&&innerWidth>860&&innerWidth<1180))app.classList.add("collapsed")}
 $("sbToggle").onclick=()=>{
   if(mq.matches){closeDrawer();return}
   app.classList.toggle("collapsed");store.set("gt_collapsed",app.classList.contains("collapsed"));
